@@ -1,5 +1,5 @@
 CREATE TABLE users (
-    id INTEGER AUTOINCREMENT PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL,
     email TEXT NOT NULL,
     hash TEXT NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE books (
-    id INTEGER AUTOINCREMENT PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     book_name TEXT NOT NULL,
     author TEXT NOT NULL,
     cover_color TEXT NOT NULL,
@@ -21,18 +21,18 @@ CREATE TABLE books (
 );
 
 CREATE TABLE bookshelf (
-    id INTEGER AUTOINCREMENT PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     number INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
 CREATE TABLE books_shelf (
-    id INTEGER AUTOINCREMENT PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     bookshelf_id INTEGER NOT NULL,
     books_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
-    FOREIGN KEY (shelf_id) REFERENCES shelf (id),
-    FOREIGN KEY (book_id) REFERENCES book (id),
+    FOREIGN KEY (bookshelf_id) REFERENCES bookshelf (id),
+    FOREIGN KEY (books_id) REFERENCES books (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
