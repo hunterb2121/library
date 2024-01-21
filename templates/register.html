@@ -1,0 +1,25 @@
+{% extends "layouts.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block header %}
+    <h1>Register</h1>
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <label for="username">Username</label>
+        <input autofill="off" autofocus name="username" placeholder="Username" type="text" required>
+        <label for="email">Email</label>
+        <input autofill="off" name="email" placeholder="Email" type="email" required>
+        <label for="password">Password</label>
+        <input autofill="off" name="password" placeholder="Password" type="password" required>
+        <label for="verify">Verify Password</label>
+        <input autofill="off" name="verify" placeholder="Verify Password" type="password" required>
+        <button type="submit">Register</button>
+    </form>
+
+    <p><a href="/login">Login</a></p>
+{% endblock %}
