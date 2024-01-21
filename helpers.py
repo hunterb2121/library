@@ -20,7 +20,7 @@ def error(message, code=400):
 
 # Function to connect to the database and get the connection and cursor
 def get_db_connection():
-    db_con = sqlite3.connect("users.db")
+    db_con = sqlite3.connect("library.db")
     db_cur = db_con.cursor()
     return db_con, db_cur
 
