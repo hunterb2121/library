@@ -1,0 +1,29 @@
+{% extends "layouts.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block header %}
+    BookShelf
+{% endblock %}
+
+{% block main %}
+    {% for id, books in library.items() %}
+        <div class="shelf">
+            <h2>{{ id }}</h2>
+            {% for book in books %}
+                <div class="book">
+                    <p>{{ book.title }}</p>
+                    <p>{{ book.author }}</p>
+                    <p>{{ book.color }}</p>
+                    <p>{{ book.publisher }}</p>
+                    <p>{{ book.fiction_nonfiction }}</p>
+                    <p>{{ book.genre }}</p>
+                    <p>READ: {{ book.read }}</p>
+                    <p>{{ book.isbn }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}
