@@ -8,27 +8,26 @@
     padding: .5rem;
     background-color: brown;
     display: grid;
-    grid-template-columns: 1fr 1fr 6fr 1fr 1fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-                    "number edit_shelf . delete_shelf add_book"
+                    "number edit_shelf delete_shelf add_book"
                     "book_area book_area book_area book_area";
 }
 
-.books_shelf {
-    grid-area: book_area;
-}
-
-.add_book_container {
-    grid-area: add_book;
+.edit_shelf_container {
+    grid-area: edit_shelf;
 }
 
 .remove_shelf {
     grid-area: delete_shelf;
 }
 
-.edit_shelf_container {
-    grid-area: edit_shelf;
+.add_book_container {
+    grid-area: add_book;
+}
+
+.books_shelf {
+    grid-area: book_area;
 }
 
 .book {
