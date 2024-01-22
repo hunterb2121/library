@@ -57,90 +57,175 @@ def index():
 
     db_cur.close()
 
-    session["edit_book_num"] = request.args.get("edit_book")
-    session["remove_book_num"] = request.args.get("remove_book")
-    session["edit_shelf_num"] = request.args.get("edit_shelf")
-    session["remove_shelf_num"] = request.args.get("remove_shelf")
-
     return render_template("index.html", library=library)
 
 
-@app.route("/add_book", methods=["GET", "POST"])
+@app.route("/add_book", methods=["POST"])
 @login_required
 def add_book():
-    if request.method == "POST":
-        ...
+    if not request.form.get("book_title"):
+        return error("Need to enter book title")
+    if not request.form.get("book_author"):
+        return error("Need to enter author")
+    if not request.form.get("color"):
+        return error("Need to enter book color")
+    if not request.form.get("publisher"):
+        return error("Need to enter publishing house")
+    if not request.form.get("fiction_nonfiction"):
+        return error("Need to enter whether book is fiction or non-fiction")
+    if not request.form.get("genre"):
+        return error("Need to enter book genre")
+    if not request.form.get("read_not_read"):
+        return error("Need to enter if book has been read or not")
+    if not request.form.get("isbn"):
+        return error("Need to enter ISBN")
+    
+    fiction_nonfiction = request.form.get("fiction_nonfiction")
+    if fiction_nonfiction == "fiction":
+        fiction_nonfiction = 1
+    elif fiction_nonfiction == "nonfiction":
+        fiction_nonfiction = 0
 
-    else:
-        return render_template("add_book.html")
+    been_read = request.form.get("read_not_read")
+    if been_read == "read":
+        been_read = 1
+    elif been_read == "not_read":
+        been_read = 0
+    
+    try:
+        db_con, db_cur = get_db_connection()
+    except sqlite3.OperationalError:
+        return error("Error connecting to database. Try again later.")
+
+    db_cur.execute("INSERT INTO books (book_name, author, cover_color, publishing_house, fiction_nonfiction, genre, been_read, ISBN, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (request.form.get("book_title"), request.form.get("book_author"), request.form.get("color"), request.form.get("publisher"), fiction_nonfiction, request.form.get("genre"), been_read, request.form.get("isbn"), session["user_id"],))
+    db_con.commit()
+    db_cur.close()
+
+    return redirect("/")
 
 
-@app.route("/remove_book", methods=["GET", "POST"])
+@app.route("/remove_book", methods=["POST"])
 @login_required
 def remove_book():
-    ...
+    try:
+        db_con, db_cur = get_db_connection()
+    except sqlite3.OperationalError:
+        return error("Error connecting to database. Try again later.")
+    
+    db_cur.execute("DELETE FROM books WHERE id = ? AND user_id = ?", (request.form.get("remove_book"), session["user_id"],))
+    db_con.commit()
+    db_cur.close()
+
+    return redirect("/")
 
 
-@app.route("/edit_book", methods=["GET", "POST"])
+@app.route("/edit_book", methods=["POST"])
 @login_required
 def edit_book():
-    if request.method == "POST":
-        ...
+    try:
+        db_con, db_cur = get_db_connection()
+    except sqlite3.OperationalError:
+        return error("Error connecting to database. Try again later.")
+    
+    if request.form.get("book_title"):
+        db_cur.execute("UPDATE books SET book_name = ? WHERE id = ? AND user_id = ?", (request.form.get("book_title"), request.form.get("book_id"), session["user_id"],))
+        db_con.commit()
+    if request.form.get("book_author"):
+        db_cur.execute("UPDATE books SET author = ? WHERE id = ? AND user_id = ?", (request.form.get("book_author"), request.form.get("book_id"), session["user_id"],))
+        db_con.commit()
+    if request.form.get("color"):
+        db_cur.execute("UPDATE books SET cover_color = ? WHERE id = ? AND user_id = ?", (request.form.get("color"), request.form.get("book_id"), session["user_id"],))
+        db_con.commit()
+    if request.form.get("publisher"):
+        db_cur.execute("UPDATE books SET publishing_house = ? WHERE id = ? AND user_id = ?", (request.form.get("publisher"), request.form.get("book_id"), session["user_id"],))
+        db_con.commit()
+    if request.form.get("fiction_nonfiction"):
+        if request.form.get("fiction_nonfiction") == "fiction":
+            fiction_nonfiction = 1
+        elif request.form.get("fiction_nonfiction") == "nonfiction":
+            fiction_nonfiction = 0
+        db_cur.execute("UPDATE books SET fiction_nonfiction = ? WHERE id = ? AND user_id = ?", (fiction_nonfiction, request.form.get("book_id"), session["user_id"],))
+        db_con.commit()
+    if request.form.get("genre"):
+        db_cur.execute("UPDATE books SET genre = ? WHERE id = ? AND user_id = ?", (request.form.get("genre"), request.form.get("book_id"), session["user_id"],))
+        db_con.commit()
+    if request.form.get("read_not_read"):
+        if request.form.get("read_not_read") == "read":
+            read_not_read = 1
+        elif request.form.get("read_not_read") == "not_read":
+            read_not_read = 0
+        db_cur.execute("UPDATE books SET been_read = ? WHERE id = ? AND user_id = ?", (read_not_read, request.form.get("book_id"), session["user_id"],))
+        db_con.commit()
+    if request.form.get("book_isbn"):
+        db_cur.execute("UPDATE books SET ISBN = ? WHERE id = ? AND user_id = ?", (request.form.get("isbn"), request.form.get("book_id"), session["user_id"],))
+        db_con.commit()
 
-    else:
-        return render_template("edit_book.html")
+    db_cur.close()
+
+    return redirect("/")
 
 
-@app.route("/add_shelf", methods=["GET", "POST"])
+@app.route("/add_shelf", methods=["POST"])
 @login_required
 def add_shelf():
-    if request.method == "POST":
-        try:
-            db_con, db_cur = get_db_connection()
-        except sqlite3.OperationalError:
-            return error("Error connecting to database. Try again later.")
-        
-        if not request.form.get("shelf_number"):
-            db_cur.close()
-            return error("Must choose a shelf number")
-        
-        db_cur.execute("INSERT INTO bookshelf (number, user_id) VALUES (?, ?)", (request.form.get("shelf_number"), session["user_id"],))
-        db_con.commit()
-        db_cur.close()
-
-        return redirect("/")
+    if not request.form.get("shelf_number"):
+        return error("Need to enter new shelf number")
     
-    else:
-        return render_template("add_shelf.html")
+    try:
+        db_con, db_cur = get_db_connection()
+    except sqlite3.OperationalError:
+        return error("Error connecting to database. Try again later.")
+    
+    db_cur.execute("INSERT INTO bookshelf (number, user_id) VALUES (?, ?)", (request.form.get("shelf_number"), session["user_id"],))
+    db_con.commit()
+    db_cur.close()
+
+    return redirect("/")
 
 
-@app.route("/remove_shelf", methods=["GET", "POST"])
+@app.route("/remove_shelf", methods=["POST"])
 @login_required
 def remove_shelf():
-    ...
+    try:
+        db_con, db_cur = get_db_connection()
+    except sqlite3.OperationalError:
+        return error("Error connecting to database. Try again later.")
+    
+    db_cur.execute("DELETE FROM bookshelf WHERE number = ? AND user_id = ?", (request.form.get("remove_shelf_id"), session["user_id"],))
+    db_con.commit()
+    db_cur.close()
+
+    return redirect("/")
 
 
-@app.route("/edit_shelf", methods=["GET", "POST"])
+@app.route("/edit_shelf", methods=["POST"])
 @login_required
 def edit_shelf():
-    if request.method == "POST":
-        try:
-            db_con, db_cur = get_db_connection()
-        except sqlite3.OperationalError:
-            return error("Error connecting to database. Try again later.")
-        
-        if not request.form.get("shelf_number"):
-            db_cur.close()
-            return error("Must choose a new shelf number")
-        
-        db_cur.execute("UPDATE bookshelf SET number = ? WHERE id = ? AND user_id = ?", (request.form.get("shelf_number"), session["current_shelf_num"], session["user_id"],))
-        db_con.commit()
+    try:
+        db_con, db_cur = get_db_connection()
+    except sqlite3.OperationalError:
+        return error("Error connecting to database. Try again later.")
+    
+    if not request.form.get("shelf_number"):
         db_cur.close()
+        return error("Must choose a new shelf number")
+    
+    bookshelf_nums = db_cur.execute("SELECT number FROM bookshelf WHERE user_id = ?", (session["user_id"],))
+    bookshelf_nums = bookshelf_nums.fetchall()
+    existing_shelves = list()
+    if bookshelf_nums is not None:
+        for nums in bookshelf_nums:
+            existing_shelves.append(nums[0])
+        
+    if request.form.get("shelf_number") in existing_shelves:
+        db_cur.close()
+        return error("Shelf number already exists")
+    
+    db_cur.execute("UPDATE bookshelf SET number = ? WHERE id = ? AND user_id = ?", (request.form.get("shelf_number"), request.form.get("current_shelf_number"), session["user_id"],))
+    db_con.commit()
+    db_cur.close()
 
-        return redirect("/")
-
-    else:
-        return render_template("edit_shelf.html", current_shelf_num=session["edit_shelf_num"])
+    return redirect("/")
 
 
 @app.route("/register", methods=["GET", "POST"])

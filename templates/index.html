@@ -36,29 +36,89 @@
                     {% endif %}
                     {% if book.title is not none %}
                         <form action="/remove_book" method="post">
-                            <button name="remove_book" type="submit" value="{{ book.id }}"><i class="fa-solid fa-trash"></i></button>
+                            <input name="remove_book" type="hidden" value="{{ book.id }}">
+                            <button type="submit"><i class="fa-solid fa-trash"></i></button>
                         </form>
         
-                        <form action="/edit_book" method="post">
-                            <button name="edit_book" type="submit" value="{{ book.id }}"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button name="show_edit_book"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <form action="/edit_book" method="post" id="edit_book">
+                            <p>Edit Book</p>
+                            <input name="book_id" type="hidden" value="{{ book.id }}">
+                            <label for="book_title">Book Title</label>
+                            <input autofill="off" name="book_title" placeholder="Title" type="text">
+                            <label for="book_author">Author</label>
+                            <input autofill="off" name="book_author" placeholder="Author" type="text">
+                            <label for="color">Color</label>
+                            <input autofill="off" name="color" placeholder="color" type="text">
+                            <label for="publisher">Publishing House</label>
+                            <input autofill="off" name="publisher" placeholder="publisher" type="text">
+                            <p>Fiction or Non-Fiction</p>
+                            <label for="fiction">Fiction</label>
+                            <input id="fiction" name="fiction_nonfiction" type="radio" value="fiction">
+                            <label for="nonfiction">Non-Fiction</label>
+                            <input id="nonfiction" name="fiction_nonfiction" type="radio" value="nonfiction">
+                            <label for="genre">Genre</label>
+                            <input autofill="off"name="genre" placeholder="Genre" type="text">
+                            <p>Read or Not Read</p>
+                            <label for="read">Read</label>
+                            <input id="read" name="read_not_read" type="radio" value="read">
+                            <label id="not_read">Not Read</label>
+                            <input id="not_read" name="read_not_read" type="radio" value="not_read">
+                            <label for="isbn">ISBN</label>
+                            <input autofill="off" name="isbn" placeholder="ISBN" type="number">
+                            <button type="submit">Add Book</button>
                         </form>
                     {% endif %}
                 </div>
             {% endfor %}
-            <form action="/add_book" method="get">
-                <button type="submit"><i class="fa-solid fa-plus"></i></button>
+            <button name="show_add_book"><i class="fa-solid fa-plus"></i></button>
+            <form action="/add_book" method="post" id="add_book">
+                <p>Add Book</p>
+                <label for="book_title">Book Title</label>
+                <input autofill="off" name="book_title" placeholder="Title" type="text">
+                <label for="book_author">Author</label>
+                <input autofill="off" name="book_author" placeholder="Author" type="text">
+                <label for="color">Color</label>
+                <input autofill="off" name="color" placeholder="color" type="text">
+                <label for="publisher">Publishing House</label>
+                <input autofill="off" name="publisher" placeholder="publisher" type="text">
+                <p>Fiction or Non-Fiction</p>
+                <label for="fiction">Fiction</label>
+                <input id="fiction" name="fiction_nonfiction" type="radio" value="fiction">
+                <label for="nonfiction">Non-Fiction</label>
+                <input id="nonfiction" name="fiction_nonfiction" type="radio" value="nonfiction">
+                <label for="genre">Genre</label>
+                <input autofill="off"name="genre" placeholder="Genre" type="text">
+                <p>Read or Not Read</p>
+                <label for="read">Read</label>
+                <input id="read" name="read_not_read" type="radio" value="read">
+                <label id="not_read">Not Read</label>
+                <input id="not_read" name="read_not_read" type="radio" value="not_read">
+                <label for="isbn">ISBN</label>
+                <input autofill="off" name="isbn" placeholder="ISBN" type="number">
+                <button type="submit">Add Book</button>
             </form>
 
             <form action="/remove_shelf" method="post">
-                <button name="remove_shelf" type="submit" value="{{ id }}"><i class="fa-solid fa-trash"></i></button>
+                <input name="remove_shelf_id" type="hidden" value="{{ id }}">
+                <button type="submit"><i class="fa-solid fa-trash"></i></button>
             </form>
         
-            <form action="/edit_shelf" method="get">
-                <button name="edit_shelf" type="submit" value="{{ id }}"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button name="show_edit_shelf"><i class="fa-solid fa-pen-to-square"></i></button>
+            <form action="/edit_shelf" method="post" id="edit_shelf">
+                <p>Edit Shelf: {{ id }}</p>
+                <input name="current_shelf_number" type="hidden" value="{{ id }}">
+                <label for="shelf_number">New Shelf Number</label>
+                <input autofill="off" name="shelf_number" placeholder="Number" type="number">
+                <button type="submit">Edit Shelf</button>
             </form>
         </div>
     {% endfor %}
-    <form action="/add_shelf" method="get">
-        <button type="submit"><i class="fa-solid fa-plus"></i></button>
+    <button type="submit" name="show_add_shelf"><i class="fa-solid fa-plus"></i></button>
+    <form action="/add_shelf" method="post" id="add_shelf">
+        <p>Add Shelf</p>
+        <label for="shelf_number">New Shelf Number</label>
+        <input autofill="off" name="shelf_number" placeholder="Number" type="number">
+        <button type="submit">Add Shelf</button>
     </form>
 {% endblock %}
