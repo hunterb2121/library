@@ -1,0 +1,14 @@
+{% extends "layouts.html" %}
+
+{% block title %}
+    Add Shelf
+{% endblock %}
+
+{% block main %}
+    <h1>Add New Shelf</h1>
+    <form action="/add_shelf" method="POST">
+        <label for="shelf_number">New Shelf Number</label>
+        <input autofill="off" autofocus name="shelf_number" placeholder="Number" type="numeric">
+        <button type="submit">Add Shelf</button>
+    </form>
+{% endblock %}

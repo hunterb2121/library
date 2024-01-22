@@ -20,29 +20,47 @@ def index():
     except sqlite3.OperationalError:
         return error("Error connecting to database. Try again later.")
     
-    data = db_cur.execute("SELECT books_shelf.id, books_shelf.user_id, bookshelf.number, books.book_name, books.author, books.cover_color, books.publishing_house, books.fiction_nonfiction, books.genre, books.been_read, books.ISBN FROM books_shelf INNER JOIN bookshelf ON books_shelf.bookshelf_id = bookshelf.id INNER JOIN books ON books_shelf.books_id = books.id WHERE books_shelf.user_id = ?", (session["user_id"],))
-    data = data.fetchall()
-    print(data)
+    shelves = db_cur.execute("SELECT number FROM bookshelf WHERE user_id = ?", (session["user_id"],))
+    shelves = shelves.fetchall()
+    print(shelves)
 
     library = dict()
-    for item in data:
-        if item[7] == 0:
-            fiction_nonfiction = "Non-fiction"
-        elif item[7] == 1:
-            fiction_nonfiction = "Fiction"
+    for shelf in shelves:
+        print(shelf)
+        books = db_cur.execute("SELECT books_shelf.id, books_shelf.bookshelf_id, books_shelf.books_id, books_shelf.user_id, books.book_name, books.author, books.cover_color, books.publishing_house, books.fiction_nonfiction, books.genre, books.been_read, books.ISBN FROM books_shelf INNER JOIN books ON books_shelf.books_id = books.id WHERE books_shelf.bookshelf_id = ?", (shelf[0],))
+        books = books.fetchall()
+        print(books)
 
-        if item[9] == 0:
-            read = "Not read"
-        elif item[9] == 1:
-            read = "Read"
+        if len(books) != 0:
+            for book in books:
+                print(book)
+                if book[8] == 0:
+                    fiction_nonfiction = "Non-Fiction"
+                elif book[8] == 1:
+                    fiction_nonfiction = "Fiction"
 
-        if item[2] in library:
-            library[item[2]].append({"title": item[3], "author": item[4], "color": item[5], "publisher": item[6], "fiction_nonfiction": fiction_nonfiction, "genre": item[8], "read": read, "isbn": item[10]})
+                if book[10] == 0:
+                    read = "Not Read"
+                elif book[10] == 1:
+                    read = "Read"
+
+                if shelf[0] in library:
+                    print(library[shelf[0]])
+                    library[shelf[0]].append({"id": book[2], "title": book[4], "author": book[5], "color": book[6], "publisher": book[7], "fiction_nonfiction": fiction_nonfiction, "genre": book[9], "read": read, "isbn": book[11]})
+                else:
+                    library[shelf[0]] = [{"id": book[2], "title": book[4], "author": book[5], "color": book[6], "publisher": book[7], "fiction_nonfiction": fiction_nonfiction, "genre": book[9], "read": read, "isbn": book[11]}]
 
         else:
-            library[item[2]] = [{"title": item[3], "author": item[4], "color": item[5], "publisher": item[6], "fiction_nonfiction": fiction_nonfiction, "genre": item[8], "read": read, "isbn": item[10]}]
+            library[shelf[0]] = [{"id": None, "title": None, "author": None, "color": None, "publisher": None, "fiction_nonfiction": None, "genre": None, "read": None, "isbn": None}]
 
     print(library)
+
+    db_cur.close()
+
+    session["edit_book_num"] = request.args.get("edit_book")
+    session["remove_book_num"] = request.args.get("remove_book")
+    session["edit_shelf_num"] = request.args.get("edit_shelf")
+    session["remove_shelf_num"] = request.args.get("remove_shelf")
 
     return render_template("index.html", library=library)
 
@@ -50,7 +68,11 @@ def index():
 @app.route("/add_book", methods=["GET", "POST"])
 @login_required
 def add_book():
-    ...
+    if request.method == "POST":
+        ...
+
+    else:
+        return render_template("add_book.html")
 
 
 @app.route("/remove_book", methods=["GET", "POST"])
@@ -62,13 +84,34 @@ def remove_book():
 @app.route("/edit_book", methods=["GET", "POST"])
 @login_required
 def edit_book():
-    ...
+    if request.method == "POST":
+        ...
+
+    else:
+        return render_template("edit_book.html")
 
 
 @app.route("/add_shelf", methods=["GET", "POST"])
 @login_required
 def add_shelf():
-    ...
+    if request.method == "POST":
+        try:
+            db_con, db_cur = get_db_connection()
+        except sqlite3.OperationalError:
+            return error("Error connecting to database. Try again later.")
+        
+        if not request.form.get("shelf_number"):
+            db_cur.close()
+            return error("Must choose a shelf number")
+        
+        db_cur.execute("INSERT INTO bookshelf (number, user_id) VALUES (?, ?)", (request.form.get("shelf_number"), session["user_id"],))
+        db_con.commit()
+        db_cur.close()
+
+        return redirect("/")
+    
+    else:
+        return render_template("add_shelf.html")
 
 
 @app.route("/remove_shelf", methods=["GET", "POST"])
@@ -80,13 +123,24 @@ def remove_shelf():
 @app.route("/edit_shelf", methods=["GET", "POST"])
 @login_required
 def edit_shelf():
-    ...
+    if request.method == "POST":
+        try:
+            db_con, db_cur = get_db_connection()
+        except sqlite3.OperationalError:
+            return error("Error connecting to database. Try again later.")
+        
+        if not request.form.get("shelf_number"):
+            db_cur.close()
+            return error("Must choose a new shelf number")
+        
+        db_cur.execute("UPDATE bookshelf SET number = ? WHERE id = ? AND user_id = ?", (request.form.get("shelf_number"), session["current_shelf_num"], session["user_id"],))
+        db_con.commit()
+        db_cur.close()
 
+        return redirect("/")
 
-@app.route("/add_book_shelf", methods=["GET", "POST"])
-@login_required
-def add_book_shelf():
-    ...
+    else:
+        return render_template("edit_shelf.html", current_shelf_num=session["edit_shelf_num"])
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -117,12 +171,16 @@ def register():
         # Check if username and/or email exists
         usernames = db_cur.execute("SELECT username FROM users")
         usernames = usernames.fetchall()
-        if request.form.get("username") in usernames:
+        print(usernames)
+        if usernames:
+            db_cur.close()
             return error("Username already exists")
         
         emails = db_cur.execute("SELECT email FROM users")
         emails = emails.fetchall()
-        if request.form.get("email") in emails:
+        print(emails)
+        if emails:
+            db_cur.close()
             return error("Email already exists")
 
         # Create user account in database
@@ -156,13 +214,17 @@ def login():
 
         # Check if username exists
         if not db_cur.execute("SELECT id FROM users WHERE username = ? or email = ?", (request.form.get("username_email"), request.form.get("username_email"),)):
+            db_cur.close()
             error("User does not exist")
 
         # Check if password matches for the username
-        if not check_password_hash(db_cur.execute("SELECT hash FROM users WHERE username = ? or email = ?", (request.form.get("username_email"), request.form.get("username_email"),))):
+        if not check_password_hash(db_cur.execute("SELECT hash FROM users WHERE username = ? or email = ?", (request.form.get("username_email"), request.form.get("username_email"),)).fetchone()[0], request.form.get("password")):
+            db_cur.close()
             error("Password could not be verified")
 
         session["user_id"] = get_session_user(request.form.get("username_email"))
+
+        db_cur.close()
 
         return redirect("/")
 
@@ -178,6 +240,12 @@ def logout():
     return redirect("/")
 
 """
+@app.route("/account")
+@login_required
+def account():
+    ...
+
+
 @app.route("/edit_username", methods=["GET", "POST"])
 @login_required
 def edit_username():

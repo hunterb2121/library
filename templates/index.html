@@ -4,26 +4,61 @@
     Home
 {% endblock %}
 
-{% block header %}
-    BookShelf
-{% endblock %}
-
 {% block main %}
     {% for id, books in library.items() %}
-        <div class="shelf">
+        <div class="shelf" data-id="{{ id }}">
             <h2>{{ id }}</h2>
             {% for book in books %}
                 <div class="book">
-                    <p>{{ book.title }}</p>
-                    <p>{{ book.author }}</p>
-                    <p>{{ book.color }}</p>
-                    <p>{{ book.publisher }}</p>
-                    <p>{{ book.fiction_nonfiction }}</p>
-                    <p>{{ book.genre }}</p>
-                    <p>READ: {{ book.read }}</p>
-                    <p>{{ book.isbn }}</p>
+                    {% if book.title is not none %}
+                        <p>{{ book.title }}</p>
+                    {% endif %}
+                    {% if book.author is not none %}
+                        <p>{{ book.author }}</p>
+                    {% endif %}
+                    {% if book.color is not none %}
+                        <p>{{ book.color }}</p>
+                    {% endif %}
+                    {% if book.publisher is not none %}
+                        <p>{{ book.publisher }}</p>
+                    {% endif %}
+                    {% if book.fiction_nonfiction is not none %}
+                        <p>{{ book.fiction_nonfiction }}</p>
+                    {% endif %}
+                    {% if book.genre is not none %}
+                        <p>{{ book.genre }}</p>
+                    {% endif %} 
+                    {% if book.read is not none %}
+                        <p>{{ book.read }}</p>
+                    {% endif %}
+                    {% if book.isbn is not none %}
+                        <p>{{ book.isbn }}</p>
+                    {% endif %}
+                    {% if book.title is not none %}
+                        <form action="/remove_book" method="post">
+                            <button name="remove_book" type="submit" value="{{ book.id }}"><i class="fa-solid fa-trash"></i></button>
+                        </form>
+        
+                        <form action="/edit_book" method="post">
+                            <button name="edit_book" type="submit" value="{{ book.id }}"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </form>
+                    {% endif %}
                 </div>
             {% endfor %}
+            <form action="/add_book" method="get">
+                <button type="submit"><i class="fa-solid fa-plus"></i></button>
+            </form>
+
+            <form action="/remove_shelf" method="post">
+                <button name="remove_shelf" type="submit" value="{{ id }}"><i class="fa-solid fa-trash"></i></button>
+            </form>
+        
+            <form action="/edit_shelf" method="get">
+                <button name="edit_shelf" type="submit" value="{{ id }}"><i class="fa-solid fa-pen-to-square"></i></button>
+            </form>
         </div>
     {% endfor %}
+    <form action="/add_shelf" method="get">
+        <button type="submit"><i class="fa-solid fa-plus"></i></button>
+    </form>
 {% endblock %}
