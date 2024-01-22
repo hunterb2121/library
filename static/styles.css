@@ -1,3 +1,37 @@
 .hidden {
     display: none;
 }
+
+.shelf {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    background-color: brown;
+    display: grid;
+    grid-template-columns: 1fr 1fr 6fr 1fr 1fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: 
+                    "number edit_shelf . delete_shelf add_book"
+                    "book_area book_area book_area book_area";
+}
+
+.books_shelf {
+    grid-area: book_area;
+}
+
+.add_book_container {
+    grid-area: add_book;
+}
+
+.remove_shelf {
+    grid-area: delete_shelf;
+}
+
+.edit_shelf_container {
+    grid-area: edit_shelf;
+}
+
+.book {
+    width: 20%;
+    background-color: lightblue;
+}
