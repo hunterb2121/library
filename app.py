@@ -99,6 +99,9 @@ def add_book():
 
     db_cur.execute("INSERT INTO books (book_name, author, cover_color, publishing_house, fiction_nonfiction, genre, been_read, ISBN, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (request.form.get("book_title"), request.form.get("book_author"), request.form.get("color"), request.form.get("publisher"), fiction_nonfiction, request.form.get("genre"), been_read, request.form.get("isbn"), session["user_id"],))
     db_con.commit()
+    book_id = db_cur.execute("SELECT id FROM books WHERE book_name = ? AND user_id = ?", (request.form.get("book_title"), session["user_id"],))
+    book_id = book_id.fetchone()[0][0]
+    db_cur.execute("INSERT INTO books_shelf (bookshelf_id, books_id, user_id) VALUES (?, ?, ?)", (db_cur.execute("SELECT id FROM bookshelf WHERE number = ? AND user_id = ?", (request.form.get("shelf_number"), session["user_id"],).fetchone()[0][0], book_id, session["user_id"],)))
     db_cur.close()
 
     return redirect("/")
