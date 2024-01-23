@@ -82,7 +82,7 @@
                 <button class="hidden_button"><i class="fa-solid fa-plus"></i></button>
                 <form action="/add_book" method="post" class="add_book hidden">
                     <p>Add Book</p>
-                    <input type="hidden" name="shelf_number" value="id">
+                    <input type="hidden" name="shelf_number" value="{{ id }}">
                     <label for="book_title">Book Title</label>
                     <input autofill="off" name="book_title" placeholder="Title" type="text">
                     <label for="book_author">Author</label>

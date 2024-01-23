@@ -2,34 +2,37 @@ from helpers import get_db_connection
 
 db_con, db_cur = get_db_connection()
 
-shelves = db_cur.execute("SELECT number FROM bookshelf WHERE user_id = ?", (1,))
-shelves = shelves.fetchall()
-print(shelves)
+shelf_number = 1
+book_title = "book1"
+book_author = "author"
+color = "color"
+publisher = "publisher"
+fiction_nonfiction = "fiction"
+genre = "genre"
+read_not_read = "read"
+isbn = 65479841
 
-library = dict()
-for shelf in shelves:
-    print(shelf)
-    books = db_cur.execute("SELECT books_shelf.id, books_shelf.bookshelf_id, books_shelf.books_id, books_shelf.user_id, books.book_name, books.author, books.cover_color, books.publishing_house, books.fiction_nonfiction, books.genre, books.been_read, books.ISBN FROM books_shelf INNER JOIN books ON books_shelf.books_id = books.id WHERE books_shelf.bookshelf_id = ?", (shelf[0],))
-    books = books.fetchall()
-    print(books)
+if fiction_nonfiction == "fiction":
+    fiction_nonfiction = 1
+elif fiction_nonfiction == "nonfiction":
+    fiction_nonfiction = 0
 
-    if len(books) != 0:
-        for book in books:
-            print(book)
-            if book[8] == 0:
-                fiction_nonfiction = "Non-Fiction"
-            elif book[8] == 1:
-                fiction_nonfiction = "Fiction"
+if read_not_read == "read":
+    been_read = 1
+elif read_not_read == "not_read":
+    been_read = 0
 
-            if book[10] == 0:
-                read = "Not Read"
-            elif book[10] == 1:
-                read = "Read"
-
-            if shelf[0] in library:
-                print(library[shelf[0]])
-                library[shelf[0]].append({"title": book[4], "author": book[5], "color": book[6], "publisher": book[7], "fiction_nonfiction": fiction_nonfiction, "genre": book[9], "read": read, "isbn": book[11]})
-            else:
-                library[shelf[0]] = [{"title": book[4], "author": book[5], "color": book[6], "publisher": book[7], "fiction_nonfiction": fiction_nonfiction, "genre": book[9], "read": read, "isbn": book[11]}]
-
-print(library)
+db_cur.execute("INSERT INTO books (book_name, author, cover_color, publishing_house, fiction_nonfiction, genre, been_read, ISBN, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (book_title, book_author, color, publisher, fiction_nonfiction, genre, been_read, isbn, 1,))
+db_con.commit()
+book_id = db_cur.execute("SELECT id FROM books WHERE book_name = ? AND user_id = ?", (book_title, 1,))
+book_id = book_id.fetchone()[0]
+print(book_id)
+bookshelf_id = db_cur.execute("SELECT id FROM bookshelf WHERE number = ? AND user_id = ?", (shelf_number, 1,))
+bookshelf_id = bookshelf_id.fetchone()[0]
+print(bookshelf_id)
+db_cur.execute("INSERT INTO books_shelf (bookshelf_id, books_id, user_id) VALUES (?, ?, ?)", (bookshelf_id, book_id, 1,))
+books_shelf = db_cur.execute("SELECT id FROM books_shelf WHERE bookshelf_id = ? AND books_id = ? AND user_id = ?", (bookshelf_id, book_id, 1))
+books_shelf = books_shelf.fetchone()[0]
+print(books_shelf)
+db_con.commit()
+db_cur.close()
