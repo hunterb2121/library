@@ -46,3 +46,18 @@ class Shelf:
 
         for book in books_id_list:
             self._books.append(book[0])
+
+
+# Class for making book objects
+class Book:
+    ...
+
+
+# Class for holding User information
+class User:
+    ...
+
+
+# Class for holding dictionaries for shelf objects and book objects
+class Library:
+    ...

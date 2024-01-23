@@ -1,9 +1,11 @@
 import sqlite3
 
+from database import execute_query, fetch_all, fetch_one
 from datetime import datetime
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
-from helpers import login_required, get_db_connection, get_session_user, error
+from helpers import login_required, get_session_user, error
+from library_objects import Shelf, Book, User, Library
 from werkzeug.security import check_password_hash, generate_password_hash
 
 
@@ -15,10 +17,6 @@ Session(app)
 @app.route("/")
 @login_required
 def index():
-    try:
-        db_cur = get_db_connection()[1]
-    except sqlite3.OperationalError:
-        return error("Error connecting to database. Try again later.")
     
     shelves = db_cur.execute("SELECT number FROM bookshelf WHERE user_id = ?", (session["user_id"],))
     shelves = shelves.fetchall()
