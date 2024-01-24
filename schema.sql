@@ -13,11 +13,12 @@ CREATE TABLE users (
 
 CREATE TABLE books (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    book_name TEXT NOT NULL,
+    title TEXT NOT NULL,
     author TEXT NOT NULL,
     pages INTEGER NOT NULL,
     cover_color TEXT NOT NULL,
     publishing_house TEXT NOT NULL,
+    published_date TEXT NOT NULL,
     fiction_nonfiction INTEGER NOT NULL,
     genre TEXT NOT NULL,
     been_read INTEGER NOT NULL,
@@ -44,3 +45,14 @@ CREATE TABLE books_shelf (
     FOREIGN KEY (books_id) REFERENCES books (id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
+
+CREATE INDEX idxusername ON users (username);
+CREATE INDEX idxemail ON users (email);
+
+CREATE INDEX idxbook_users ON books (user_id);
+CREATE INDEX idxtitle ON books (title);
+CREATE INDEX idxauthor ON books (author);
+CREATE INDEX idxgenre ON books (genre);
+CREATE INDEX idxcover_color ON books (cover_color);
+
+CREATE INDEX idxshelf_number ON bookshelf (number);
