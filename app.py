@@ -324,11 +324,16 @@ def logout():
 
     return redirect("/")
 
-"""
+
 @app.route("/account")
 @login_required
 def account():
-    ...
+    db_cur = get_db_connection()[1]
+
+    username = db_cur.execute("SELECT username FROM users WHERE id = ?", (session["user_id"],))
+    username = username.fetchall()[0][0]
+
+    return render_template("account.html", username=username)
 
 
 @app.route("/edit_username", methods=["GET", "POST"])
@@ -347,4 +352,3 @@ def edit_email():
 @login_required
 def edit_password():
     ...
-"""

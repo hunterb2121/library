@@ -1,0 +1,39 @@
+{% extends "layouts.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block active_account %}
+    active
+{% endblock %}
+
+{% block main %}
+    <h1>Account</h1>
+    <h2>{{ username }}</h2>
+    <form action="/edit_username" method="post">
+        <label for="current_username">Current Username</label>
+        <input autofill="off" name="current_username" placeholder="Current Username" type="text">
+        <label for="new_username">New Username</label>
+        <input autofill="off" name="new_username" placeholder="New Username" type="text">
+        <button type="submit">Update Username</button>
+    </form>
+
+    <form action="/edit_email" method="post">
+        <label for="current_email">Current Email</label>
+        <input autofill="off" name="current_email" placeholder="Current Email" type="email">
+        <label for="new_email">New Email</label>
+        <input autofill="off" name="new_email" placeholder="New Email" type="email">
+        <button type="submit">Update Email</button>
+    </form>
+
+    <form action="/edit_password" method="post">
+        <label for="current_password">Current Password</label>
+        <input autofill="off" name="current_password" placeholder="Current Password" type="password">
+        <label for="new_password">New Password</label>
+        <input autofill="off" name="new_password" placeholder="New Password" type="password">
+        <label for="verify_password">Verify New Password</label>
+        <input autofill="off" name="verify_password" placeholder="Verify Password" type="password">
+        <button type="submit">Update Password</button>
+    </form>
+{% endblock %}
