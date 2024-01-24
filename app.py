@@ -1,9 +1,11 @@
 import sqlite3
 
+from database import execute_query, fetch_all, fetch_one
 from datetime import datetime
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
-from helpers import login_required, get_db_connection, get_session_user, error
+from helpers import login_required, get_session_user, error
+from library_objects import Shelf, Book, User, Library
 from werkzeug.security import check_password_hash, generate_password_hash
 
 
@@ -15,10 +17,6 @@ Session(app)
 @app.route("/")
 @login_required
 def index():
-    try:
-        db_cur = get_db_connection()[1]
-    except sqlite3.OperationalError:
-        return error("Error connecting to database. Try again later.")
     
     shelves = db_cur.execute("SELECT number FROM bookshelf WHERE user_id = ?", (session["user_id"],))
     shelves = shelves.fetchall()
@@ -98,6 +96,17 @@ def add_book():
         return error("Error connecting to database. Try again later.")
 
     db_cur.execute("INSERT INTO books (book_name, author, cover_color, publishing_house, fiction_nonfiction, genre, been_read, ISBN, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (request.form.get("book_title"), request.form.get("book_author"), request.form.get("color"), request.form.get("publisher"), fiction_nonfiction, request.form.get("genre"), been_read, request.form.get("isbn"), session["user_id"],))
+    db_con.commit()
+    book_id = db_cur.execute("SELECT id FROM books WHERE book_name = ? AND user_id = ?", (request.form.get("book_title"), session["user_id"],))
+    book_id = book_id.fetchone()[0]
+    print(book_id)
+    bookshelf_id = db_cur.execute("SELECT id FROM bookshelf WHERE number = ? AND user_id = ?", (request.form.get("shelf_number"), session["user_id"],))
+    bookshelf_id = bookshelf_id.fetchone()[0]
+    print(bookshelf_id)
+    db_cur.execute("INSERT INTO books_shelf (bookshelf_id, books_id, user_id) VALUES (?, ?, ?)", (bookshelf_id, book_id, session["user_id"],))
+    books_shelf = db_cur.execute("SELECT id FROM books_shelf WHERE bookshelf_id = ? AND books_id = ? AND user_id = ?", (bookshelf_id, book_id, 1))
+    books_shelf = books_shelf.fetchone()[0]
+    print(books_shelf)
     db_con.commit()
     db_cur.close()
 

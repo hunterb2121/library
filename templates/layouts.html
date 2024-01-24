@@ -14,7 +14,7 @@
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/a637a51ec7.js" crossorigin="anonymous"></script>
 
-        <link href="../static/styles.css">
+        {% block styles %}{% endblock %}
         <title>Library | {% block title %}{% endblock %}</title>
     </head>
 
@@ -45,7 +45,7 @@
             {% block main %}{% endblock %}
         </main>
 
-        {% block scripts %}{% endblock %}
+        {% block script %}{% endblock %}
 
     </body>
 

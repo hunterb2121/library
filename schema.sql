@@ -22,6 +22,7 @@ CREATE TABLE books (
     genre TEXT NOT NULL,
     been_read INTEGER NOT NULL,
     ISBN TEXT NOT NULL,
+    added_date TEXT NOT NULL,
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
@@ -29,6 +30,7 @@ CREATE TABLE books (
 CREATE TABLE bookshelf (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     number INTEGER NOT NULL UNIQUE,
+    added_date TEXT NOT NULL,
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );

@@ -1,7 +1,7 @@
 {% extends "layouts.html" %}
 
-{% block active_home %}
-    active
+{% block styles %}
+    <link href="../static/styles.css" rel="stylesheet">
 {% endblock %}
 
 {% block title %}
@@ -12,96 +12,83 @@
     {% for id, books in library.items() %}
         <div class="shelf" data-id="{{ id }}">
             <h2>{{ id }}</h2>
-            <form action="/remove_shelf" method="post">
-                <input name="remove_shelf_id" type="hidden" value="{{ id }}">
-                <button type="submit"><i class="fa-solid fa-trash"></i></button>
-            </form>
-        
-            <button class="show_edit_shelf"><i class="fa-solid fa-pen-to-square"></i></button>
-            <div class="hidden edit_shelf">
-                <form action="/edit_shelf" method="post">
-                    <p>Edit Shelf: {{ id }}</p>
-                    <input name="current_shelf_number" type="hidden" value="{{ id }}">
-                    <label for="shelf_number">New Shelf Number</label>
-                    <input autofill="off" name="shelf_number" placeholder="Number" type="number">
-                    <button type="submit" class="hide_edit_shelf">Edit Shelf</button>
-                </form>
-            </div>
-            {% for book in books %}
-                <div class="book" data-id="{{ book.id }}">
-                    {% if book.title is not none %}
-                        <p>{{ book.title }}</p>
-                    {% endif %}
-                    {% if book.author is not none %}
-                        <p>{{ book.author }}</p>
-                    {% endif %}
-                    {% if book.color is not none %}
-                        <p>{{ book.color }}</p>
-                    {% endif %}
-                    {% if book.publisher is not none %}
-                        <p>{{ book.publisher }}</p>
-                    {% endif %}
-                    {% if book.fiction_nonfiction is not none %}
-                        <p>{{ book.fiction_nonfiction }}</p>
-                    {% endif %}
-                    {% if book.genre is not none %}
-                        <p>{{ book.genre }}</p>
-                    {% endif %} 
-                    {% if book.read is not none %}
-                        <p>{{ book.read }}</p>
-                    {% endif %}
-                    {% if book.isbn is not none %}
-                        <p>{{ book.isbn }}</p>
-                    {% endif %}
-                    {% if book.title is not none %}
-                        <form action="/remove_book" method="post">
-                            <input name="remove_book" type="hidden" value="{{ book.id }}">
-                            <button type="submit"><i class="fa-solid fa-trash"></i></button>
-                        </form>
-        
-                        <button class="show_edit_book"><i class="fa-solid fa-pen-to-square"></i></button>
-                        <div class="hidden edit_book">
-                            <form action="/edit_book" method="post">
-                                <p>Edit Book</p>
-                                <input name="book_id" type="hidden" value="{{ book.id }}">
-                                <label for="book_title">Book Title</label>
-                                <input autofill="off" name="book_title" placeholder="Title" type="text">
-                                <label for="book_author">Author</label>
-                                <input autofill="off" name="book_author" placeholder="Author" type="text">
-                                <label for="color">Color</label>
-                                <input autofill="off" name="color" placeholder="color" type="color">
-                                <label for="publisher">Publishing House</label>
-                                <input autofill="off" name="publisher" placeholder="publisher" type="text">
-                                <p>Fiction or Non-Fiction</p>
-                                <label for="fiction">Fiction</label>
-                                <input id="fiction" name="fiction_nonfiction" type="radio" value="fiction">
-                                <label for="nonfiction">Non-Fiction</label>
-                                <input id="nonfiction" name="fiction_nonfiction" type="radio" value="nonfiction">
-                                <label for="genre">Genre</label>
-                                <input autofill="off"name="genre" placeholder="Genre" type="text">
-                                <p>Read or Not Read</p>
-                                <label for="read">Read</label>
-                                <input id="read" name="read_not_read" type="radio" value="read">
-                                <label id="not_read">Not Read</label>
-                                <input id="not_read" name="read_not_read" type="radio" value="not_read">
-                                <label for="isbn">ISBN</label>
-                                <input autofill="off" name="isbn" placeholder="ISBN" type="number">
-                                <button type="submit" class="hide_edit_book">Add Book</button>
+            <div class="books_shelf">
+                {% for book in books %}
+                    <div class="book">
+                        {% if book.title is not none %}
+                            <p>{{ book.title }}</p>
+                        {% endif %}
+                        {% if book.author is not none %}
+                            <p>{{ book.author }}</p>
+                        {% endif %}
+                        {% if book.color is not none %}
+                            <p>{{ book.color }}</p>
+                        {% endif %}
+                        {% if book.publisher is not none %}
+                            <p>{{ book.publisher }}</p>
+                        {% endif %}
+                        {% if book.fiction_nonfiction is not none %}
+                            <p>{{ book.fiction_nonfiction }}</p>
+                        {% endif %}
+                        {% if book.genre is not none %}
+                            <p>{{ book.genre }}</p>
+                        {% endif %} 
+                        {% if book.read is not none %}
+                            <p>{{ book.read }}</p>
+                        {% endif %}
+                        {% if book.isbn is not none %}
+                            <p>{{ book.isbn }}</p>
+                        {% endif %}
+                        {% if book.title is not none %}
+                            <form action="/remove_book" method="post">
+                                <input name="remove_book" type="hidden" value="{{ book.id }}">
+                                <button type="submit"><i class="fa-solid fa-trash"></i></button>
                             </form>
-                        </div>
-                    {% endif %}
+                            <div class="hidden_form">
+                                <button class="hidden_button"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <form action="/edit_book" method="post" class="edit_book hidden">
+                                    <p>Edit Book</p>
+                                    <input name="book_id" type="hidden" value="{{ book.id }}">
+                                    <label for="book_title_{{ id }}">Book Title</label>
+                                    <input autofill="off" id="book_title_{{ id }}" name="book_title" placeholder="Title" type="text">
+                                    <label for="book_author">Author</label>
+                                    <input autofill="off" name="book_author" placeholder="Author" type="text">
+                                    <label for="color">Color</label>
+                                    <input autofill="off" name="color" placeholder="color" type="text">
+                                    <label for="publisher">Publishing House</label>
+                                    <input autofill="off" name="publisher" placeholder="publisher" type="text">
+                                    <p>Fiction or Non-Fiction</p>
+                                    <label for="fiction">Fiction</label>
+                                    <input id="fiction" name="fiction_nonfiction" type="radio" value="fiction">
+                                    <label for="nonfiction">Non-Fiction</label>
+                                    <input id="nonfiction" name="fiction_nonfiction" type="radio" value="nonfiction">
+                                    <label for="genre">Genre</label>
+                                    <input autofill="off"name="genre" placeholder="Genre" type="text">
+                                    <p>Read or Not Read</p>
+                                    <label for="read">Read</label>
+                                    <input id="read" name="read_not_read" type="radio" value="read">
+                                    <label id="not_read">Not Read</label>
+                                    <input id="not_read" name="read_not_read" type="radio" value="not_read">
+                                    <label for="isbn">ISBN</label>
+                                    <input autofill="off" name="isbn" placeholder="ISBN" type="number">
+                                    <button type="submit">Add Book</button>
+                                </form>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             {% endfor %}
-            <button name="show_add_book"><i class="fa-solid fa-plus"></i></button>
-            <div class="hidden add_book">
-                <form action="/add_book" method="post">
+            <div class="hidden_form add_book_container">
+                <button class="hidden_button"><i class="fa-solid fa-plus"></i></button>
+                <form action="/add_book" method="post" class="add_book hidden">
                     <p>Add Book</p>
+                    <input type="hidden" name="shelf_number" value="{{ id }}">
                     <label for="book_title">Book Title</label>
                     <input autofill="off" name="book_title" placeholder="Title" type="text">
                     <label for="book_author">Author</label>
                     <input autofill="off" name="book_author" placeholder="Author" type="text">
                     <label for="color">Color</label>
-                    <input autofill="off" name="color" placeholder="color" type="color">
+                    <input autofill="off" name="color" placeholder="color" type="text">
                     <label for="publisher">Publishing House</label>
                     <input autofill="off" name="publisher" placeholder="publisher" type="text">
                     <p>Fiction or Non-Fiction</p>
@@ -118,22 +105,38 @@
                     <input id="not_read" name="read_not_read" type="radio" value="not_read">
                     <label for="isbn">ISBN</label>
                     <input autofill="off" name="isbn" placeholder="ISBN" type="number">
-                    <button type="submit" class="hide_add_book">Add Book</button>
+                    <button type="submit">Add Book</button>
+                </form>
+            </div>
+
+            <form action="/remove_shelf" method="post" class="remove_shelf">
+                <input name="remove_shelf_id" type="hidden" value="{{ id }}">
+                <button type="submit"><i class="fa-solid fa-trash"></i></button>
+            </form>
+            
+            <div class="hidden_form" class="edit_shelf_container">
+                <button class="hidden_button"><i class="fa-solid fa-pen-to-square"></i></button>
+                <form action="/edit_shelf" method="post" class="edit_shelf hidden">
+                    <p>Edit Shelf: {{ id }}</p>
+                    <input name="current_shelf_number" type="hidden" value="{{ id }}">
+                    <label for="shelf_number">New Shelf Number</label>
+                    <input autofill="off" name="shelf_number" placeholder="Number" type="number">
+                    <button type="submit">Edit Shelf</button>
                 </form>
             </div>
         </div>
     {% endfor %}
-    <button class="show_add_shelf"><i class="fa-solid fa-plus"></i></button>
-    <div class="hidden add_shelf">
-        <form action="/add_shelf" method="post">
+    <div class="hidden_form">
+        <button type="submit" class="hidden_button"><i class="fa-solid fa-plus"></i></button>
+        <form action="/add_shelf" method="post" class="add_shelf hidden">
             <p>Add Shelf</p>
             <label for="shelf_number">New Shelf Number</label>
             <input autofill="off" name="shelf_number" placeholder="Number" type="number">
-            <button type="submit" class="hide_add_shelf">Add Shelf</button>
+            <button type="submit">Add Shelf</button>
         </form>
     </div>
 {% endblock %}
 
-{% block scripts %}
+{% block script %}
     <script src="../static/show_forms.js"></script>
-{% endblock %} 
+{% endblock %}
