@@ -33,7 +33,10 @@ def fetch_all(query, parameters=None):
     results = cursor.fetchall()
     connection.close()
 
-    return results
+    if len(results) == 0:
+        return None
+    else:
+        return results
 
 
 # Function to fetch one result
@@ -49,4 +52,7 @@ def fetch_one(query, parameters=None):
     results = cursor.fetchone()
     connection.close()
 
-    return results
+    if results is None:
+        return None
+    else:
+        return results

@@ -91,6 +91,42 @@ class User:
             print(f"Error getting user: {e}")
 
     @staticmethod
+    def get_user_id_by_username_email(username):
+        query = "SELECT id FROM users WHERE username = ? OR email = ?"
+        try:
+            result = fetch_one(query, (username, username,))
+            return result
+        except Exception as e:
+            print(f"Error getting user: {e}")
+
+    @staticmethod
+    def get_user_hash_by_id(user_id):
+        query = "SELECT hash FROM users WHERE user_id = ?"
+        try:
+            result = fetch_one(query, (user_id,))
+            return result
+        except Exception as e:
+            print(f"Error getting hash: {e}")
+
+    @staticmethod
+    def get_user_hash_by_username(username):
+        query = "SELECT hash FROM users WHERE username = ?"
+        try:
+            result = fetch_one(query, (username,))
+            return result
+        except Exception as e:
+            print(f"Error getting hash: {e}")
+
+    @staticmethod
+    def get_user_hash_by_email(email):
+        query = "SELECT hash FROM users WHERE email = ?"
+        try:
+            result = fetch_one(query, (email,))
+            return result
+        except Exception as e:
+            print(f"Error getting hash: {e}")
+
+    @staticmethod
     def get_hash(password):
         return generate_password_hash(password)
     
@@ -108,6 +144,7 @@ class User:
         except Exception as e:
             print(f"Error adding user: {e}")
 
+    # Regex from https://uibakery.io/regex-library
     @staticmethod
     def validate_email(email):
         pattern = r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" 
@@ -116,9 +153,10 @@ class User:
         else:
             return True
 
+    # Regex from https://uibakery.io/regex-library
     @staticmethod
     def validate_password(password):
-        pattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+        pattern = r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
         if not re.match(pattern, password):
             return False
         else:
@@ -489,11 +527,11 @@ class Library:
         self._shelves = []
         self._books = []
 
-    def add_book_to_library(self, book_info):
-        self._books.append(book_info)
+    def add_book_to_library(self, book):
+        self._books.append(book)
 
-    def add_shelf_to_library(self, shelf_info):
-        self._shelves.append(shelf_info)
+    def add_shelf_to_library(self, shelf):
+        self._shelves.append(shelf)
 
     def get_books_in_library(self):
         return self._books
@@ -501,8 +539,18 @@ class Library:
     def get_shelves_in_library(self):
         return self._shelves
     
-    def remove_books_from_library(self, book_info):
-        self._books.remove(book_info)
+    def remove_books_from_library(self, book):
+        self._books.remove(book)
 
-    def remove_shelf_from_library(self, shelf_info):
-        self._shelves.remove(shelf_info)
+    def remove_shelf_from_library(self, shelf):
+        self._shelves.remove(shelf)
+
+    # Get the shelf that a book is on in books_shelf
+    @ staticmethod
+    def get_shelf_for_book(user_id):
+        ...
+
+    # Get a list of books that are on a shelf in books_shelf
+    @staticmethod
+    def get_books_on_shelf(self, user_id):
+        ...
