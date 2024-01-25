@@ -547,10 +547,22 @@ class Library:
 
     # Get the shelf that a book is on in books_shelf
     @ staticmethod
-    def get_shelf_for_book(user_id):
-        ...
+    def get_shelf_for_book(book_id, user_id):
+        query = "SELECT bookshelf_id FROM books_shelf WHERE books_id = ? AND user_id = ?"
+        parameters = (book_id, user_id,)
+        try:
+            result = fetch_one(query, parameters)
+            return result
+        except Exception as e:
+            print(f"Error getting shelf: {e}")
 
     # Get a list of books that are on a shelf in books_shelf
     @staticmethod
-    def get_books_on_shelf(self, user_id):
-        ...
+    def get_books_on_shelf(shelf_id, user_id):
+        query = "SELECT books_id FROM books_shelf WHERE bookshelf_id = ? AND user_id = ?"
+        parameters = (shelf_id, user_id,)
+        try:
+            results = fetch_all(query, parameters)
+            return results
+        except Exception as e:
+            print(f"Error getting books: {e}")

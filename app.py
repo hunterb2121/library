@@ -6,7 +6,6 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from helpers import login_required, get_session_user, error
 from library_objects import Shelf, Book, User, Library
-from werkzeug.security import check_password_hash, generate_password_hash
 
 
 app = Flask(__name__)
@@ -28,7 +27,23 @@ def index():
 
     # Show all books that are on each shelf and display in index.html with a dictionary called library
     # library = {shelf_number: {book_id, title, author, color, publisher, fiction_nonfiction, genre, read, isbn}}
-    return render_template("index.html")
+    book_shelves = dict()
+    for book in user_library.get_books_in_library():
+        book_id = book[0]
+        shelf_id = user_library.get_shelf_for_book(book_id, 1)[0]
+        if book[7] == 0:
+            fiction_nonfiction = "nonfiction"
+        elif book[7] == 1:
+            fiction_nonfiction = "fiction"
+        if book[9] == 0:
+            read = "Not Read"
+        elif book[9] == 1:
+            read = "Read"
+        if shelf_id in book_shelves:
+            book_shelves[shelf_id].append({"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]})
+        else:
+            book_shelves[shelf_id] = [{"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]}]
+    return render_template("index.html", library=book_shelves)
 
 
 @app.route("/add_book", methods=["POST"])
@@ -102,7 +117,7 @@ def register():
         User.add_user(request.form.get("username"), request.form.get("email"), hash, datetime.utcnow())
 
         # Assign user_id to session variable
-        session["user_id"] = User.get_user_id_by_username(request.form.get("username"))
+        session["user_id"] = get_session_user(request.form.get("username"))
 
         return redirect("/")
 
@@ -124,7 +139,7 @@ def login():
         if not User.get_user_by_username(request.form.get("username_email")):
             return error("User does not exist")
         
-        session["user_id"] = User.get_user_id_by_username_email(request.form.get("username_email"))
+        session["user_id"] = get_session_user(request.form.get("username_email"))
 
         # Check if password matches
         hash = User.get_user_hash_by_id(session["user_id"])

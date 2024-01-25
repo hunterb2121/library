@@ -10,8 +10,23 @@ for book in user_books:
 for shelf in user_shelves:
     user_library.add_shelf_to_library(shelf)
 
-shelves = user_library.get_shelves_in_library()
-books = user_library.get_books_in_library()
+print(user_library.get_books_in_library())
 
-print(shelves)
-print(books)
+book_shelves = dict()
+for book in user_library.get_books_in_library():
+    book_id = book[0]
+    shelf_id = user_library.get_shelf_for_book(book_id, 1)[0]
+    if book[7] == 0:
+        fiction_nonfiction = "nonfiction"
+    elif book[7] == 1:
+        fiction_nonfiction = "fiction"
+    if book[9] == 0:
+        read = "Not Read"
+    elif book[9] == 1:
+        read = "Read"
+    if shelf_id in book_shelves:
+        book_shelves[shelf_id].append({"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]})
+    else:
+        book_shelves[shelf_id] = [{"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]}]
+    
+print(book_shelves)
