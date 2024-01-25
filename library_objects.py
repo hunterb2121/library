@@ -101,7 +101,7 @@ class User:
 
     @staticmethod
     def get_user_hash_by_id(user_id):
-        query = "SELECT hash FROM users WHERE user_id = ?"
+        query = "SELECT hash FROM users WHERE id = ?"
         try:
             result = fetch_one(query, (user_id,))
             return result
@@ -285,7 +285,7 @@ class Book:
         self._user_id = new_user_id
 
     def save_book_to_database(self):
-        query = ("INSERT INTO books (title, author, pages, cover_color, publishing_house, published_date, fiction_nonfiction, genre, been_read, ISBN, added_date, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+        query = "INSERT INTO books (title, author, pages, cover_color, publishing_house, published_date, fiction_nonfiction, genre, been_read, ISBN, added_date, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         parameters = (self._title, self._author, self._pages, self._cover_color, self._publisher, self._published_date, self._fiction_nonfiction, self._genre, self._been_read, self._isbn, self._added_date, self._user_id)
 
         try:
@@ -296,7 +296,7 @@ class Book:
 
     @staticmethod
     def add_book(title, author, pages, cover_color, publisher, published_date, fiction_nonfiction, genre, been_read, isbn, added_date, user_id):
-        query = ("INSERT INTO books (title, author, pages, cover_color, publishing_house, published_date, fiction_nonfiction, genre, been_read, ISBN, added_date, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+        query = "INSERT INTO books (title, author, pages, cover_color, publishing_house, published_date, fiction_nonfiction, genre, been_read, ISBN, added_date, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         parameters = (title, author, pages, cover_color, publisher, published_date, fiction_nonfiction, genre, been_read, isbn, added_date, user_id)
 
         try:
@@ -304,6 +304,24 @@ class Book:
             print("Added book successfully")
         except Exception as e:
             print(f"Error adding book: {e}")
+
+    @staticmethod
+    def edit_book(book_id, editing, new_value, user_id):
+        query = f"UPDATE books SET {editing} = ? WHERE id = ? AND user_id = ?"
+        parameters = (new_value, book_id, user_id,)
+        try:
+            execute_query(query, parameters)
+        except Exception as e:
+            print(f"Error updating {editing} field: {e}")
+
+    @staticmethod
+    def delete_book_by_id(book_id, user_id):
+        remove_from_books_query = "DELETE FROM books WHERE id = ? AND user_id = ?"
+        remove_from_books_parameters = (book_id, user_id,)
+        try:
+            execute_query(remove_from_books_query, remove_from_books_parameters)
+        except Exception as e:
+            print(f"Error deleting book: {e}")
 
     @staticmethod
     def get_books_by_user(user_id):
@@ -324,6 +342,16 @@ class Book:
             return results
         except Exception as e:
             print(f"Error getting books: {e}")
+
+    @staticmethod
+    def get_book_id_by_title_added_date(title, added_date, user_id):
+        query = "SELECT id FROM books WHERE title = ? AND added_date = ? AND user_id = ?"
+        parameters = (title, added_date, user_id)
+        try:
+            result = fetch_one(query, parameters)
+            return result
+        except:
+            print(f"Error getting book: {e}")
 
     @staticmethod
     def search_books_by_title(title):
@@ -475,6 +503,25 @@ class Shelf:
             print(f"Error adding shelf: {e}")
 
     @staticmethod
+    def edit_shelf_number(shelf_id, new_number, user_id):
+        query = "UPDATE bookshelf SET number = ? WHERE id = ? AND user_id = ?"
+        parameters = (new_number, shelf_id, user_id,)
+
+        try:
+            execute_query(query, parameters)
+        except Exception as e:
+            print(f"Error updating shelf number: {e}")
+
+    @staticmethod
+    def remove_shelf_by_id(shelf_id, user_id):
+        query = "DELETE FROM bookshelf WHERE id = ? AND user_id = ?"
+        parameters = (shelf_id, user_id)
+        try:
+            execute_query(query, parameters)
+        except Exception as e:
+            print(f"Error removing shelf: {e}")
+
+    @staticmethod
     def get_shelf_by_user(user_id):
         query = "SELECT * FROM bookshelf WHERE user_id = ?"
         try:
@@ -501,6 +548,17 @@ class Shelf:
             return results
         except Exception as e:
             print(f"Error getting shelves: {e}")
+
+    @staticmethod
+    def get_shelf_number(shelf_id, user_id):
+        query = "SELECT number FROM bookshelf WHERE id = ? AND user_id = ?"
+        parameters = (shelf_id, user_id,)
+
+        try:
+            result = fetch_one(query, parameters)
+            return result
+        except Exception as e:
+            print(f"Error getting shelf number: {e}")
 
     @staticmethod
     def add_book_to_shelf(shelf_id, book_id, user_id):

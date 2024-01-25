@@ -1,8 +1,6 @@
-import sqlite3
-
 from database import execute_query, fetch_all, fetch_one
 from datetime import datetime
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
 from helpers import login_required, get_session_user, error
 from library_objects import Shelf, Book, User, Library
@@ -30,7 +28,7 @@ def index():
     book_shelves = dict()
     for book in user_library.get_books_in_library():
         book_id = book[0]
-        shelf_id = user_library.get_shelf_for_book(book_id, 1)[0]
+        shelf_num = Shelf.get_shelf_number(user_library.get_shelf_for_book(book_id, 1)[0])[0]
         if book[7] == 0:
             fiction_nonfiction = "nonfiction"
         elif book[7] == 1:
@@ -39,46 +37,115 @@ def index():
             read = "Not Read"
         elif book[9] == 1:
             read = "Read"
-        if shelf_id in book_shelves:
-            book_shelves[shelf_id].append({"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]})
+        if shelf_num in book_shelves:
+            book_shelves[shelf_num].append({"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]})
         else:
-            book_shelves[shelf_id] = [{"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]}]
+            book_shelves[shelf_num] = [{"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]}]
+    for shelf in user_library.get_shelves_in_library():
+        shelf_num = Shelf.get_shelf_number(shelf[0])
+        if shelf_num not in book_shelves:
+            book_shelves[shelf_num] = []
+
+    book_shelves = dict(sorted(book_shelves.items()))
     return render_template("index.html", library=book_shelves)
 
 
 @app.route("/add_book", methods=["POST"])
 @login_required
 def add_book():
+    if not request.form.get("book_title"):
+        return error("Please add book's title")
+    if not request.form.get("book_author"):
+        return error("Please add book's author")
+    if not request.form.get("pages"):
+        return error("Please add number of book's pages")
+    if not request.form.get("color"):
+        return error("Please add book's cover color")
+    if not request.form.get("publisher"):
+        return error("Please add book's publisher")
+    if not request.form.get("published_date"):
+        return error("Please add book's published date")
+    if not request.form.get("fiction_nonfiction"):
+        return error("Please add whether book is fiction or nonfiction")
+    if not request.form.get("genre"):
+        return error("Please add book's genre")
+    if not request.form.get("read_not_read"):
+        return error("Please add whether you have read the book or not")
+    if not request.form.get("isbn"):
+        return error("Please add book's ISBN")
+    
+    added_date = datetime.utcnow()
+    Book.add_book(request.form.get("book_title"), request.form.get("book_author"), request.form.get("pages"), request.form.get("color"), request.form.get("publisher"), request.form.get("published_date"), request.form.get("fiction_nonfiction"), request.form.get("genre"), request.form.get("read_not_read"), request.form.get("isbn"), added_date, session["user_id"])
+
+    Shelf.add_book_to_shelf(request.form.get("shelf_number"), Book.get_book_id_by_title_added_date(request.form.get("book_title"), added_date, session["user_id"]), session["user_id"])
+
     return redirect("/")
 
 
 @app.route("/remove_book", methods=["POST"])
 @login_required
 def remove_book():
+    Book.delete_book_by_id(request.form.get("hidden"), session["user_id"])
     return redirect("/")
 
 
 @app.route("/edit_book", methods=["POST"])
 @login_required
 def edit_book():
+    if request.form.get("book_title"):
+        Book.edit_book(request.form.get("book_id"), "title", request.form.get("book_title"), session["user_id"])
+    if request.form.get("book_author"):
+        Book.edit_book(request.form.get("book_id"), "author", request.form.get("book_author"), session["user_id"])
+    if request.form.get("pages"):
+        Book.edit_book(request.form.get("book_id"), "pages", request.form.get("pages"), session["user_id"])
+    if request.form.get("color"):
+        Book.edit_book(request.form.get("book_id"), "cover_color", request.form.get("color"), session["user_id"])
+    if request.form.get("publisher"):
+        Book.edit_book(request.form.get("book_id"), "publishing_house", request.form.get("publisher"), session["user_id"])
+    if request.form.get("published_date"):
+        Book.edit_book(request.form.get("book_id"), "published_date", request.form.get("published_date"), session["user_id"])
+    if request.form.get("fiction_nonfiction"):
+        Book.edit_book(request.form.get("book_id"), "fiction_nonfiction", request.form.get("fiction_nonfiction"), session["user_id"])
+    if request.form.get("genre"):
+        Book.edit_book(request.form.get("genre"), "title", request.form.get("genre"), session["user_id"])
+    if request.form.get("read"):
+        Book.edit_book(request.form.get("book_id"), "been_read", request.form.get("read"), session["user_id"])
+    if request.form.get("isbn"):
+        Book.edit_book(request.form.get("book_id"), "ISBN", request.form.get("isbn"), session["user_id"])
     return redirect("/")
 
 
 @app.route("/add_shelf", methods=["POST"])
 @login_required
 def add_shelf():
+    if not request.form.get("shelf_number"):
+        return error("Please enter shelf number to create new shelf")
+    
+    added_date = datetime.utcnow()
+
+    Shelf.add_shelf(request.form.get("shelf_number"), added_date, session["user_id"])
+
     return redirect("/")
 
 
 @app.route("/remove_shelf", methods=["POST"])
 @login_required
 def remove_shelf():
+    Shelf.remove_shelf_by_id(request.form.get("remove_shelf_id"))
+
     return redirect("/")
 
 
 @app.route("/edit_shelf", methods=["POST"])
 @login_required
 def edit_shelf():
+    if not request.form.get("shelf_number"):
+        return error("Please update shelf_number")
+    if Shelf.get_shelf_by_number(request.form.get("shelf_number"), session["user_id"]) is not None:
+        return error("Shelf number already exists")
+    
+    Shelf.edit_shelf_number(request.form.get("current_shelf_number"), request.form.get("shelf_number"), session["user_id"])
+
     return redirect("/")
 
 
@@ -142,7 +209,7 @@ def login():
         session["user_id"] = get_session_user(request.form.get("username_email"))
 
         # Check if password matches
-        hash = User.get_user_hash_by_id(session["user_id"])
+        hash = User.get_user_hash_by_id(session["user_id"])[0]
         if not User.compare_passwords(hash, request.form.get("password")):
             session.clear()
             return error("Password does not match password on file")
