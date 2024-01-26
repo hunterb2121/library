@@ -515,7 +515,7 @@ class Shelf:
     @staticmethod
     def remove_shelf_by_id(shelf_id, user_id):
         query = "DELETE FROM bookshelf WHERE id = ? AND user_id = ?"
-        parameters = (shelf_id, user_id)
+        parameters = (shelf_id, user_id,)
         try:
             execute_query(query, parameters)
         except Exception as e:

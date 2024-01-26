@@ -28,7 +28,7 @@ def index():
     book_shelves = dict()
     for book in user_library.get_books_in_library():
         book_id = book[0]
-        shelf_num = Shelf.get_shelf_number(user_library.get_shelf_for_book(book_id, 1)[0])[0]
+        shelf_num = Shelf.get_shelf_number(user_library.get_shelf_for_book(book_id, 1)[0], session["user_id"])[0]
         if book[7] == 0:
             fiction_nonfiction = "nonfiction"
         elif book[7] == 1:
@@ -42,10 +42,11 @@ def index():
         else:
             book_shelves[shelf_num] = [{"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]}]
     for shelf in user_library.get_shelves_in_library():
-        shelf_num = Shelf.get_shelf_number(shelf[0])
+        shelf_num = Shelf.get_shelf_number(shelf[0], session["user_id"])[0]
         if shelf_num not in book_shelves:
             book_shelves[shelf_num] = []
 
+    print(book_shelves)
     book_shelves = dict(sorted(book_shelves.items()))
     return render_template("index.html", library=book_shelves)
 
@@ -131,7 +132,7 @@ def add_shelf():
 @app.route("/remove_shelf", methods=["POST"])
 @login_required
 def remove_shelf():
-    Shelf.remove_shelf_by_id(request.form.get("remove_shelf_id"))
+    Shelf.remove_shelf_by_id(request.form.get("remove_shelf_id"), session["user_id"])
 
     return redirect("/")
 
