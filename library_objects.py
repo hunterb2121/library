@@ -1,5 +1,7 @@
-from database import execute_query, fetch_all, fetch_one
+import logging
 import re
+
+from database import execute_query, fetch_all, fetch_one
 from werkzeug.security import check_password_hash, generate_password_hash
 
 
@@ -59,72 +61,79 @@ class User:
 
         try:
             execute_query(query, parameters)
-            print("Added user successfully")
+            logging.info(f"User : {username} | {email} : created successfully")
         except Exception as e:
-            print(f"Error adding user: {e}")
+            logging.error(f"Error adding user : {username} | {email} : Exception: {e}")
 
     @staticmethod
     def get_user_by_id(user_id):
         query = "SELECT * FROM users WHERE id = ?"
         try:
             result = fetch_one(query, (user_id,))
+            logging.info(f"Got user successfully : User Info {result} : User ID {user_id}")
             return result
         except Exception as e:
-            print(f"Error getting user: {e}")
+            logging.error(f"Error getting user: {e}")
 
     @staticmethod
     def get_user_by_username(username):
         query = "SELECT * FROM users WHERE username = ?"
         try:
             result = fetch_one(query, (username,))
+            logging.info(f"Got user successfully : User Info {result} : Username {username}")
             return result
         except Exception as e:
-            print(f"Error getting user: {e}")
+            logging.error(f"Error getting user: {e}")
 
     @staticmethod
     def get_user_by_email(email):
         query = "SELECT * FROM users WHERE email = ?"
         try:
             result = fetch_one(query, (email,))
+            logging.info(f"Got user successfully : User Info {result} : Email {email}")
             return result
         except Exception as e:
-            print(f"Error getting user: {e}")
+            logging.error(f"Error getting user: {e}")
 
     @staticmethod
     def get_user_id_by_username_email(username):
         query = "SELECT id FROM users WHERE username = ? OR email = ?"
         try:
             result = fetch_one(query, (username, username,))
+            logging.info(f"Got user ID successfully : User ID {result} : Username {username}")
             return result
         except Exception as e:
-            print(f"Error getting user: {e}")
+            logging.error(f"Error getting user: {e}")
 
     @staticmethod
     def get_user_hash_by_id(user_id):
         query = "SELECT hash FROM users WHERE id = ?"
         try:
             result = fetch_one(query, (user_id,))
+            logging.info(f"Got user hash successfully : Hash {result} : User ID {user_id}")
             return result
         except Exception as e:
-            print(f"Error getting hash: {e}")
+            logging.error(f"Error getting hash: {e}")
 
     @staticmethod
     def get_user_hash_by_username(username):
         query = "SELECT hash FROM users WHERE username = ?"
         try:
             result = fetch_one(query, (username,))
+            logging.info(f"Got user hash successfully : Hash {result} : Username {username}")
             return result
         except Exception as e:
-            print(f"Error getting hash: {e}")
+            logging.error(f"Error getting hash: {e}")
 
     @staticmethod
     def get_user_hash_by_email(email):
         query = "SELECT hash FROM users WHERE email = ?"
         try:
             result = fetch_one(query, (email,))
+            logging.info(f"Got user hash successfully : Hash {result} : Email {email}")
             return result
         except Exception as e:
-            print(f"Error getting hash: {e}")
+            logging.error(f"Error getting hash: {e}")
 
     @staticmethod
     def get_hash(password):
@@ -140,17 +149,19 @@ class User:
 
         try:
             execute_query(query, parameters)
-            print("Added user successfully")
+            logging.info(f"Added user : {self._username} | {self._email} : successfully")
         except Exception as e:
-            print(f"Error adding user: {e}")
+            logging.error(f"Error adding user : {self._username} | {self._email} : {e}")
 
     # Regex from https://uibakery.io/regex-library
     @staticmethod
     def validate_email(email):
         pattern = r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" 
         if not re.match(pattern, email):
+            logging.warning(f"Email does not meet standards : Email {email}")
             return False
         else:
+            logging.info("Email validated successfully")
             return True
 
     # Regex from https://uibakery.io/regex-library
@@ -158,8 +169,10 @@ class User:
     def validate_password(password):
         pattern = r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
         if not re.match(pattern, password):
+            logging.warning(f"Password does not match standards")
             return False
         else:
+            logging.info("Password validated successfully")
             return True
 
 
@@ -290,9 +303,9 @@ class Book:
 
         try:
             execute_query(query, parameters)
-            print("Added book successfully")
+            logging.info(f"Added book : {self._title} | {self._author} : successfully")
         except Exception as e:
-            print(f"Error adding book: {e}")
+            logging.error(f"Error adding book: {self._title} | {self._author} : {e}")
 
     @staticmethod
     def add_book(title, author, pages, cover_color, publisher, published_date, fiction_nonfiction, genre, been_read, isbn, added_date, user_id):
@@ -301,9 +314,9 @@ class Book:
 
         try:
             execute_query(query, parameters)
-            print("Added book successfully")
+            logging.info(f"Added book : {title} | {author} : successfully")
         except Exception as e:
-            print(f"Error adding book: {e}")
+            logging.error(f"Error adding book: {title} | {author} : {e}")
 
     @staticmethod
     def edit_book(book_id, editing, new_value, user_id):
@@ -311,17 +324,19 @@ class Book:
         parameters = (new_value, book_id, user_id,)
         try:
             execute_query(query, parameters)
+            logging.info(f"Updated book successfully : Book ID {book_id} : Editing {editing} : New Value {new_value} : User ID {user_id}")
         except Exception as e:
-            print(f"Error updating {editing} field: {e}")
+            logging.error(f"Error updating {editing} field: {e}")
 
     @staticmethod
     def delete_book_by_id(book_id, user_id):
         remove_from_books_query = "DELETE FROM books WHERE id = ? AND user_id = ?"
-        remove_from_books_parameters = (book_id, user_id,)
+        remove_from_books_parameters = (book_id[0], user_id,)
         try:
             execute_query(remove_from_books_query, remove_from_books_parameters)
+            logging.info(f"Deleted book successfully : Book ID {book_id} : User ID {user_id}")
         except Exception as e:
-            print(f"Error deleting book: {e}")
+            logging.error(f"Error deleting book: {e} | Issue with either {book_id} or {user_id}")
 
     @staticmethod
     def get_books_by_user(user_id):
@@ -329,9 +344,10 @@ class Book:
 
         try:
             results = fetch_all(query, (user_id,))
+            logging.info(f"Successfully got books : Books {results} : User ID {user_id}")
             return results
         except Exception as e:
-            print(f"Error getting books: {e}")
+            logging.error(f"Error getting books: {e}")
     
     @staticmethod
     def get_books_by_id(book_id):
@@ -339,9 +355,10 @@ class Book:
 
         try:
             results = fetch_one(query, (book_id,))
+            logging.info(f"Successfully got books : Book {results} : Book ID {book_id}")
             return results
         except Exception as e:
-            print(f"Error getting books: {e}")
+            logging.error(f"Error getting books: {e}")
 
     @staticmethod
     def get_book_id_by_title_added_date(title, added_date, user_id):
@@ -349,9 +366,10 @@ class Book:
         parameters = (title, added_date, user_id)
         try:
             result = fetch_one(query, parameters)
+            logging.info(f"Successfully got book : Title {title} : Added Date {added_date} : User ID {user_id}")
             return result
-        except:
-            print(f"Error getting book: {e}")
+        except Exception as e:
+            logging.warning(f"Error getting book: {title} : {e}")
 
     @staticmethod
     def search_books_by_title(title):
@@ -360,9 +378,10 @@ class Book:
 
         try:
             results = fetch_all(query, parameters)
+            logging.info(f"Successfully searching books by title : Results {results} : Title Search {title}")
             return results
         except Exception as e:
-            print("Error searching books: {e}")
+            logging.warning(f"Error searching books by title: {e}")
 
     @staticmethod
     def search_books_by_genre(genre):
@@ -371,9 +390,10 @@ class Book:
 
         try:
             results = fetch_all(query, parameters)
+            logging.info(f"Successfully searching books by genre : Results {results} : Genre Search {genre}")
             return results
         except Exception as e:
-            print("Error searching books: {e}")
+            logging.warning(f"Error searching books by genre: {e}")
 
     @staticmethod
     def search_books_by_author(author):
@@ -382,9 +402,10 @@ class Book:
 
         try:
             results = fetch_all(query, parameters)
+            logging.info(f"Successfully searching books by author : Results {results} : Author Search {author}")
             return results
         except Exception as e:
-            print("Error searching books: {e}")
+            logging.warning(f"Error searching books by author: {e}")
 
     @staticmethod
     def search_books_by_color(cover_color):
@@ -393,9 +414,10 @@ class Book:
 
         try:
             results = fetch_all(query, parameters)
+            logging.info(f"Successfully searching books by cover color : Results {results} : Color Search {cover_color}")
             return results
         except Exception as e:
-            print("Error searching books: {e}")
+            logging.warning(f"Error searching books: {e}")
 
     @staticmethod
     def sort_books(user_id, sort_by, ascending=True):
@@ -405,9 +427,10 @@ class Book:
 
         try:
             results = fetch_all(query, parameters)
+            logging.info(f"Successfully got sorted books : Results {results} : User ID {user_id} : Sorting by {sort_by} : Ascending? {ascending}")
             return results
         except Exception as e:
-            print(f"Error sorting books: {e}")
+            logging.error(f"Error sorting books: {e}")
 
     @staticmethod
     def move_to_shelf(title, user_id, added_date, current_shelf, new_shelf):
@@ -419,27 +442,34 @@ class Book:
         new_shelf_parameters = (new_shelf, user_id,)
         try:
             get_book = fetch_one(book_query, book_parameters)
+            logging.info(f"Successfully got book to move : Book {get_book}")
         except Exception as e:
-            print(f"Error fetching book: {e}")
+            logging.error(f"Error fetching book to move: {e}")
         try:
             get_current_shelf = fetch_one(current_shelf_query, current_shelf_parameters)
+            logging.info(f"Successfully got current shelf : Current Shelf {get_current_shelf}")
         except Exception as e:
-            print(f"Error fetching current shelf: {e}")
+            logging.error(f"Error fetching current shelf: {e}")
         try:
             get_new_shelf = fetch_one(new_shelf_query, new_shelf_parameters)
+            logging.info(f"Successfully got shelf to move book to : New Shelf {get_new_shelf}")
         except Exception as e:
-            print(f"Error fetching new shelf: {e}")
+            logging.error(f"Error fetching new shelf: {e}")
 
         book_id = get_book[0]
+        logging.info(f"Book ID {book_id}")
         origin_shelf_id = get_current_shelf[0]
+        logging.info(f"Current Shelf {origin_shelf_id}")
         destination_shelf_id = get_new_shelf[0]
+        logging.info(f"New Shelf {destination_shelf_id}")
 
         move_query = "UPDATE books_shelf SET bookshelf_id = ? WHERE books_id = ? AND bookshelf_id = ? AND user_id = ?"
         move_parameters = (destination_shelf_id, book_id, origin_shelf_id, user_id,)
         try:
             execute_query(move_query, move_parameters)
+            logging.info(f"Successfully moved book from old shelf to new shelf")
         except Exception as e:
-            print(f"Error moving book to new shelf: {e}")
+            logging.error(f"Error moving book to new shelf: {e}")
 
 
 # Shelf Object
@@ -489,8 +519,9 @@ class Shelf:
 
         try:
             execute_query(query, parameters)
+            logging.info(f"Successfully saved shelf to database : Shelf Number {self._shelf_number} : Added Date {self._added_date} : User ID {self._user_id}")
         except Exception as e:
-            print(f"Error adding shelf: {e}")
+            logging.error(f"Error adding shelf: {e}")
 
     @staticmethod
     def add_shelf(number, added_date, user_id):
@@ -499,8 +530,9 @@ class Shelf:
 
         try:
             execute_query(query, parameters)
+            logging.info(f"Successfully saved shelf to database : Shelf Number {number} : Added Date {added_date} : User ID {user_id}")
         except Exception as e:
-            print(f"Error adding shelf: {e}")
+            logging.error(f"Error adding shelf: {e}")
 
     @staticmethod
     def edit_shelf_number(shelf_id, new_number, user_id):
@@ -509,8 +541,9 @@ class Shelf:
 
         try:
             execute_query(query, parameters)
+            logging.info(f"Successfully edited shelf number : Shelf ID {shelf_id} : New Number {new_number} : User ID {user_id}")
         except Exception as e:
-            print(f"Error updating shelf number: {e}")
+            logging.warning(f"Error updating shelf number: {e}")
 
     @staticmethod
     def remove_shelf_by_id(shelf_id, user_id):
@@ -518,26 +551,29 @@ class Shelf:
         parameters = (shelf_id, user_id,)
         try:
             execute_query(query, parameters)
+            logging.info(f"Successfully deleted shelf : shelf ID {shelf_id} : User ID {user_id}")
         except Exception as e:
-            print(f"Error removing shelf: {e}")
+            logging.error(f"Error removing shelf: {e}")
 
     @staticmethod
     def get_shelf_by_user(user_id):
         query = "SELECT * FROM bookshelf WHERE user_id = ?"
         try:
             results = fetch_all(query, (user_id,))
+            logging.info(f"Successfully got shelves : Results {results} : User ID {user_id}")
             return results
         except Exception as e:
-            print(f"Error getting shelves: {e}")
+            logging.error(f"Error getting shelves: {e}")
 
     @staticmethod
     def get_shelf_by_id(shelf_id):
         query = "SELECT * FROM bookshelf WHERE id = ?"
         try:
-            results = fetch_all(query, (shelf_id,))
+            results = fetch_one(query, (shelf_id,))
+            logging.info(f"Successfully got shelf : Results {results} : Shelf ID {shelf_id}")
             return results
         except Exception as e:
-            print(f"Error getting shelves: {e}")
+            logging.error(f"Error getting shelves: {e}")
 
     @staticmethod
     def get_shelf_by_number(shelf_num, user_id):
@@ -545,9 +581,10 @@ class Shelf:
         parameters = (shelf_num, user_id,)
         try:
             results = fetch_one(query, parameters)
+            logging.info(f"Successfully got shelf : Results {results} : Shelf Number {shelf_num} : User ID {user_id}")
             return results
         except Exception as e:
-            print(f"Error getting shelves: {e}")
+            logging.error(f"Error getting shelves: {e}")
 
     @staticmethod
     def get_shelf_number(shelf_id, user_id):
@@ -556,9 +593,10 @@ class Shelf:
 
         try:
             result = fetch_one(query, parameters)
+            logging.info(f"Successfully got shelf number : Result {result} : Shelf ID {shelf_id} : User ID {user_id}")
             return result
         except Exception as e:
-            print(f"Error getting shelf number: {e}")
+            logging.error(f"Error getting shelf number: {e}")
 
     @staticmethod
     def add_book_to_shelf(shelf_id, book_id, user_id):
@@ -566,8 +604,9 @@ class Shelf:
         parameters = (shelf_id, book_id, user_id,)
         try:
             execute_query(query, parameters)
+            logging.info(f"Successfully added book to shelf : Shelf ID {shelf_id} : Book ID {book_id} : User ID {user_id}")
         except Exception as e:
-            print(f"Error adding book to shelf: {e}")
+            logging.error(f"Error adding book to shelf: {e}")
 
     @staticmethod
     def remove_book_from_shelf(shelf_id, book_id, user_id):
@@ -575,8 +614,9 @@ class Shelf:
         parameters = (shelf_id, book_id, user_id,)
         try:
             execute_query(query, parameters)
+            logging.info(f"Successfully removed book from shelf : Shelf ID {shelf_id} : Book ID {book_id} : User ID {user_id}")
         except Exception as e:
-            print(f"Error removing book from shelf: {e}")
+            logging.error(f"Error removing book from shelf: {e}")
 
 
 # Class for holding dictionaries for shelf objects and book objects
@@ -584,6 +624,22 @@ class Library:
     def __init__(self):
         self._shelves = []
         self._books = []
+
+    @property
+    def shelves(self):
+        return self._shelves
+    
+    @shelves.setter
+    def shelves(self, new_shelves):
+        self._shelves = new_shelves
+
+    @property
+    def books(self):
+        return self._books
+    
+    @books.setter
+    def books(self, new_books):
+        self._books = new_books
 
     def add_book_to_library(self, book):
         self._books.append(book)
@@ -610,9 +666,10 @@ class Library:
         parameters = (book_id, user_id,)
         try:
             result = fetch_one(query, parameters)
+            logging.info(f"Successfully got shelf for book : Result {result} : Book ID {book_id} : User ID {user_id}")
             return result
         except Exception as e:
-            print(f"Error getting shelf: {e}")
+            logging.error(f"Error getting shelf: {e}")
 
     # Get a list of books that are on a shelf in books_shelf
     @staticmethod
@@ -621,6 +678,7 @@ class Library:
         parameters = (shelf_id, user_id,)
         try:
             results = fetch_all(query, parameters)
+            logging.info(f"Successfully got books on shelf : Results {results} : Shelf ID {shelf_id} : User ID {user_id}")
             return results
         except Exception as e:
-            print(f"Error getting books: {e}")
+            logging.error(f"Error getting books: {e}")

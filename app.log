@@ -1,0 +1,259 @@
+2024-01-26 13:23:41,728 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-26 13:23:41,729 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-26 13:23:45,647 INFO root : Successfully got shelves
+2024-01-26 13:23:45,648 INFO root : Successfully got books
+2024-01-26 13:23:45,649 INFO root : Successfully got shelf for book
+2024-01-26 13:23:45,651 INFO root : Successfully got shelf number
+2024-01-26 13:23:45,652 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported
+2024-01-26 13:23:45,653 INFO root : Successfully got shelf for book
+2024-01-26 13:23:45,654 INFO root : Successfully got shelf number
+2024-01-26 13:23:45,655 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported
+2024-01-26 13:23:45,656 INFO root : Successfully got shelf number
+2024-01-26 13:23:45,687 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:23:45] "GET / HTTP/1.1" 200 -
+2024-01-26 13:23:45,749 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:23:45] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 13:23:45,750 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:23:45] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 13:23:47,617 INFO root : Successfully deleted shelf
+2024-01-26 13:23:47,620 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:23:47] "[32mPOST /remove_shelf HTTP/1.1[0m" 302 -
+2024-01-26 13:23:47,626 INFO root : Successfully got shelves
+2024-01-26 13:23:47,628 INFO root : Successfully got books
+2024-01-26 13:23:47,629 INFO root : Successfully got shelf for book
+2024-01-26 13:23:47,630 INFO root : Successfully got shelf number
+2024-01-26 13:23:47,632 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported
+2024-01-26 13:23:47,632 INFO root : Successfully got shelf for book
+2024-01-26 13:23:47,633 INFO root : Successfully got shelf number
+2024-01-26 13:23:47,634 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported
+2024-01-26 13:23:47,635 INFO root : Successfully got shelf number
+2024-01-26 13:23:47,638 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:23:47] "GET / HTTP/1.1" 200 -
+2024-01-26 13:23:47,685 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:23:47] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 13:23:47,686 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:23:47] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 13:38:13,663 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-26 13:38:13,664 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-26 13:38:17,567 INFO root : Successfully got shelves
+2024-01-26 13:38:17,569 INFO root : Successfully got books
+2024-01-26 13:38:17,570 INFO root : Successfully got shelf for book
+2024-01-26 13:38:17,571 INFO root : Successfully got shelf number
+2024-01-26 13:38:17,572 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (2,) or 1
+2024-01-26 13:38:17,573 INFO root : Successfully got shelf for book
+2024-01-26 13:38:17,574 INFO root : Successfully got shelf number
+2024-01-26 13:38:17,574 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (1,) or 1
+2024-01-26 13:38:17,575 INFO root : Successfully got shelf number
+2024-01-26 13:38:17,604 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:38:17] "GET / HTTP/1.1" 200 -
+2024-01-26 13:38:17,662 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:38:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 13:38:17,663 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:38:17] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 13:38:18,953 INFO root : Successfully deleted shelf
+2024-01-26 13:38:18,956 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:38:18] "[32mPOST /remove_shelf HTTP/1.1[0m" 302 -
+2024-01-26 13:38:18,966 INFO root : Successfully got shelves
+2024-01-26 13:38:18,968 INFO root : Successfully got books
+2024-01-26 13:38:18,969 INFO root : Successfully got shelf for book
+2024-01-26 13:38:18,970 INFO root : Successfully got shelf number
+2024-01-26 13:38:18,970 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (2,) or 1
+2024-01-26 13:38:18,972 INFO root : Successfully got shelf for book
+2024-01-26 13:38:18,973 INFO root : Successfully got shelf number
+2024-01-26 13:38:18,973 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (1,) or 1
+2024-01-26 13:38:18,974 INFO root : Successfully got shelf number
+2024-01-26 13:38:18,977 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:38:18] "GET / HTTP/1.1" 200 -
+2024-01-26 13:38:19,037 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:38:19] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 13:38:19,051 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:38:19] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 13:39:05,518 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-26 13:39:05,518 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-26 13:39:07,324 INFO root : Successfully got shelves
+2024-01-26 13:39:07,326 INFO root : Successfully got books
+2024-01-26 13:39:07,327 INFO root : Successfully got shelf for book
+2024-01-26 13:39:07,328 INFO root : Successfully got shelf number
+2024-01-26 13:39:07,329 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (2,) or 1
+2024-01-26 13:39:07,330 INFO root : Successfully got shelf for book
+2024-01-26 13:39:07,332 INFO root : Successfully got shelf number
+2024-01-26 13:39:07,333 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (1,) or 1
+2024-01-26 13:39:07,334 INFO root : Successfully got shelf number
+2024-01-26 13:39:07,369 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:07] "GET / HTTP/1.1" 200 -
+2024-01-26 13:39:07,419 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 13:39:07,420 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:07] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 13:39:08,522 INFO root : Successfully deleted shelf
+2024-01-26 13:39:08,525 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:08] "[32mPOST /remove_shelf HTTP/1.1[0m" 302 -
+2024-01-26 13:39:08,531 INFO root : Successfully got shelves
+2024-01-26 13:39:08,532 INFO root : Successfully got books
+2024-01-26 13:39:08,534 INFO root : Successfully got shelf for book
+2024-01-26 13:39:08,535 INFO root : Successfully got shelf number
+2024-01-26 13:39:08,537 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (2,) or 1
+2024-01-26 13:39:08,538 INFO root : Successfully got shelf for book
+2024-01-26 13:39:08,539 INFO root : Successfully got shelf number
+2024-01-26 13:39:08,540 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (1,) or 1
+2024-01-26 13:39:08,541 INFO root : Successfully got shelf number
+2024-01-26 13:39:08,544 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:08] "GET / HTTP/1.1" 200 -
+2024-01-26 13:39:08,586 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:08] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 13:39:08,588 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:08] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 13:39:41,115 INFO root : Successfully got shelves
+2024-01-26 13:39:41,117 INFO root : Successfully got books
+2024-01-26 13:39:41,118 INFO root : Successfully got shelf for book
+2024-01-26 13:39:41,120 INFO root : Successfully got shelf number
+2024-01-26 13:39:41,121 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (2,) or 1
+2024-01-26 13:39:41,122 INFO root : Successfully got shelf for book
+2024-01-26 13:39:41,123 INFO root : Successfully got shelf number
+2024-01-26 13:39:41,123 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (1,) or 1
+2024-01-26 13:39:41,124 INFO root : Successfully got shelf number
+2024-01-26 13:39:41,127 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:41] "GET / HTTP/1.1" 200 -
+2024-01-26 13:39:41,173 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:41] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 13:39:41,173 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:41] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 13:39:42,212 INFO root : Successfully deleted shelf
+2024-01-26 13:39:42,215 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:42] "[32mPOST /remove_shelf HTTP/1.1[0m" 302 -
+2024-01-26 13:39:42,222 INFO root : Successfully got shelves
+2024-01-26 13:39:42,225 INFO root : Successfully got books
+2024-01-26 13:39:42,228 INFO root : Successfully got shelf for book
+2024-01-26 13:39:42,229 INFO root : Successfully got shelf number
+2024-01-26 13:39:42,230 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (2,) or 1
+2024-01-26 13:39:42,232 INFO root : Successfully got shelf for book
+2024-01-26 13:39:42,234 INFO root : Successfully got shelf number
+2024-01-26 13:39:42,235 ERROR root : Error deleting book: Error binding parameter 1: type 'tuple' is not supported | Issue with either (1,) or 1
+2024-01-26 13:39:42,236 INFO root : Successfully got shelf number
+2024-01-26 13:39:42,238 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:42] "GET / HTTP/1.1" 200 -
+2024-01-26 13:39:42,285 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:42] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 13:39:42,286 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:39:42] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 13:40:01,215 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-26 13:40:01,215 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-26 13:40:04,068 INFO root : Successfully got shelves
+2024-01-26 13:40:04,070 INFO root : Successfully got books
+2024-01-26 13:40:04,071 INFO root : Successfully got shelf for book
+2024-01-26 13:40:04,073 INFO root : Successfully got shelf number
+2024-01-26 13:40:04,081 INFO root : Deleted book successfully
+2024-01-26 13:40:04,085 INFO root : Successfully got shelf for book
+2024-01-26 13:40:04,086 INFO root : Successfully got shelf number
+2024-01-26 13:40:04,093 INFO root : Deleted book successfully
+2024-01-26 13:40:04,096 INFO root : Successfully got shelf number
+2024-01-26 13:40:04,127 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:40:04] "GET / HTTP/1.1" 200 -
+2024-01-26 13:40:04,174 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:40:04] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 13:40:04,175 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:40:04] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 13:40:05,221 INFO root : Successfully deleted shelf
+2024-01-26 13:40:05,224 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:40:05] "[32mPOST /remove_shelf HTTP/1.1[0m" 302 -
+2024-01-26 13:40:05,234 INFO root : Successfully got shelves
+2024-01-26 13:40:05,235 INFO root : Successfully got books
+2024-01-26 13:40:05,235 ERROR app : Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hunterbarnes/Desktop/library/helpers.py", line 12, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/hunterbarnes/Desktop/library/app.py", line 28, in index
+    for book in user_books:
+TypeError: 'NoneType' object is not iterable
+2024-01-26 13:40:05,246 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 13:40:05] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-01-26 14:31:15,678 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-26 14:31:15,679 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-26 14:31:21,046 INFO root : Successfully got shelves
+2024-01-26 14:31:21,047 INFO root : Successfully got books
+2024-01-26 14:31:21,047 ERROR app : Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hunterbarnes/Desktop/library/helpers.py", line 12, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/hunterbarnes/Desktop/library/app.py", line 34, in index
+    user_library.books()
+TypeError: 'list' object is not callable
+2024-01-26 14:31:21,057 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:31:21] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-01-26 14:31:24,975 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:31:24] "GET /login HTTP/1.1" 200 -
+2024-01-26 14:31:26,841 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:31:26] "GET /login HTTP/1.1" 200 -
+2024-01-26 14:31:31,750 INFO root : Got user successfully
+2024-01-26 14:31:31,756 INFO root : Got user hash successfully
+2024-01-26 14:31:31,905 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:31:31] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-01-26 14:31:31,910 INFO root : Successfully got shelves
+2024-01-26 14:31:31,911 INFO root : Successfully got books
+2024-01-26 14:31:31,911 ERROR app : Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hunterbarnes/Desktop/library/helpers.py", line 12, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/hunterbarnes/Desktop/library/app.py", line 34, in index
+    user_library.books()
+TypeError: 'list' object is not callable
+2024-01-26 14:31:31,914 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:31:31] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-01-26 14:32:20,471 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-26 14:32:20,471 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-26 14:32:23,902 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:32:23] "GET /login HTTP/1.1" 200 -
+2024-01-26 14:32:28,733 INFO root : Got user successfully
+2024-01-26 14:32:28,736 INFO root : Got user hash successfully
+2024-01-26 14:32:28,869 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:32:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-01-26 14:32:28,874 INFO root : Successfully got shelves
+2024-01-26 14:32:28,874 INFO root : Successfully got books
+2024-01-26 14:32:28,875 INFO root : Successfully got shelf number
+2024-01-26 14:32:28,890 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:32:28] "GET / HTTP/1.1" 200 -
+2024-01-26 14:32:28,948 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:32:28] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 14:32:28,949 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:32:28] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 14:32:38,376 INFO root : Successfully deleted shelf
+2024-01-26 14:32:38,379 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:32:38] "[32mPOST /remove_shelf HTTP/1.1[0m" 302 -
+2024-01-26 14:32:38,384 INFO root : Successfully got shelves
+2024-01-26 14:32:38,390 INFO root : Successfully got books
+2024-01-26 14:32:38,391 INFO root : Successfully got shelf number
+2024-01-26 14:32:38,395 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:32:38] "GET / HTTP/1.1" 200 -
+2024-01-26 14:32:38,448 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:32:38] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 14:32:38,449 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 14:32:38] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 22:54:31,998 INFO root : Successfully got shelves
+2024-01-26 22:54:32,002 INFO root : Successfully got books
+2024-01-26 22:54:32,005 INFO root : Successfully got shelf number
+2024-01-26 22:54:32,020 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:54:32] "GET / HTTP/1.1" 200 -
+2024-01-26 22:54:32,058 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:54:32] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 22:54:32,062 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:54:32] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 22:54:33,695 INFO root : Successfully deleted shelf
+2024-01-26 22:54:33,699 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:54:33] "[32mPOST /remove_shelf HTTP/1.1[0m" 302 -
+2024-01-26 22:54:33,707 INFO root : Successfully got shelves
+2024-01-26 22:54:33,709 INFO root : Successfully got books
+2024-01-26 22:54:33,711 INFO root : Successfully got shelf number
+2024-01-26 22:54:33,714 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:54:33] "GET / HTTP/1.1" 200 -
+2024-01-26 22:54:33,759 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:54:33] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 22:54:33,760 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:54:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 22:55:49,310 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-26 22:55:49,310 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-26 22:55:55,071 INFO root : Successfully got shelves
+2024-01-26 22:55:55,073 INFO root : Successfully got books
+2024-01-26 22:55:55,073 INFO root : Successfully got shelf number
+2024-01-26 22:55:55,114 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:55:55] "GET / HTTP/1.1" 200 -
+2024-01-26 22:55:55,271 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:55:55] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-26 22:55:55,272 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:55:55] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 22:55:56,617 INFO root : Successfully deleted shelf : shelf ID 1
+2024-01-26 22:55:56,621 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:55:56] "[32mPOST /remove_shelf HTTP/1.1[0m" 302 -
+2024-01-26 22:55:56,629 INFO root : Successfully got shelves
+2024-01-26 22:55:56,630 INFO root : Successfully got books
+2024-01-26 22:55:56,631 INFO root : Successfully got shelf number
+2024-01-26 22:55:56,632 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:55:56] "GET / HTTP/1.1" 200 -
+2024-01-26 22:55:56,679 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:55:56] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-26 22:55:56,680 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:55:56] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -

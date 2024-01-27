@@ -1,3 +1,5 @@
+import logging
+
 from database import execute_query, fetch_all, fetch_one
 from datetime import datetime
 from flask import Flask, redirect, render_template, request, session
@@ -6,9 +8,12 @@ from helpers import login_required, get_session_user, error
 from library_objects import Shelf, Book, User, Library
 
 
+logging.basicConfig(filename='app.log', encoding="utf-8", level=logging.DEBUG, format="%(asctime)s %(levelname)s %(name)s : %(message)s")
 app = Flask(__name__)
 app.config.from_pyfile("config.py")
 Session(app)
+
+app.logger.setLevel(logging.DEBUG)
 
 
 @app.route("/")
@@ -18,17 +23,29 @@ def index():
     user_shelves = Shelf.get_shelf_by_user(session["user_id"])
     user_books = Book.get_books_by_user(session["user_id"])
 
-    for shelf in user_shelves:
-        user_library.add_shelf_to_library(shelf)
-    for book in user_books:
-        user_library.add_book_to_library(book)
+    book_shelves = dict()
+    if user_shelves is not None:
+        for shelf in user_shelves:
+            user_library.add_shelf_to_library(shelf)
+
+    if user_books is not None:
+        for book in user_books:
+            user_library.add_book_to_library(book)
 
     # Show all books that are on each shelf and display in index.html with a dictionary called library
     # library = {shelf_number: {book_id, title, author, color, publisher, fiction_nonfiction, genre, read, isbn}}
     book_shelves = dict()
     for book in user_library.get_books_in_library():
         book_id = book[0]
-        shelf_num = Shelf.get_shelf_number(user_library.get_shelf_for_book(book_id, 1)[0], session["user_id"])[0]
+        shelf_id = user_library.get_shelf_for_book(book_id, session["user_id"])
+        if shelf_id is None:
+            Book.delete_book_by_id(book_id, session["user_id"])
+            continue
+        shelf_num = Shelf.get_shelf_number(shelf_id[0], session["user_id"])
+        if shelf_num is None:
+            Book.delete_book_by_id(shelf_id, session["user_id"])
+            continue
+        shelf_num = shelf_num[0]
         if book[7] == 0:
             fiction_nonfiction = "nonfiction"
         elif book[7] == 1:
@@ -86,7 +103,7 @@ def add_book():
 @app.route("/remove_book", methods=["POST"])
 @login_required
 def remove_book():
-    Book.delete_book_by_id(request.form.get("hidden"), session["user_id"])
+    Book.delete_book_by_id(request.form.get("hidden")[0], session["user_id"])
     return redirect("/")
 
 
@@ -132,7 +149,10 @@ def add_shelf():
 @app.route("/remove_shelf", methods=["POST"])
 @login_required
 def remove_shelf():
-    Shelf.remove_shelf_by_id(request.form.get("remove_shelf_id"), session["user_id"])
+    try:
+        Shelf.remove_shelf_by_id(int(request.form.get("remove_shelf_id")), session["user_id"])
+    except Exception as e:
+        print(f"Error removing shelf: {e}")
 
     return redirect("/")
 
@@ -251,3 +271,7 @@ def edit_email():
 @login_required
 def edit_password():
     ...
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
