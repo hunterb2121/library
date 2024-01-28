@@ -257,3 +257,163 @@ TypeError: 'list' object is not callable
 2024-01-26 22:55:56,632 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:55:56] "GET / HTTP/1.1" 200 -
 2024-01-26 22:55:56,679 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:55:56] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
 2024-01-26 22:55:56,680 INFO werkzeug : 127.0.0.1 - - [26/Jan/2024 22:55:56] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-27 23:42:42,594 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-27 23:42:42,595 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-27 23:42:43,201 INFO root : User Library : <library_objects.Library object at 0x10c746f50>
+2024-01-27 23:42:43,204 INFO root : Successfully got shelves : Results [(3, 1, '2024-01-26 17:16:25.220110', 1)] : User ID 1
+2024-01-27 23:42:43,204 INFO root : User Shelves : [(3, 1, '2024-01-26 17:16:25.220110', 1)]
+2024-01-27 23:42:43,205 INFO root : Successfully got books : Books None : User ID 1
+2024-01-27 23:42:43,206 INFO root : User Books : None
+2024-01-27 23:42:43,206 INFO root : Book Shelves : {}
+2024-01-27 23:42:43,206 INFO root : User Shevles is not None
+2024-01-27 23:42:43,206 INFO root : Shelf : (3, 1, '2024-01-26 17:16:25.220110', 1)
+2024-01-27 23:42:43,206 INFO root : User Library : <library_objects.Library object at 0x10c746f50>
+2024-01-27 23:42:43,208 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 3 : User ID 1
+2024-01-27 23:42:43,208 INFO root : Shelf Number : 1
+2024-01-27 23:42:43,208 INFO root : Shelf Num : 1 : not in book_shelves
+2024-01-27 23:42:43,208 INFO root : Final Book Shelves : {1: []}
+2024-01-27 23:42:43,208 INFO root : Sorted Book Shelves : {1: []}
+2024-01-27 23:42:43,245 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:42:43] "GET / HTTP/1.1" 200 -
+2024-01-27 23:42:43,331 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:42:43] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-27 23:42:43,332 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:42:43] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-27 23:44:12,032 INFO root : Successfully deleted shelf : shelf ID 1 : User ID 1
+2024-01-27 23:44:12,037 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:44:12] "[32mPOST /remove_shelf HTTP/1.1[0m" 302 -
+2024-01-27 23:44:12,048 INFO root : User Library : <library_objects.Library object at 0x10c7a3190>
+2024-01-27 23:44:12,051 INFO root : Successfully got shelves : Results [(3, 1, '2024-01-26 17:16:25.220110', 1)] : User ID 1
+2024-01-27 23:44:12,051 INFO root : User Shelves : [(3, 1, '2024-01-26 17:16:25.220110', 1)]
+2024-01-27 23:44:12,053 INFO root : Successfully got books : Books None : User ID 1
+2024-01-27 23:44:12,053 INFO root : User Books : None
+2024-01-27 23:44:12,053 INFO root : Book Shelves : {}
+2024-01-27 23:44:12,053 INFO root : User Shevles is not None
+2024-01-27 23:44:12,054 INFO root : Shelf : (3, 1, '2024-01-26 17:16:25.220110', 1)
+2024-01-27 23:44:12,054 INFO root : User Library : <library_objects.Library object at 0x10c7a3190>
+2024-01-27 23:44:12,055 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 3 : User ID 1
+2024-01-27 23:44:12,055 INFO root : Shelf Number : 1
+2024-01-27 23:44:12,055 INFO root : Shelf Num : 1 : not in book_shelves
+2024-01-27 23:44:12,055 INFO root : Final Book Shelves : {1: []}
+2024-01-27 23:44:12,055 INFO root : Sorted Book Shelves : {1: []}
+2024-01-27 23:44:12,059 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:44:12] "GET / HTTP/1.1" 200 -
+2024-01-27 23:44:12,162 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:44:12] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-27 23:44:12,168 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:44:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-27 23:48:07,958 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-27 23:48:07,958 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-27 23:48:09,094 INFO root : User Library : <library_objects.Library object at 0x102f22ed0>
+2024-01-27 23:48:09,096 INFO root : Successfully got shelves : Results [(3, 1, '2024-01-26 17:16:25.220110', 1)] : User ID 1
+2024-01-27 23:48:09,096 INFO root : User Shelves : [(3, 1, '2024-01-26 17:16:25.220110', 1)]
+2024-01-27 23:48:09,099 INFO root : Successfully got books : Books None : User ID 1
+2024-01-27 23:48:09,099 INFO root : User Books : None
+2024-01-27 23:48:09,099 INFO root : Book Shelves : {}
+2024-01-27 23:48:09,099 INFO root : User Shevles is not None
+2024-01-27 23:48:09,099 INFO root : Shelf : (3, 1, '2024-01-26 17:16:25.220110', 1)
+2024-01-27 23:48:09,100 INFO root : User Library : <library_objects.Library object at 0x102f22ed0>
+2024-01-27 23:48:09,103 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 3 : User ID 1
+2024-01-27 23:48:09,104 INFO root : Shelf Number : 1
+2024-01-27 23:48:09,104 INFO root : Shelf Num : 1 : not in book_shelves
+2024-01-27 23:48:09,104 INFO root : Final Book Shelves : {1: []}
+2024-01-27 23:48:09,104 INFO root : Sorted Book Shelves : {1: []}
+2024-01-27 23:48:09,142 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:09] "GET / HTTP/1.1" 200 -
+2024-01-27 23:48:09,206 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:09] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-27 23:48:09,207 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-27 23:48:10,355 INFO root : Successfully deleted shelf : Shelf Number 1 : User ID 1
+2024-01-27 23:48:10,359 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:10] "[32mPOST /remove_shelf HTTP/1.1[0m" 302 -
+2024-01-27 23:48:10,367 INFO root : User Library : <library_objects.Library object at 0x102f3c410>
+2024-01-27 23:48:10,369 INFO root : Successfully got shelves : Results None : User ID 1
+2024-01-27 23:48:10,369 INFO root : User Shelves : None
+2024-01-27 23:48:10,370 INFO root : Successfully got books : Books None : User ID 1
+2024-01-27 23:48:10,371 INFO root : User Books : None
+2024-01-27 23:48:10,371 INFO root : Book Shelves : {}
+2024-01-27 23:48:10,371 INFO root : Final Book Shelves : {}
+2024-01-27 23:48:10,371 INFO root : Sorted Book Shelves : {}
+2024-01-27 23:48:10,376 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:10] "GET / HTTP/1.1" 200 -
+2024-01-27 23:48:10,434 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:10] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-27 23:48:10,444 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:10] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-27 23:48:14,045 INFO root : Successfully got shelf : Results None : Shelf Number 1 : User ID 1
+2024-01-27 23:48:14,045 INFO root : Current DateTime : 2024-01-28 07:48:14.045452
+2024-01-27 23:48:14,051 INFO root : Successfully saved shelf to database : Shelf Number 1 : Added Date 2024-01-28 07:48:14.045452 : User ID 1
+2024-01-27 23:48:14,056 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:14] "[32mPOST /add_shelf HTTP/1.1[0m" 302 -
+2024-01-27 23:48:14,063 INFO root : User Library : <library_objects.Library object at 0x102ecc150>
+2024-01-27 23:48:14,067 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1)] : User ID 1
+2024-01-27 23:48:14,067 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1)]
+2024-01-27 23:48:14,068 INFO root : Successfully got books : Books None : User ID 1
+2024-01-27 23:48:14,068 INFO root : User Books : None
+2024-01-27 23:48:14,068 INFO root : Book Shelves : {}
+2024-01-27 23:48:14,068 INFO root : User Shevles is not None
+2024-01-27 23:48:14,068 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-27 23:48:14,068 INFO root : User Library : <library_objects.Library object at 0x102ecc150>
+2024-01-27 23:48:14,069 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-27 23:48:14,069 INFO root : Shelf Number : 1
+2024-01-27 23:48:14,069 INFO root : Shelf Num : 1 : not in book_shelves
+2024-01-27 23:48:14,069 INFO root : Final Book Shelves : {1: []}
+2024-01-27 23:48:14,069 INFO root : Sorted Book Shelves : {1: []}
+2024-01-27 23:48:14,075 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:14] "GET / HTTP/1.1" 200 -
+2024-01-27 23:48:14,122 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-27 23:48:14,122 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:14] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-27 23:48:16,941 INFO root : Successfully got shelf : Results (5, 1, '2024-01-28 07:48:14.045452', 1) : Shelf Number 1 : User ID 1
+2024-01-27 23:48:16,941 ERROR root : Shelf Number Already Exists
+2024-01-27 23:48:16,949 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:16] "POST /add_shelf HTTP/1.1" 200 -
+2024-01-27 23:48:21,540 INFO root : Successfully got shelf : Results None : Shelf Number 2 : User ID 1
+2024-01-27 23:48:21,540 INFO root : Current DateTime : 2024-01-28 07:48:21.540366
+2024-01-27 23:48:21,545 INFO root : Successfully saved shelf to database : Shelf Number 2 : Added Date 2024-01-28 07:48:21.540366 : User ID 1
+2024-01-27 23:48:21,547 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:21] "[32mPOST /add_shelf HTTP/1.1[0m" 302 -
+2024-01-27 23:48:21,552 INFO root : User Library : <library_objects.Library object at 0x102f3e110>
+2024-01-27 23:48:21,555 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1), (6, 2, '2024-01-28 07:48:21.540366', 1)] : User ID 1
+2024-01-27 23:48:21,555 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1), (6, 2, '2024-01-28 07:48:21.540366', 1)]
+2024-01-27 23:48:21,556 INFO root : Successfully got books : Books None : User ID 1
+2024-01-27 23:48:21,556 INFO root : User Books : None
+2024-01-27 23:48:21,556 INFO root : Book Shelves : {}
+2024-01-27 23:48:21,556 INFO root : User Shevles is not None
+2024-01-27 23:48:21,556 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-27 23:48:21,556 INFO root : Shelf : (6, 2, '2024-01-28 07:48:21.540366', 1)
+2024-01-27 23:48:21,557 INFO root : User Library : <library_objects.Library object at 0x102f3e110>
+2024-01-27 23:48:21,557 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-27 23:48:21,557 INFO root : Shelf Number : 1
+2024-01-27 23:48:21,557 INFO root : Shelf Num : 1 : not in book_shelves
+2024-01-27 23:48:21,558 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 6 : User ID 1
+2024-01-27 23:48:21,558 INFO root : Shelf Number : 2
+2024-01-27 23:48:21,558 INFO root : Shelf Num : 2 : not in book_shelves
+2024-01-27 23:48:21,558 INFO root : Final Book Shelves : {1: [], 2: []}
+2024-01-27 23:48:21,559 INFO root : Sorted Book Shelves : {1: [], 2: []}
+2024-01-27 23:48:21,561 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:21] "GET / HTTP/1.1" 200 -
+2024-01-27 23:48:21,601 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-27 23:48:21,602 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:21] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-27 23:48:29,549 INFO root : Successfully deleted shelf : Shelf Number 2 : User ID 1
+2024-01-27 23:48:29,552 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:29] "[32mPOST /remove_shelf HTTP/1.1[0m" 302 -
+2024-01-27 23:48:29,559 INFO root : User Library : <library_objects.Library object at 0x102f3ce90>
+2024-01-27 23:48:29,563 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1)] : User ID 1
+2024-01-27 23:48:29,563 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1)]
+2024-01-27 23:48:29,564 INFO root : Successfully got books : Books None : User ID 1
+2024-01-27 23:48:29,564 INFO root : User Books : None
+2024-01-27 23:48:29,564 INFO root : Book Shelves : {}
+2024-01-27 23:48:29,564 INFO root : User Shevles is not None
+2024-01-27 23:48:29,564 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-27 23:48:29,564 INFO root : User Library : <library_objects.Library object at 0x102f3ce90>
+2024-01-27 23:48:29,565 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-27 23:48:29,566 INFO root : Shelf Number : 1
+2024-01-27 23:48:29,566 INFO root : Shelf Num : 1 : not in book_shelves
+2024-01-27 23:48:29,566 INFO root : Final Book Shelves : {1: []}
+2024-01-27 23:48:29,566 INFO root : Sorted Book Shelves : {1: []}
+2024-01-27 23:48:29,569 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:29] "GET / HTTP/1.1" 200 -
+2024-01-27 23:48:29,620 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:29] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-27 23:48:29,620 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-27 23:48:33,859 INFO root : Successfully got shelf : Results None : Shelf Number 2 : User ID 1
+2024-01-27 23:48:33,861 INFO root : Successfully edited shelf number : Shelf ID 1 : New Number 2 : User ID 1
+2024-01-27 23:48:33,865 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:33] "[32mPOST /edit_shelf HTTP/1.1[0m" 302 -
+2024-01-27 23:48:33,873 INFO root : User Library : <library_objects.Library object at 0x102f5a910>
+2024-01-27 23:48:33,874 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1)] : User ID 1
+2024-01-27 23:48:33,874 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1)]
+2024-01-27 23:48:33,875 INFO root : Successfully got books : Books None : User ID 1
+2024-01-27 23:48:33,876 INFO root : User Books : None
+2024-01-27 23:48:33,876 INFO root : Book Shelves : {}
+2024-01-27 23:48:33,876 INFO root : User Shevles is not None
+2024-01-27 23:48:33,876 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-27 23:48:33,876 INFO root : User Library : <library_objects.Library object at 0x102f5a910>
+2024-01-27 23:48:33,878 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-27 23:48:33,878 INFO root : Shelf Number : 1
+2024-01-27 23:48:33,878 INFO root : Shelf Num : 1 : not in book_shelves
+2024-01-27 23:48:33,878 INFO root : Final Book Shelves : {1: []}
+2024-01-27 23:48:33,878 INFO root : Sorted Book Shelves : {1: []}
+2024-01-27 23:48:33,881 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:33] "GET / HTTP/1.1" 200 -
+2024-01-27 23:48:33,949 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-27 23:48:33,952 INFO werkzeug : 127.0.0.1 - - [27/Jan/2024 23:48:33] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -

@@ -553,7 +553,17 @@ class Shelf:
             execute_query(query, parameters)
             logging.info(f"Successfully deleted shelf : shelf ID {shelf_id} : User ID {user_id}")
         except Exception as e:
-            logging.error(f"Error removing shelf: {e}")
+            logging.error(f"Error removing shelf ID {shelf_id}: {e}")
+
+    @staticmethod
+    def remove_shelf_by_num(shelf_num, user_id):
+        query = "DELETE FROM bookshelf WHERE number = ? AND user_id = ?"
+        parameters = (shelf_num, user_id,)
+        try:
+            execute_query(query, parameters)
+            logging.info(f"Successfully deleted shelf : Shelf Number {shelf_num} : User ID {user_id}")
+        except Exception as e:
+            logging.error(f"Error removing shelf number {shelf_num} : {e}")
 
     @staticmethod
     def get_shelf_by_user(user_id):
