@@ -128,7 +128,7 @@ def add_book():
     logging.info(f"Current DateTime : {added_date}")
     Book.add_book(request.form.get("book_title"), request.form.get("book_author"), request.form.get("pages"), request.form.get("color"), request.form.get("publisher"), request.form.get("published_date"), request.form.get("fiction_nonfiction"), request.form.get("genre"), request.form.get("read_not_read"), request.form.get("isbn"), added_date, session["user_id"])
 
-    Shelf.add_book_to_shelf(request.form.get("shelf_number"), Book.get_book_id_by_title_added_date(request.form.get("book_title"), added_date, session["user_id"]), session["user_id"])
+    Shelf.add_book_to_shelf_by_num(request.form.get("shelf_number"), Book.get_book_id_by_title_added_date(request.form.get("book_title"), added_date, session["user_id"]), session["user_id"])
 
     return redirect("/")
 

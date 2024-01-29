@@ -331,7 +331,7 @@ class Book:
     @staticmethod
     def delete_book_by_id(book_id, user_id):
         remove_from_books_query = "DELETE FROM books WHERE id = ? AND user_id = ?"
-        remove_from_books_parameters = (book_id[0], user_id,)
+        remove_from_books_parameters = (book_id, user_id,)
         try:
             execute_query(remove_from_books_query, remove_from_books_parameters)
             logging.info(f"Deleted book successfully : Book ID {book_id} : User ID {user_id}")
@@ -609,7 +609,7 @@ class Shelf:
             logging.error(f"Error getting shelf number: {e}")
 
     @staticmethod
-    def add_book_to_shelf(shelf_id, book_id, user_id):
+    def add_book_to_shelf_by_id(shelf_id, book_id, user_id):
         query = "INSERT INTO books_shelf (bookshelf_id, books_id, user_id) VALUES (?, ?, ?)"
         parameters = (shelf_id, book_id, user_id,)
         try:
@@ -617,6 +617,24 @@ class Shelf:
             logging.info(f"Successfully added book to shelf : Shelf ID {shelf_id} : Book ID {book_id} : User ID {user_id}")
         except Exception as e:
             logging.error(f"Error adding book to shelf: {e}")
+
+    @staticmethod
+    def add_book_to_shelf_by_num(shelf_num, book_id, user_id):
+        get_shelf_id_num_query = "SELECT id FROM bookshelf WHERE shelf_num = ? AND user_id = ?"
+        get_shelf_id_num_parameters = (shelf_num, user_id,)
+        try:
+            shelf_id = fetch_one(get_shelf_id_num_query, get_shelf_id_num_parameters)
+            shelf_id = shelf_id[0]
+            logging.info(f"Got shelf ID {shelf_id} from shelf number {shelf_num}")
+            add_book_shelf_query = "INSERT INTO books_shelf (bookshelf_id, books_id, user_id) VALUES (?, ?, ?)"
+            add_book_shelf_parameters = (shelf_id, book_id, user_id)
+            try:
+                execute_query(add_book_shelf_query, add_book_shelf_parameters)
+                logging.info(f"Added book ID {book_id} to shelf ID {shelf_id} by shelf number {shelf_num}")
+            except Exception as e:
+                logging.error(f"Cannot add book ID {book_id} to shelf ID {shelf_id} by shelf num {shelf_num} : {e}")
+        except Exception as e:
+            logging.error(f"Cannot get shelf ID from Number : {e}")
 
     @staticmethod
     def remove_book_from_shelf(shelf_id, book_id, user_id):

@@ -2,11 +2,20 @@
     display: none;
 }
 
+.shelf_container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: "shelf";
+    gap: 2rem;
+}
+
 .shelf {
     width: 100%;
     margin-bottom: 2rem;
     padding: .5rem;
     background-color: brown;
+    grid-area: shelf;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
