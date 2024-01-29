@@ -16,7 +16,6 @@
                 <div class="books_shelf">
                     {% for book in books %}
                         <div class="book">
-                            <p>{{ book }}</p>
                             {% if book.title is not none %}
                                 <p>{{ book.title }}</p>
                             {% endif %}

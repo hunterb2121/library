@@ -33,9 +33,13 @@
 .books_shelf {
     grid-area: book_area;
 }
-/*
+
 .book {
-    width: 20%;
+    width: 15%;
+    display: inline-block;
     background-color: lightblue;
 }
-*/
+
+.book p {
+    text-align: center;
+}
