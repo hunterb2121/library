@@ -61,6 +61,8 @@ def index():
             continue
         shelf_num = shelf_num[0]
         logging.info(f"Shelf Num : {shelf_num}")
+        fiction_nonfiction = ""
+        read = ""
         if book[7] == 0:
             fiction_nonfiction = "nonfiction"
         elif book[7] == 1:
@@ -71,11 +73,11 @@ def index():
             read = "Read"
         if shelf_num in book_shelves:
             logging.info(f"Shelf Num : {shelf_num} : in book_shelves : {book_shelves}")
-            book_shelves[shelf_num].append({"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]})
+            book_shelves[shelf_num].append({"book_id": book[0], "title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]})
             logging.info(f"Successfully Added Book to Shelf : {book_shelves}")
         else:
             logging.info(f"Shelf Num : {shelf_num} : not in book_shelves : {book_shelves}")
-            book_shelves[shelf_num] = [{"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]}]
+            book_shelves[shelf_num] = [{"book_id": book[0], "title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]}]
             logging.info(f"Successfully Created Shelf and Added Book to Shelf : {book_shelves}")
     for shelf in user_library.get_shelves_in_library():
         shelf_num = Shelf.get_shelf_number(shelf[0], session["user_id"])[0]
@@ -93,6 +95,7 @@ def index():
 @app.route("/add_book", methods=["POST"])
 @login_required
 def add_book():
+    logging.info("==============================/nAdding Book/n==============================")
     if not request.form.get("book_title"):
         logging.error(f"Error : Book Title Not Entered")
         return error("Please add book's title")
@@ -126,9 +129,10 @@ def add_book():
     
     added_date = datetime.utcnow()
     logging.info(f"Current DateTime : {added_date}")
+    logging.info(f"Adding Book from Form")
     Book.add_book(request.form.get("book_title"), request.form.get("book_author"), request.form.get("pages"), request.form.get("color"), request.form.get("publisher"), request.form.get("published_date"), request.form.get("fiction_nonfiction"), request.form.get("genre"), request.form.get("read_not_read"), request.form.get("isbn"), added_date, session["user_id"])
 
-    Shelf.add_book_to_shelf_by_num(request.form.get("shelf_number"), Book.get_book_id_by_title_added_date(request.form.get("book_title"), added_date, session["user_id"]), session["user_id"])
+    Shelf.add_book_to_shelf_by_num(request.form.get("shelf_number"), Book.get_book_id_by_title_added_date(request.form.get("book_title"), added_date, session["user_id"])[0], session["user_id"])
 
     return redirect("/")
 
@@ -136,13 +140,17 @@ def add_book():
 @app.route("/remove_book", methods=["POST"])
 @login_required
 def remove_book():
-    Book.delete_book_by_id(request.form.get("hidden")[0], session["user_id"])
+    logging.info("==============================/nRemoving Book/n==============================")
+    logging.info(f"Hidden Book ID {request.form.get('book_id')}")
+    Book.delete_book_by_id(request.form.get("book_id"), session["user_id"])
     return redirect("/")
 
 
 @app.route("/edit_book", methods=["POST"])
 @login_required
 def edit_book():
+    logging.info("==============================/nEditing Book/n==============================")
+    logging.info(f"Hidden Book ID {request.form.get('book_id')}")
     if request.form.get("book_title"):
         logging.info("Editing Book Title")
         Book.edit_book(request.form.get("book_id"), "title", request.form.get("book_title"), session["user_id"])
@@ -179,6 +187,7 @@ def edit_book():
 @app.route("/add_shelf", methods=["POST"])
 @login_required
 def add_shelf():
+    logging.info("==============================/nAdding Shelf/n==============================")
     if not request.form.get("shelf_number"):
         logging.error(f"Error : Shelf Number Not Entered")
         return error("Please enter shelf number to create new shelf")
@@ -197,6 +206,7 @@ def add_shelf():
 @app.route("/remove_shelf", methods=["POST"])
 @login_required
 def remove_shelf():
+    logging.info("==============================/nRemoving Shelf/n==============================")
     Shelf.remove_shelf_by_num(int(request.form.get("remove_shelf_id")), session["user_id"])
     return redirect("/")
 
@@ -204,6 +214,7 @@ def remove_shelf():
 @app.route("/edit_shelf", methods=["POST"])
 @login_required
 def edit_shelf():
+    logging.info("==============================/nEditing Shelf/n==============================")
     if not request.form.get("shelf_number"):
         logging.error("New Shelf Number Not Entered")
         return error("Please update shelf_number")
@@ -220,6 +231,7 @@ def edit_shelf():
 def register():
     # Check if request is POST
     if request.method == "POST":
+        logging.info("==============================/nRegistering User/n==============================")
         # Check if form is filled out before submitting
         if not request.form.get("username"):
             logging.error("No Username Entered")
@@ -273,6 +285,7 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
+        logging.info("==============================/nLogging In User/n==============================")
         # Check for username and password fields being filled out
         if not request.form.get("username_email"):
             logging.error("Username or Email was not Entered")

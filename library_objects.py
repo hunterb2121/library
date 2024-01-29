@@ -620,7 +620,7 @@ class Shelf:
 
     @staticmethod
     def add_book_to_shelf_by_num(shelf_num, book_id, user_id):
-        get_shelf_id_num_query = "SELECT id FROM bookshelf WHERE shelf_num = ? AND user_id = ?"
+        get_shelf_id_num_query = "SELECT id FROM bookshelf WHERE number = ? AND user_id = ?"
         get_shelf_id_num_parameters = (shelf_num, user_id,)
         try:
             shelf_id = fetch_one(get_shelf_id_num_query, get_shelf_id_num_parameters)

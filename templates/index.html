@@ -16,6 +16,7 @@
                 <div class="books_shelf">
                     {% for book in books %}
                         <div class="book">
+                            <p>{{ book }}</p>
                             {% if book.title is not none %}
                                 <p>{{ book.title }}</p>
                             {% endif %}
@@ -42,16 +43,16 @@
                             {% endif %}
                             {% if book.title is not none %}
                                 <form action="/remove_book" method="post">
-                                    <input name="remove_book" type="hidden" value="{{ book.id }}">
+                                    <input name="book_id" type="hidden" value="{{ book.book_id }}">
                                     <button type="submit"><i class="fa-solid fa-trash"></i></button>
                                 </form>
                                 <div class="hidden_form">
                                     <button class="hidden_button"><i class="fa-solid fa-pen-to-square"></i></button>
                                     <form action="/edit_book" method="post" class="edit_book hidden">
                                         <p>Edit Book</p>
-                                        <input name="book_id" type="hidden" value="{{ book.id }}">
-                                        <label for="book_title_{{ id }}">Book Title</label>
-                                        <input autofill="off" id="book_title_{{ id }}" name="book_title" placeholder="Title" type="text">
+                                        <input name="book_id" type="hidden" value="{{ book.book_id }}">
+                                        <label for="book_title_{{ book_id }}">Book Title</label>
+                                        <input autofill="off" id="book_title_{{ book_id }}" name="book_title" placeholder="Title" type="text">
                                         <label for="book_author">Author</label>
                                         <input autofill="off" name="book_author" placeholder="Author" type="text">
                                         <label for="pages">Number of Pages</label>
@@ -64,16 +65,16 @@
                                         <input autofill="off" name="published_date" placeholder="Published Date" type="date">
                                         <p>Fiction or Non-Fiction</p>
                                         <label for="fiction">Fiction</label>
-                                        <input id="fiction" name="fiction_nonfiction" type="radio" value="fiction">
+                                        <input id="fiction" name="fiction_nonfiction" type="radio" value="1">
                                         <label for="nonfiction">Non-Fiction</label>
-                                        <input id="nonfiction" name="fiction_nonfiction" type="radio" value="nonfiction">
+                                        <input id="nonfiction" name="fiction_nonfiction" type="radio" value="0">
                                         <label for="genre">Genre</label>
                                         <input autofill="off"name="genre" placeholder="Genre" type="text">
                                         <p>Read or Not Read</p>
                                         <label for="read">Read</label>
-                                        <input id="read" name="read_not_read" type="radio" value="read">
+                                        <input id="read" name="read_not_read" type="radio" value="1">
                                         <label id="not_read">Not Read</label>
-                                        <input id="not_read" name="read_not_read" type="radio" value="not_read">
+                                        <input id="not_read" name="read_not_read" type="radio" value="0">
                                         <label for="isbn">ISBN</label>
                                         <input autofill="off" name="isbn" placeholder="ISBN" type="number">
                                         <button type="submit">Add Book</button>
@@ -102,16 +103,16 @@
                         <input autofill="off" name="published_date" placeholder="Published Date" type="date">
                         <p>Fiction or Non-Fiction</p>
                         <label for="fiction">Fiction</label>
-                        <input id="fiction" name="fiction_nonfiction" type="radio" value="fiction">
+                        <input id="fiction" name="fiction_nonfiction" type="radio" value="1">
                         <label for="nonfiction">Non-Fiction</label>
-                        <input id="nonfiction" name="fiction_nonfiction" type="radio" value="nonfiction">
+                        <input id="nonfiction" name="fiction_nonfiction" type="radio" value="0">
                         <label for="genre">Genre</label>
                         <input autofill="off"name="genre" placeholder="Genre" type="text">
                         <p>Read or Not Read</p>
                         <label for="read">Read</label>
-                        <input id="read" name="read_not_read" type="radio" value="read">
+                        <input id="read" name="read_not_read" type="radio" value="1">
                         <label id="not_read">Not Read</label>
-                        <input id="not_read" name="read_not_read" type="radio" value="not_read">
+                        <input id="not_read" name="read_not_read" type="radio" value="0">
                         <label for="isbn">ISBN</label>
                         <input autofill="off" name="isbn" placeholder="ISBN" type="number">
                         <button type="submit">Add Book</button>
