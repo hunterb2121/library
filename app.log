@@ -2328,3 +2328,7 @@ TypeError: 'NoneType' object is not subscriptable
 2024-01-29 13:43:11,744 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 13:43:11] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
 2024-01-29 13:43:11,745 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 13:43:11] "GET /static/styles.css HTTP/1.1" 200 -
 2024-01-29 13:43:11,749 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 13:43:11] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-29 14:00:40,670 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 14:00:40] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 14:00:40,673 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 14:00:40] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-29 14:03:19,947 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 14:03:19] "GET /account HTTP/1.1" 200 -
+2024-01-29 14:03:20,015 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 14:03:20] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -

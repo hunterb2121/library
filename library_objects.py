@@ -134,6 +134,36 @@ class User:
             return result
         except Exception as e:
             logging.error(f"Error getting hash: {e}")
+    
+    @staticmethod
+    def update_username(current_username, new_username, user_id):
+        query = "UPDATE users SET username = ? WHERE username = ? AND id = ?"
+        parameters = (new_username, current_username, user_id,)
+        try:
+            execute_query(query, parameters)
+            logging.info(f"Successfully updated username from {current_username} to {new_username}")
+        except Exception as e:
+            logging.error(f"Issue updating username from {current_username} to {new_username} : {e}")
+
+    @staticmethod
+    def update_email(current_email, new_email, user_id):
+        query = "UPDATE users SET email = ? WHERE email = ? AND id = ?"
+        parameters = (new_email, current_email, user_id,)
+        try: 
+            execute_query(query, parameters)
+            logging.info(f"Successfully updated email from {current_email} to {new_email}")
+        except Exception as e:
+            logging.error(f"Issue updating email from {current_email} to {new_email} : {e}")
+
+    @staticmethod
+    def update_password(current_hash, new_hash, user_id):
+        query = "UPDATE users SET hash = ? WHERE hash = ? AND id = ?"
+        parameters = (new_hash, current_hash, user_id,)
+        try:
+            execute_query(query, parameters)
+            logging.info(f"Successfully updated hash from {current_hash} to {new_hash}")
+        except Exception as e:
+            logging.error(f"Issue updating hash from {current_hash} to {new_hash} : {e}")
 
     @staticmethod
     def get_hash(password):

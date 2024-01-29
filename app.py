@@ -330,22 +330,61 @@ def account():
     return render_template("account.html")
 
 
-@app.route("/edit_username", methods=["GET", "POST"])
+@app.route("/edit_username", methods=["POST"])
 @login_required
 def edit_username():
-    ...
+    logging.info("==============================/nUpdating Username/n==============================")
+    if not request.form.get("current_username"):
+        logging.error("Current Username not entered")
+        return error("Please enter current username to update username")
+    if not request.form.get("new_username"):
+        logging.error("New username not entered")
+        return error("Please enter new username to update username")
+    if User.get_user_by_username(request.form.get("new_username")) is not None:
+        logging.error("Username already exists")
+        return error("New username already exists")
+    
+    User.update_username(request.form.get("current_username"), request.form.get("new_username"), session["user_id"])
+    return redirect("/account")
 
 
 @app.route("/edit_email", methods=["GET", "POST"])
 @login_required
 def edit_email():
-    ...
+    logging.info("==============================/nUpdating Email/n==============================")
+    if not request.form.get("current_email"):
+        logging.error("Current Email not entered")
+        return error("Please enter current email to update email")
+    if not request.form.get("new_email"):
+        logging.error("New email not entered")
+        return error("Please enter new email to update email")
+    if User.get_user_by_email(request.form.get("new_email")) is not None:
+        logging.error("Email already exists")
+        return error("New email already exists")
+    
+    User.update_username(request.form.get("current_email"), request.form.get("new_email"), session["user_id"])
+    return redirect("/account")
 
 
 @app.route("/edit_password", methods=["GET", "POST"])
 @login_required
 def edit_password():
-    ...
+    logging.info("==============================/nUpdating Password/n==============================")
+    if not request.form.get("current_password"):
+        logging.error("Current Password not entered")
+        return error("Please enter current password to update password")
+    if not request.form.get("new_password"):
+        logging.error("New password not entered")
+        return error("Please enter new password to update password")
+    if not request.form.get("verify_password"):
+        logging.error("Verification of new password not entered")
+        return error("Please verify new password to update password")
+    if User.get_user_by_(request.form.get("new_username")) is not None:
+        logging.error("Username already exists")
+        return error("New username already exists")
+    
+    User.update_username(request.form.get("current_username"), request.form.get("new_username"), session["user_id"])
+    return redirect("/account")
 
 
 if __name__ == "__main__":
