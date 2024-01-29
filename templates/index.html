@@ -1,7 +1,7 @@
 {% extends "layouts.html" %}
 
 {% block styles %}
-    <link href="../static/styles.css" rel="stylesheet">
+<link href="../static/styles.css" rel="stylesheet">
 {% endblock %}
 
 {% block title %}
@@ -82,8 +82,8 @@
                                 </div>
                             {% endif %}
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
                 <div class="hidden_form add_book_container">
                     <button class="hidden_button"><i class="fa-solid fa-plus"></i></button>
                     <form action="/add_book" method="post" class="add_book hidden">

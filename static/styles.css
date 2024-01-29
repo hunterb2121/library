@@ -1,21 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
 .hidden {
     display: none;
 }
 
-.shelf_container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-areas: "shelf";
-    gap: 2rem;
-}
-
 .shelf {
-    width: 100%;
+    width: 100vw;
     margin-bottom: 2rem;
     padding: .5rem;
     background-color: brown;
-    grid-area: shelf;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
@@ -38,8 +33,9 @@
 .books_shelf {
     grid-area: book_area;
 }
-
+/*
 .book {
     width: 20%;
     background-color: lightblue;
 }
+*/
