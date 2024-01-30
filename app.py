@@ -379,11 +379,17 @@ def edit_password():
     if not request.form.get("verify_password"):
         logging.error("Verification of new password not entered")
         return error("Please verify new password to update password")
-    if User.get_user_by_(request.form.get("new_username")) is not None:
-        logging.error("Username already exists")
-        return error("New username already exists")
     
-    User.update_username(request.form.get("current_username"), request.form.get("new_username"), session["user_id"])
+    current_hash = User.get_user_hash_by_id(session["user_id"])[0]
+    if not User.compare_passwords(current_hash, request.form.get("current_password")):
+        logging.error(f"Current Hash {current_hash} does not match entered current password")
+        return error("Entered current password does not match password on file")
+    new_hash = User.get_hash(request.form.get("new_password"))
+    if not User.compare_passwords(new_hash, request.form.get("verify_password")):
+        logging.error("New password and verification password do not match")
+        return error("Verification password must match new password")
+    
+    User.update_password(current_hash, new_hash, session["user_id"])
     return redirect("/account")
 
 
