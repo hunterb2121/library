@@ -32,12 +32,13 @@
 
 .books_shelf {
     grid-area: book_area;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .book {
     width: 15%;
     display: inline-block;
-    background-color: lightblue;
 }
 
 .book p {

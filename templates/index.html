@@ -15,7 +15,7 @@
                 <h2>{{ id }}</h2>
                 <div class="books_shelf">
                     {% for book in books %}
-                        <div class="book">
+                        <div class="book" data-color="{{ book.color }}">
                             {% if book.title is not none %}
                                 <p>{{ book.title }}</p>
                             {% endif %}
@@ -57,23 +57,23 @@
                                         <label for="pages">Number of Pages</label>
                                         <input autofill="off" name="pages" placeholder="Pages" type="number">
                                         <label for="color">Color</label>
-                                        <input autofill="off" name="color" placeholder="color" type="text">
+                                        <input class="form-control form-control-color" name="color" title="Choose your color" type="color" value="#563d7c">
                                         <label for="publisher">Publishing House</label>
-                                        <input autofill="off" name="publisher" placeholder="publisher" type="text">
+                                        <input autofill="off" name="publisher" placeholder="Publisher" type="text">
                                         <label for="published_date">Published Date</label>
                                         <input autofill="off" name="published_date" placeholder="Published Date" type="date">
                                         <p>Fiction or Non-Fiction</p>
-                                        <label for="fiction">Fiction</label>
                                         <input id="fiction" name="fiction_nonfiction" type="radio" value="1">
-                                        <label for="nonfiction">Non-Fiction</label>
+                                        <label for="fiction">Fiction</label>
                                         <input id="nonfiction" name="fiction_nonfiction" type="radio" value="0">
+                                        <label for="nonfiction">Non-Fiction</label>
                                         <label for="genre">Genre</label>
                                         <input autofill="off"name="genre" placeholder="Genre" type="text">
                                         <p>Read or Not Read</p>
-                                        <label for="read">Read</label>
                                         <input id="read" name="read_not_read" type="radio" value="1">
-                                        <label id="not_read">Not Read</label>
+                                        <label for="read">Read</label>
                                         <input id="not_read" name="read_not_read" type="radio" value="0">
+                                        <label id="not_read">Not Read</label>
                                         <label for="isbn">ISBN</label>
                                         <input autofill="off" name="isbn" placeholder="ISBN" type="number">
                                         <button type="submit">Add Book</button>
@@ -95,23 +95,23 @@
                         <label for="pages">Number of Pages</label>
                         <input autofill="off" name="pages" placeholder="Pages" type="number">
                         <label for="color">Color</label>
-                        <input autofill="off" name="color" placeholder="color" type="text">
+                        <input class="form-control form-control-color" name="color" title="Choose your color" type="color" value="#563d7c">
                         <label for="publisher">Publishing House</label>
-                        <input autofill="off" name="publisher" placeholder="publisher" type="text">
+                        <input autofill="off" name="publisher" placeholder="Publisher" type="text">
                         <label for="published_date">Published Date</label>
                         <input autofill="off" name="published_date" placeholder="Published Date" type="date">
                         <p>Fiction or Non-Fiction</p>
-                        <label for="fiction">Fiction</label>
                         <input id="fiction" name="fiction_nonfiction" type="radio" value="1">
-                        <label for="nonfiction">Non-Fiction</label>
+                        <label for="fiction">Fiction</label>
                         <input id="nonfiction" name="fiction_nonfiction" type="radio" value="0">
+                        <label for="nonfiction">Non-Fiction</label>
                         <label for="genre">Genre</label>
                         <input autofill="off"name="genre" placeholder="Genre" type="text">
                         <p>Read or Not Read</p>
-                        <label for="read">Read</label>
                         <input id="read" name="read_not_read" type="radio" value="1">
-                        <label id="not_read">Not Read</label>
+                        <label for="read">Read</label>
                         <input id="not_read" name="read_not_read" type="radio" value="0">
+                        <label id="not_read">Not Read</label>
                         <label for="isbn">ISBN</label>
                         <input autofill="off" name="isbn" placeholder="ISBN" type="number">
                         <button type="submit">Add Book</button>
@@ -149,4 +149,5 @@
 
 {% block script %}
     <script src="../static/show_forms.js"></script>
+    <script src="../static/change_book_color.js"></script>
 {% endblock %}

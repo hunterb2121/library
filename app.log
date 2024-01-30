@@ -2332,3 +2332,474 @@ TypeError: 'NoneType' object is not subscriptable
 2024-01-29 14:00:40,673 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 14:00:40] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
 2024-01-29 14:03:19,947 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 14:03:19] "GET /account HTTP/1.1" 200 -
 2024-01-29 14:03:20,015 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 14:03:20] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 16:58:30,271 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-29 16:58:30,273 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-29 16:59:13,281 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-29 16:59:13,281 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-29 16:59:17,958 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:17] "[32mGET / HTTP/1.1[0m" 302 -
+2024-01-29 16:59:17,968 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:17] "GET /login HTTP/1.1" 200 -
+2024-01-29 16:59:18,067 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:18] "GET /static/normalize.css HTTP/1.1" 200 -
+2024-01-29 16:59:18,385 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-01-29 16:59:23,946 INFO root : ==============================/nLogging In User/n==============================
+2024-01-29 16:59:23,950 INFO root : Got user successfully : User Info (1, 'test', 'test@test.com', 'scrypt:32768:8:1$04k3M4tUhzPiZISo$6bcc55c27e8f3c1cfe0d3b0b5eea078cbb3a502dc2ab1ec858296a759ba248e46786496d023edaa3d4debcdeedc4fa52d3f5f8f7fd60cd6c07624910bfb94cc7', '2024-01-25 18:05:11.852901') : Username test
+2024-01-29 16:59:23,952 INFO root : User ID : 1
+2024-01-29 16:59:23,953 INFO root : Got user hash successfully : Hash ('scrypt:32768:8:1$04k3M4tUhzPiZISo$6bcc55c27e8f3c1cfe0d3b0b5eea078cbb3a502dc2ab1ec858296a759ba248e46786496d023edaa3d4debcdeedc4fa52d3f5f8f7fd60cd6c07624910bfb94cc7',) : User ID 1
+2024-01-29 16:59:24,039 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:24] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-01-29 16:59:24,063 INFO root : User Library : <library_objects.Library object at 0x7f70ee8faf50>
+2024-01-29 16:59:24,063 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)] : User ID 1
+2024-01-29 16:59:24,063 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)]
+2024-01-29 16:59:24,063 INFO root : Successfully got books : Books [(14, 'book2', 'Author', 512, 'Red', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, 'Red', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)] : User ID 1
+2024-01-29 16:59:24,063 INFO root : User Books : [(14, 'book2', 'Author', 512, 'Red', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, 'Red', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)]
+2024-01-29 16:59:24,063 INFO root : Book Shelves : {}
+2024-01-29 16:59:24,063 INFO root : User Shevles is not None
+2024-01-29 16:59:24,063 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-29 16:59:24,063 INFO root : Shelf : (11, 2, '2024-01-29 19:36:48.597459', 1)
+2024-01-29 16:59:24,063 INFO root : User Library : <library_objects.Library object at 0x7f70ee8faf50>
+2024-01-29 16:59:24,063 INFO root : User Books is not None
+2024-01-29 16:59:24,064 INFO root : Book : (14, 'book2', 'Author', 512, 'Red', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1)
+2024-01-29 16:59:24,064 INFO root : Book : (16, 'book3', 'Author2', 623, 'Red', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)
+2024-01-29 16:59:24,064 INFO root : User Library : <library_objects.Library object at 0x7f70ee8faf50>
+2024-01-29 16:59:24,064 INFO root : Book ID : 14
+2024-01-29 16:59:24,064 INFO root : Successfully got shelf for book : Result (5,) : Book ID 14 : User ID 1
+2024-01-29 16:59:24,064 INFO root : Shelf ID : (5,)
+2024-01-29 16:59:24,064 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 16:59:24,064 INFO root : Shelf Number : (1,)
+2024-01-29 16:59:24,064 INFO root : Shelf Num : 1
+2024-01-29 16:59:24,064 INFO root : Shelf Num : 1 : not in book_shelves : {}
+2024-01-29 16:59:24,064 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'Red', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 16:59:24,064 INFO root : Book ID : 16
+2024-01-29 16:59:24,064 INFO root : Successfully got shelf for book : Result (11,) : Book ID 16 : User ID 1
+2024-01-29 16:59:24,064 INFO root : Shelf ID : (11,)
+2024-01-29 16:59:24,064 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 16:59:24,064 INFO root : Shelf Number : (2,)
+2024-01-29 16:59:24,065 INFO root : Shelf Num : 2
+2024-01-29 16:59:24,065 INFO root : Shelf Num : 2 : not in book_shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'Red', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 16:59:24,065 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'Red', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': 'Red', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 16:59:24,065 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 16:59:24,065 INFO root : Shelf Number : 1
+2024-01-29 16:59:24,065 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 16:59:24,065 INFO root : Shelf Number : 2
+2024-01-29 16:59:24,065 INFO root : Final Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'Red', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': 'Red', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 16:59:24,065 INFO root : Sorted Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'Red', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': 'Red', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 16:59:24,070 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:24] "GET / HTTP/1.1" 200 -
+2024-01-29 16:59:24,098 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:24] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 16:59:24,104 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:24] "GET /static/show_forms.js HTTP/1.1" 200 -
+2024-01-29 16:59:24,108 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:24] "GET /static/styles.css HTTP/1.1" 200 -
+2024-01-29 16:59:24,110 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:24] "GET /static/change_book_color.js HTTP/1.1" 200 -
+2024-01-29 16:59:44,151 INFO root : ==============================/nEditing Book/n==============================
+2024-01-29 16:59:44,151 INFO root : Hidden Book ID 14
+2024-01-29 16:59:44,151 INFO root : Editing Book Cover Color
+2024-01-29 16:59:44,160 INFO root : Updated book successfully : Book ID 14 : Editing cover_color : New Value blue : User ID 1
+2024-01-29 16:59:44,160 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:44] "[32mPOST /edit_book HTTP/1.1[0m" 302 -
+2024-01-29 16:59:44,162 INFO root : User Library : <library_objects.Library object at 0x7f70ee8faad0>
+2024-01-29 16:59:44,162 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)] : User ID 1
+2024-01-29 16:59:44,162 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)]
+2024-01-29 16:59:44,163 INFO root : Successfully got books : Books [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, 'Red', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)] : User ID 1
+2024-01-29 16:59:44,163 INFO root : User Books : [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, 'Red', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)]
+2024-01-29 16:59:44,163 INFO root : Book Shelves : {}
+2024-01-29 16:59:44,163 INFO root : User Shevles is not None
+2024-01-29 16:59:44,163 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-29 16:59:44,163 INFO root : Shelf : (11, 2, '2024-01-29 19:36:48.597459', 1)
+2024-01-29 16:59:44,163 INFO root : User Library : <library_objects.Library object at 0x7f70ee8faad0>
+2024-01-29 16:59:44,163 INFO root : User Books is not None
+2024-01-29 16:59:44,163 INFO root : Book : (14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1)
+2024-01-29 16:59:44,163 INFO root : Book : (16, 'book3', 'Author2', 623, 'Red', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)
+2024-01-29 16:59:44,163 INFO root : User Library : <library_objects.Library object at 0x7f70ee8faad0>
+2024-01-29 16:59:44,163 INFO root : Book ID : 14
+2024-01-29 16:59:44,163 INFO root : Successfully got shelf for book : Result (5,) : Book ID 14 : User ID 1
+2024-01-29 16:59:44,163 INFO root : Shelf ID : (5,)
+2024-01-29 16:59:44,163 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 16:59:44,163 INFO root : Shelf Number : (1,)
+2024-01-29 16:59:44,163 INFO root : Shelf Num : 1
+2024-01-29 16:59:44,163 INFO root : Shelf Num : 1 : not in book_shelves : {}
+2024-01-29 16:59:44,163 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 16:59:44,163 INFO root : Book ID : 16
+2024-01-29 16:59:44,164 INFO root : Successfully got shelf for book : Result (11,) : Book ID 16 : User ID 1
+2024-01-29 16:59:44,164 INFO root : Shelf ID : (11,)
+2024-01-29 16:59:44,164 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 16:59:44,164 INFO root : Shelf Number : (2,)
+2024-01-29 16:59:44,164 INFO root : Shelf Num : 2
+2024-01-29 16:59:44,164 INFO root : Shelf Num : 2 : not in book_shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 16:59:44,164 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': 'Red', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 16:59:44,164 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 16:59:44,164 INFO root : Shelf Number : 1
+2024-01-29 16:59:44,164 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 16:59:44,164 INFO root : Shelf Number : 2
+2024-01-29 16:59:44,164 INFO root : Final Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': 'Red', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 16:59:44,164 INFO root : Sorted Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': 'Red', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 16:59:44,165 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:44] "GET / HTTP/1.1" 200 -
+2024-01-29 16:59:44,206 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:44] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-29 16:59:44,207 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:44] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 16:59:44,209 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:44] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-29 16:59:44,211 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 16:59:44] "[36mGET /static/change_book_color.js HTTP/1.1[0m" 304 -
+2024-01-29 17:00:06,975 INFO root : ==============================/nEditing Book/n==============================
+2024-01-29 17:00:06,975 INFO root : Hidden Book ID 16
+2024-01-29 17:00:06,975 INFO root : Editing Book Cover Color
+2024-01-29 17:00:06,990 INFO root : Updated book successfully : Book ID 16 : Editing cover_color : New Value #ff72a6 : User ID 1
+2024-01-29 17:00:06,991 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:00:06] "[32mPOST /edit_book HTTP/1.1[0m" 302 -
+2024-01-29 17:00:06,994 INFO root : User Library : <library_objects.Library object at 0x7f70ee684430>
+2024-01-29 17:00:06,994 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)] : User ID 1
+2024-01-29 17:00:06,994 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)]
+2024-01-29 17:00:06,994 INFO root : Successfully got books : Books [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)] : User ID 1
+2024-01-29 17:00:06,994 INFO root : User Books : [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)]
+2024-01-29 17:00:06,994 INFO root : Book Shelves : {}
+2024-01-29 17:00:06,994 INFO root : User Shevles is not None
+2024-01-29 17:00:06,994 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-29 17:00:06,994 INFO root : Shelf : (11, 2, '2024-01-29 19:36:48.597459', 1)
+2024-01-29 17:00:06,994 INFO root : User Library : <library_objects.Library object at 0x7f70ee684430>
+2024-01-29 17:00:06,994 INFO root : User Books is not None
+2024-01-29 17:00:06,994 INFO root : Book : (14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1)
+2024-01-29 17:00:06,994 INFO root : Book : (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)
+2024-01-29 17:00:06,994 INFO root : User Library : <library_objects.Library object at 0x7f70ee684430>
+2024-01-29 17:00:06,994 INFO root : Book ID : 14
+2024-01-29 17:00:06,994 INFO root : Successfully got shelf for book : Result (5,) : Book ID 14 : User ID 1
+2024-01-29 17:00:06,994 INFO root : Shelf ID : (5,)
+2024-01-29 17:00:06,994 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:00:06,994 INFO root : Shelf Number : (1,)
+2024-01-29 17:00:06,995 INFO root : Shelf Num : 1
+2024-01-29 17:00:06,995 INFO root : Shelf Num : 1 : not in book_shelves : {}
+2024-01-29 17:00:06,995 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:00:06,995 INFO root : Book ID : 16
+2024-01-29 17:00:06,995 INFO root : Successfully got shelf for book : Result (11,) : Book ID 16 : User ID 1
+2024-01-29 17:00:06,995 INFO root : Shelf ID : (11,)
+2024-01-29 17:00:06,995 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:00:06,995 INFO root : Shelf Number : (2,)
+2024-01-29 17:00:06,995 INFO root : Shelf Num : 2
+2024-01-29 17:00:06,995 INFO root : Shelf Num : 2 : not in book_shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:00:06,995 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:00:06,995 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:00:06,995 INFO root : Shelf Number : 1
+2024-01-29 17:00:06,995 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:00:06,995 INFO root : Shelf Number : 2
+2024-01-29 17:00:06,995 INFO root : Final Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:00:06,995 INFO root : Sorted Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:00:06,995 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:00:06] "GET / HTTP/1.1" 200 -
+2024-01-29 17:00:07,007 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:00:07] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 17:00:07,010 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:00:07] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-29 17:00:07,010 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:00:07] "[36mGET /static/change_book_color.js HTTP/1.1[0m" 304 -
+2024-01-29 17:00:07,011 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:00:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-29 17:03:56,297 INFO root : User Library : <library_objects.Library object at 0x7f70ee684fa0>
+2024-01-29 17:03:56,298 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)] : User ID 1
+2024-01-29 17:03:56,298 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)]
+2024-01-29 17:03:56,298 INFO root : Successfully got books : Books [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)] : User ID 1
+2024-01-29 17:03:56,298 INFO root : User Books : [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)]
+2024-01-29 17:03:56,298 INFO root : Book Shelves : {}
+2024-01-29 17:03:56,298 INFO root : User Shevles is not None
+2024-01-29 17:03:56,298 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-29 17:03:56,298 INFO root : Shelf : (11, 2, '2024-01-29 19:36:48.597459', 1)
+2024-01-29 17:03:56,298 INFO root : User Library : <library_objects.Library object at 0x7f70ee684fa0>
+2024-01-29 17:03:56,298 INFO root : User Books is not None
+2024-01-29 17:03:56,298 INFO root : Book : (14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1)
+2024-01-29 17:03:56,298 INFO root : Book : (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)
+2024-01-29 17:03:56,298 INFO root : User Library : <library_objects.Library object at 0x7f70ee684fa0>
+2024-01-29 17:03:56,298 INFO root : Book ID : 14
+2024-01-29 17:03:56,298 INFO root : Successfully got shelf for book : Result (5,) : Book ID 14 : User ID 1
+2024-01-29 17:03:56,298 INFO root : Shelf ID : (5,)
+2024-01-29 17:03:56,298 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:03:56,298 INFO root : Shelf Number : (1,)
+2024-01-29 17:03:56,298 INFO root : Shelf Num : 1
+2024-01-29 17:03:56,298 INFO root : Shelf Num : 1 : not in book_shelves : {}
+2024-01-29 17:03:56,298 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:03:56,298 INFO root : Book ID : 16
+2024-01-29 17:03:56,299 INFO root : Successfully got shelf for book : Result (11,) : Book ID 16 : User ID 1
+2024-01-29 17:03:56,299 INFO root : Shelf ID : (11,)
+2024-01-29 17:03:56,299 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:03:56,299 INFO root : Shelf Number : (2,)
+2024-01-29 17:03:56,299 INFO root : Shelf Num : 2
+2024-01-29 17:03:56,299 INFO root : Shelf Num : 2 : not in book_shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:03:56,299 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:03:56,299 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:03:56,299 INFO root : Shelf Number : 1
+2024-01-29 17:03:56,302 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:03:56,302 INFO root : Shelf Number : 2
+2024-01-29 17:03:56,302 INFO root : Final Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:03:56,302 INFO root : Sorted Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:03:56,304 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:03:56] "GET / HTTP/1.1" 200 -
+2024-01-29 17:03:56,350 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:03:56] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 17:03:56,352 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:03:56] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-29 17:03:56,356 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:03:56] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-29 17:03:56,359 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:03:56] "[36mGET /static/change_book_color.js HTTP/1.1[0m" 304 -
+2024-01-29 17:04:03,026 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-29 17:04:03,027 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-29 17:04:06,544 INFO root : User Library : <library_objects.Library object at 0x7f0f47a5ed40>
+2024-01-29 17:04:06,545 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)] : User ID 1
+2024-01-29 17:04:06,545 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)]
+2024-01-29 17:04:06,545 INFO root : Successfully got books : Books [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)] : User ID 1
+2024-01-29 17:04:06,545 INFO root : User Books : [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)]
+2024-01-29 17:04:06,545 INFO root : Book Shelves : {}
+2024-01-29 17:04:06,545 INFO root : User Shevles is not None
+2024-01-29 17:04:06,545 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-29 17:04:06,545 INFO root : Shelf : (11, 2, '2024-01-29 19:36:48.597459', 1)
+2024-01-29 17:04:06,545 INFO root : User Library : <library_objects.Library object at 0x7f0f47a5ed40>
+2024-01-29 17:04:06,545 INFO root : User Books is not None
+2024-01-29 17:04:06,545 INFO root : Book : (14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1)
+2024-01-29 17:04:06,545 INFO root : Book : (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)
+2024-01-29 17:04:06,545 INFO root : User Library : <library_objects.Library object at 0x7f0f47a5ed40>
+2024-01-29 17:04:06,545 INFO root : Book ID : 14
+2024-01-29 17:04:06,545 INFO root : Successfully got shelf for book : Result (5,) : Book ID 14 : User ID 1
+2024-01-29 17:04:06,545 INFO root : Shelf ID : (5,)
+2024-01-29 17:04:06,546 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:04:06,546 INFO root : Shelf Number : (1,)
+2024-01-29 17:04:06,546 INFO root : Shelf Num : 1
+2024-01-29 17:04:06,546 INFO root : Shelf Num : 1 : not in book_shelves : {}
+2024-01-29 17:04:06,546 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:04:06,546 INFO root : Book ID : 16
+2024-01-29 17:04:06,546 INFO root : Successfully got shelf for book : Result (11,) : Book ID 16 : User ID 1
+2024-01-29 17:04:06,546 INFO root : Shelf ID : (11,)
+2024-01-29 17:04:06,546 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:04:06,548 INFO root : Shelf Number : (2,)
+2024-01-29 17:04:06,548 INFO root : Shelf Num : 2
+2024-01-29 17:04:06,548 INFO root : Shelf Num : 2 : not in book_shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:04:06,548 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:04:06,548 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:04:06,548 INFO root : Shelf Number : 1
+2024-01-29 17:04:06,548 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:04:06,548 INFO root : Shelf Number : 2
+2024-01-29 17:04:06,548 INFO root : Final Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:04:06,548 INFO root : Sorted Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:04:06,578 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:04:06] "GET / HTTP/1.1" 200 -
+2024-01-29 17:04:06,627 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:04:06] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 17:04:06,632 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:04:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-29 17:04:06,633 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:04:06] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-29 17:04:06,633 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:04:06] "[36mGET /static/change_book_color.js HTTP/1.1[0m" 304 -
+2024-01-29 17:10:35,774 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-29 17:10:35,774 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-29 17:10:38,679 INFO root : User Library : <library_objects.Library object at 0x7f23c705ed40>
+2024-01-29 17:10:38,680 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)] : User ID 1
+2024-01-29 17:10:38,680 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)]
+2024-01-29 17:10:38,680 INFO root : Successfully got books : Books [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)] : User ID 1
+2024-01-29 17:10:38,680 INFO root : User Books : [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)]
+2024-01-29 17:10:38,680 INFO root : Book Shelves : {}
+2024-01-29 17:10:38,680 INFO root : User Shevles is not None
+2024-01-29 17:10:38,680 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-29 17:10:38,680 INFO root : Shelf : (11, 2, '2024-01-29 19:36:48.597459', 1)
+2024-01-29 17:10:38,680 INFO root : User Library : <library_objects.Library object at 0x7f23c705ed40>
+2024-01-29 17:10:38,680 INFO root : User Books is not None
+2024-01-29 17:10:38,680 INFO root : Book : (14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1)
+2024-01-29 17:10:38,680 INFO root : Book : (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)
+2024-01-29 17:10:38,680 INFO root : User Library : <library_objects.Library object at 0x7f23c705ed40>
+2024-01-29 17:10:38,680 INFO root : Book ID : 14
+2024-01-29 17:10:38,680 INFO root : Successfully got shelf for book : Result (5,) : Book ID 14 : User ID 1
+2024-01-29 17:10:38,681 INFO root : Shelf ID : (5,)
+2024-01-29 17:10:38,681 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:10:38,681 INFO root : Shelf Number : (1,)
+2024-01-29 17:10:38,681 INFO root : Shelf Num : 1
+2024-01-29 17:10:38,681 INFO root : Shelf Num : 1 : not in book_shelves : {}
+2024-01-29 17:10:38,682 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:10:38,682 INFO root : Book ID : 16
+2024-01-29 17:10:38,682 INFO root : Successfully got shelf for book : Result (11,) : Book ID 16 : User ID 1
+2024-01-29 17:10:38,682 INFO root : Shelf ID : (11,)
+2024-01-29 17:10:38,682 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:10:38,682 INFO root : Shelf Number : (2,)
+2024-01-29 17:10:38,682 INFO root : Shelf Num : 2
+2024-01-29 17:10:38,682 INFO root : Shelf Num : 2 : not in book_shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:10:38,682 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:10:38,682 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:10:38,682 INFO root : Shelf Number : 1
+2024-01-29 17:10:38,682 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:10:38,682 INFO root : Shelf Number : 2
+2024-01-29 17:10:38,682 INFO root : Final Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:10:38,682 INFO root : Sorted Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:10:38,691 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:10:38] "GET / HTTP/1.1" 200 -
+2024-01-29 17:10:38,755 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:10:38] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 17:10:38,758 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:10:38] "GET /static/styles.css HTTP/1.1" 200 -
+2024-01-29 17:10:38,759 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:10:38] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-29 17:10:38,761 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:10:38] "[36mGET /static/change_book_color.js HTTP/1.1[0m" 304 -
+2024-01-29 17:15:55,907 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-29 17:15:55,907 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-29 17:16:05,493 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:16:05] "[32mGET / HTTP/1.1[0m" 302 -
+2024-01-29 17:16:05,505 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:16:05] "GET /login HTTP/1.1" 200 -
+2024-01-29 17:16:05,569 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:16:05] "GET /static/normalize.css HTTP/1.1" 200 -
+2024-01-29 17:16:05,879 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:16:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-01-29 17:16:11,714 INFO root : ==============================/nLogging In User/n==============================
+2024-01-29 17:16:11,715 INFO root : Got user successfully : User Info (1, 'test', 'test@test.com', 'scrypt:32768:8:1$04k3M4tUhzPiZISo$6bcc55c27e8f3c1cfe0d3b0b5eea078cbb3a502dc2ab1ec858296a759ba248e46786496d023edaa3d4debcdeedc4fa52d3f5f8f7fd60cd6c07624910bfb94cc7', '2024-01-25 18:05:11.852901') : Username test
+2024-01-29 17:16:11,715 INFO root : User ID : 1
+2024-01-29 17:16:11,715 INFO root : Got user hash successfully : Hash ('scrypt:32768:8:1$04k3M4tUhzPiZISo$6bcc55c27e8f3c1cfe0d3b0b5eea078cbb3a502dc2ab1ec858296a759ba248e46786496d023edaa3d4debcdeedc4fa52d3f5f8f7fd60cd6c07624910bfb94cc7',) : User ID 1
+2024-01-29 17:16:11,832 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:16:11] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-01-29 17:16:11,849 INFO root : User Library : <library_objects.Library object at 0x7fe24c6a2f50>
+2024-01-29 17:16:11,850 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)] : User ID 1
+2024-01-29 17:16:11,850 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)]
+2024-01-29 17:16:11,850 INFO root : Successfully got books : Books [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)] : User ID 1
+2024-01-29 17:16:11,850 INFO root : User Books : [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)]
+2024-01-29 17:16:11,851 INFO root : Book Shelves : {}
+2024-01-29 17:16:11,851 INFO root : User Shevles is not None
+2024-01-29 17:16:11,851 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-29 17:16:11,851 INFO root : Shelf : (11, 2, '2024-01-29 19:36:48.597459', 1)
+2024-01-29 17:16:11,851 INFO root : User Library : <library_objects.Library object at 0x7fe24c6a2f50>
+2024-01-29 17:16:11,851 INFO root : User Books is not None
+2024-01-29 17:16:11,853 INFO root : Book : (14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1)
+2024-01-29 17:16:11,854 INFO root : Book : (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)
+2024-01-29 17:16:11,855 INFO root : User Library : <library_objects.Library object at 0x7fe24c6a2f50>
+2024-01-29 17:16:11,855 INFO root : Book ID : 14
+2024-01-29 17:16:11,855 INFO root : Successfully got shelf for book : Result (5,) : Book ID 14 : User ID 1
+2024-01-29 17:16:11,855 INFO root : Shelf ID : (5,)
+2024-01-29 17:16:11,855 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:16:11,856 INFO root : Shelf Number : (1,)
+2024-01-29 17:16:11,857 INFO root : Shelf Num : 1
+2024-01-29 17:16:11,857 INFO root : Shelf Num : 1 : not in book_shelves : {}
+2024-01-29 17:16:11,857 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:16:11,857 INFO root : Book ID : 16
+2024-01-29 17:16:11,858 INFO root : Successfully got shelf for book : Result (11,) : Book ID 16 : User ID 1
+2024-01-29 17:16:11,859 INFO root : Shelf ID : (11,)
+2024-01-29 17:16:11,861 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:16:11,861 INFO root : Shelf Number : (2,)
+2024-01-29 17:16:11,862 INFO root : Shelf Num : 2
+2024-01-29 17:16:11,862 INFO root : Shelf Num : 2 : not in book_shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:16:11,862 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:16:11,862 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:16:11,862 INFO root : Shelf Number : 1
+2024-01-29 17:16:11,862 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:16:11,862 INFO root : Shelf Number : 2
+2024-01-29 17:16:11,862 INFO root : Final Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:16:11,862 INFO root : Sorted Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:16:11,875 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:16:11] "GET / HTTP/1.1" 200 -
+2024-01-29 17:16:11,923 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:16:11] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 17:16:11,961 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:16:11] "GET /static/styles.css HTTP/1.1" 200 -
+2024-01-29 17:16:11,963 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:16:11] "GET /static/change_book_color.js HTTP/1.1" 200 -
+2024-01-29 17:16:11,967 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:16:11] "GET /static/show_forms.js HTTP/1.1" 200 -
+2024-01-29 17:17:20,303 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-29 17:17:20,304 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-29 17:17:22,899 INFO root : User Library : <library_objects.Library object at 0x7ff2859f2d40>
+2024-01-29 17:17:22,899 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)] : User ID 1
+2024-01-29 17:17:22,900 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)]
+2024-01-29 17:17:22,900 INFO root : Successfully got books : Books [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)] : User ID 1
+2024-01-29 17:17:22,900 INFO root : User Books : [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)]
+2024-01-29 17:17:22,900 INFO root : Book Shelves : {}
+2024-01-29 17:17:22,900 INFO root : User Shevles is not None
+2024-01-29 17:17:22,900 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-29 17:17:22,900 INFO root : Shelf : (11, 2, '2024-01-29 19:36:48.597459', 1)
+2024-01-29 17:17:22,900 INFO root : User Library : <library_objects.Library object at 0x7ff2859f2d40>
+2024-01-29 17:17:22,900 INFO root : User Books is not None
+2024-01-29 17:17:22,900 INFO root : Book : (14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1)
+2024-01-29 17:17:22,900 INFO root : Book : (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)
+2024-01-29 17:17:22,900 INFO root : User Library : <library_objects.Library object at 0x7ff2859f2d40>
+2024-01-29 17:17:22,900 INFO root : Book ID : 14
+2024-01-29 17:17:22,900 INFO root : Successfully got shelf for book : Result (5,) : Book ID 14 : User ID 1
+2024-01-29 17:17:22,900 INFO root : Shelf ID : (5,)
+2024-01-29 17:17:22,900 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:17:22,901 INFO root : Shelf Number : (1,)
+2024-01-29 17:17:22,901 INFO root : Shelf Num : 1
+2024-01-29 17:17:22,901 INFO root : Shelf Num : 1 : not in book_shelves : {}
+2024-01-29 17:17:22,901 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:17:22,901 INFO root : Book ID : 16
+2024-01-29 17:17:22,901 INFO root : Successfully got shelf for book : Result (11,) : Book ID 16 : User ID 1
+2024-01-29 17:17:22,901 INFO root : Shelf ID : (11,)
+2024-01-29 17:17:22,901 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:17:22,901 INFO root : Shelf Number : (2,)
+2024-01-29 17:17:22,901 INFO root : Shelf Num : 2
+2024-01-29 17:17:22,901 INFO root : Shelf Num : 2 : not in book_shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:17:22,901 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:17:22,901 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:17:22,901 INFO root : Shelf Number : 1
+2024-01-29 17:17:22,902 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:17:22,902 INFO root : Shelf Number : 2
+2024-01-29 17:17:22,902 INFO root : Final Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:17:22,902 INFO root : Sorted Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:17:22,913 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:17:22] "GET / HTTP/1.1" 200 -
+2024-01-29 17:17:22,943 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:17:22] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 17:17:22,973 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:17:22] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-29 17:17:22,973 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:17:22] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-29 17:17:22,977 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:17:22] "[36mGET /static/change_book_color.js HTTP/1.1[0m" 304 -
+2024-01-29 17:18:25,174 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-29 17:18:25,175 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-29 17:18:27,905 INFO root : User Library : <library_objects.Library object at 0x7fc555462d40>
+2024-01-29 17:18:27,906 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)] : User ID 1
+2024-01-29 17:18:27,906 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)]
+2024-01-29 17:18:27,906 INFO root : Successfully got books : Books [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)] : User ID 1
+2024-01-29 17:18:27,906 INFO root : User Books : [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)]
+2024-01-29 17:18:27,906 INFO root : Book Shelves : {}
+2024-01-29 17:18:27,906 INFO root : User Shevles is not None
+2024-01-29 17:18:27,906 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-29 17:18:27,906 INFO root : Shelf : (11, 2, '2024-01-29 19:36:48.597459', 1)
+2024-01-29 17:18:27,906 INFO root : User Library : <library_objects.Library object at 0x7fc555462d40>
+2024-01-29 17:18:27,906 INFO root : User Books is not None
+2024-01-29 17:18:27,906 INFO root : Book : (14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1)
+2024-01-29 17:18:27,906 INFO root : Book : (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)
+2024-01-29 17:18:27,906 INFO root : User Library : <library_objects.Library object at 0x7fc555462d40>
+2024-01-29 17:18:27,906 INFO root : Book ID : 14
+2024-01-29 17:18:27,906 INFO root : Successfully got shelf for book : Result (5,) : Book ID 14 : User ID 1
+2024-01-29 17:18:27,906 INFO root : Shelf ID : (5,)
+2024-01-29 17:18:27,907 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:18:27,907 INFO root : Shelf Number : (1,)
+2024-01-29 17:18:27,907 INFO root : Shelf Num : 1
+2024-01-29 17:18:27,907 INFO root : Shelf Num : 1 : not in book_shelves : {}
+2024-01-29 17:18:27,907 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:18:27,907 INFO root : Book ID : 16
+2024-01-29 17:18:27,907 INFO root : Successfully got shelf for book : Result (11,) : Book ID 16 : User ID 1
+2024-01-29 17:18:27,907 INFO root : Shelf ID : (11,)
+2024-01-29 17:18:27,907 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:18:27,907 INFO root : Shelf Number : (2,)
+2024-01-29 17:18:27,907 INFO root : Shelf Num : 2
+2024-01-29 17:18:27,907 INFO root : Shelf Num : 2 : not in book_shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:18:27,907 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:18:27,907 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:18:27,907 INFO root : Shelf Number : 1
+2024-01-29 17:18:27,908 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:18:27,908 INFO root : Shelf Number : 2
+2024-01-29 17:18:27,908 INFO root : Final Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:18:27,908 INFO root : Sorted Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:18:27,916 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:18:27] "GET / HTTP/1.1" 200 -
+2024-01-29 17:18:27,944 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:18:27] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 17:18:27,945 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:18:27] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-01-29 17:18:27,947 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:18:27] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-01-29 17:18:27,947 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:18:27] "[36mGET /static/change_book_color.js HTTP/1.1[0m" 304 -
+2024-01-29 17:21:18,198 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-29 17:21:18,198 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-01-29 17:21:30,264 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:21:30] "[32mGET / HTTP/1.1[0m" 302 -
+2024-01-29 17:21:30,270 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:21:30] "GET /login HTTP/1.1" 200 -
+2024-01-29 17:21:30,335 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:21:30] "GET /static/normalize.css HTTP/1.1" 200 -
+2024-01-29 17:21:30,531 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:21:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-01-29 17:21:35,642 INFO root : ==============================/nLogging In User/n==============================
+2024-01-29 17:21:35,643 INFO root : Got user successfully : User Info (1, 'test', 'test@test.com', 'scrypt:32768:8:1$04k3M4tUhzPiZISo$6bcc55c27e8f3c1cfe0d3b0b5eea078cbb3a502dc2ab1ec858296a759ba248e46786496d023edaa3d4debcdeedc4fa52d3f5f8f7fd60cd6c07624910bfb94cc7', '2024-01-25 18:05:11.852901') : Username test
+2024-01-29 17:21:35,643 INFO root : User ID : 1
+2024-01-29 17:21:35,644 INFO root : Got user hash successfully : Hash ('scrypt:32768:8:1$04k3M4tUhzPiZISo$6bcc55c27e8f3c1cfe0d3b0b5eea078cbb3a502dc2ab1ec858296a759ba248e46786496d023edaa3d4debcdeedc4fa52d3f5f8f7fd60cd6c07624910bfb94cc7',) : User ID 1
+2024-01-29 17:21:35,747 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:21:35] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-01-29 17:21:35,759 INFO root : User Library : <library_objects.Library object at 0x7fa5aabf2f50>
+2024-01-29 17:21:35,759 INFO root : Successfully got shelves : Results [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)] : User ID 1
+2024-01-29 17:21:35,760 INFO root : User Shelves : [(5, 1, '2024-01-28 07:48:14.045452', 1), (11, 2, '2024-01-29 19:36:48.597459', 1)]
+2024-01-29 17:21:35,760 INFO root : Successfully got books : Books [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)] : User ID 1
+2024-01-29 17:21:35,760 INFO root : User Books : [(14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1), (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)]
+2024-01-29 17:21:35,760 INFO root : Book Shelves : {}
+2024-01-29 17:21:35,760 INFO root : User Shevles is not None
+2024-01-29 17:21:35,760 INFO root : Shelf : (5, 1, '2024-01-28 07:48:14.045452', 1)
+2024-01-29 17:21:35,760 INFO root : Shelf : (11, 2, '2024-01-29 19:36:48.597459', 1)
+2024-01-29 17:21:35,762 INFO root : User Library : <library_objects.Library object at 0x7fa5aabf2f50>
+2024-01-29 17:21:35,762 INFO root : User Books is not None
+2024-01-29 17:21:35,762 INFO root : Book : (14, 'book2', 'Author', 512, 'blue', 'Publisher', '2024-01-01', 1, 'Genre', 1, '546543135', '2024-01-29 21:39:12.761387', 1)
+2024-01-29 17:21:35,762 INFO root : Book : (16, 'book3', 'Author2', 623, '#ff72a6', 'Publisher2', '2020-06-12', 0, 'Genre', 0, '5141846543', '2024-01-29 21:41:42.147784', 1)
+2024-01-29 17:21:35,762 INFO root : User Library : <library_objects.Library object at 0x7fa5aabf2f50>
+2024-01-29 17:21:35,762 INFO root : Book ID : 14
+2024-01-29 17:21:35,762 INFO root : Successfully got shelf for book : Result (5,) : Book ID 14 : User ID 1
+2024-01-29 17:21:35,762 INFO root : Shelf ID : (5,)
+2024-01-29 17:21:35,763 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:21:35,763 INFO root : Shelf Number : (1,)
+2024-01-29 17:21:35,763 INFO root : Shelf Num : 1
+2024-01-29 17:21:35,763 INFO root : Shelf Num : 1 : not in book_shelves : {}
+2024-01-29 17:21:35,763 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:21:35,763 INFO root : Book ID : 16
+2024-01-29 17:21:35,763 INFO root : Successfully got shelf for book : Result (11,) : Book ID 16 : User ID 1
+2024-01-29 17:21:35,763 INFO root : Shelf ID : (11,)
+2024-01-29 17:21:35,763 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:21:35,763 INFO root : Shelf Number : (2,)
+2024-01-29 17:21:35,763 INFO root : Shelf Num : 2
+2024-01-29 17:21:35,763 INFO root : Shelf Num : 2 : not in book_shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}]}
+2024-01-29 17:21:35,763 INFO root : Successfully Created Shelf and Added Book to Shelf : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:21:35,763 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 5 : User ID 1
+2024-01-29 17:21:35,763 INFO root : Shelf Number : 1
+2024-01-29 17:21:35,763 INFO root : Successfully got shelf number : Result (2,) : Shelf ID 11 : User ID 1
+2024-01-29 17:21:35,763 INFO root : Shelf Number : 2
+2024-01-29 17:21:35,763 INFO root : Final Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:21:35,763 INFO root : Sorted Book Shelves : {1: [{'book_id': 14, 'title': 'book2', 'author': 'Author', 'pages': 512, 'color': 'blue', 'publisher': 'Publisher', 'published_date': '2024-01-01', 'fiction_nonfiction': 'fiction', 'genre': 'Genre', 'read': 'Read', 'isbn': '546543135', 'added_date': '2024-01-29 21:39:12.761387'}], 2: [{'book_id': 16, 'title': 'book3', 'author': 'Author2', 'pages': 623, 'color': '#ff72a6', 'publisher': 'Publisher2', 'published_date': '2020-06-12', 'fiction_nonfiction': 'nonfiction', 'genre': 'Genre', 'read': 'Not Read', 'isbn': '5141846543', 'added_date': '2024-01-29 21:41:42.147784'}]}
+2024-01-29 17:21:35,785 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:21:35] "GET / HTTP/1.1" 200 -
+2024-01-29 17:21:35,834 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:21:35] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-01-29 17:21:35,848 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:21:35] "GET /static/styles.css HTTP/1.1" 200 -
+2024-01-29 17:21:35,849 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:21:35] "GET /static/show_forms.js HTTP/1.1" 200 -
+2024-01-29 17:21:35,849 INFO werkzeug : 127.0.0.1 - - [29/Jan/2024 17:21:35] "GET /static/change_book_color.js HTTP/1.1" 200 -
