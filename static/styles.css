@@ -1,5 +1,24 @@
+/*
+Make spine correspond to number of pages
+Show information when hovering over books; otherwise, just show the title
+make title go down
+*/
+
 * {
     box-sizing: border-box;
+}
+
+nav.navbar.bg-body-tertiary,
+nav.navbar.bg-body-tertiary a.navbar-brand,
+nav.navbar.bg-body-tertiary a.nav-link {
+    background-color: #fd9baa !important;
+    color: #35065b !important;
+}
+
+header,
+nav, 
+main {
+    background-color: #fd9baa;
 }
 
 .hidden {
@@ -10,7 +29,8 @@
     width: 100vw;
     margin-bottom: 2rem;
     padding: .5rem;
-    background-color: brown;
+    padding-bottom: 0;
+    background-color: #fbc1c9;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
@@ -39,6 +59,9 @@
 .book {
     width: 15%;
     display: inline-block;
+    box-shadow: #3a3b3c .5rem 0 .3rem;
+    margin: .27rem;
+    border-radius: .2rem;
 }
 
 .book p {
