@@ -41,6 +41,18 @@
                         <a class="nav-link" href="/logout">Log Out</a>
                       </li>
                     </ul>
+                    <form class="d-flex" role="search" action="/search" method="get">
+                      <select name="search_by">
+                        <option value="title" selected>Title</option>
+                        <option value="author">Author</option>
+                        <option value="genre">Genre</option>
+                        <option value="color">Color</option>
+                      </select>
+                      <div class="input-wrapper">
+                        <input class="form-control me-2 search-bar" name="search_bar" type="search" aria-label="Search">
+                      </div>
+                      <button class="btn btn-outline-success search-btn" type="submit"><i class="fa-regular fa-heart"></i></button>
+                    </form>
                   </div>
                 </div>
               </nav>

@@ -2,6 +2,8 @@
 Make spine correspond to number of pages
 Show information when hovering over books; otherwise, just show the title
 make title go down
+make cross star graphics that sparkle (grow and go from darker yellow to lighter yellow)
+make background color for search bar and search button pink
 */
 
 * {
@@ -15,55 +17,49 @@ nav.navbar.bg-body-tertiary a.nav-link {
     color: #35065b !important;
 }
 
+select {
+    background-color: #ffebf1;
+    color: #35065b;
+    border-radius: .5rem;
+}
+
+.input-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.input-wrapper::before {
+    font-family: 'FontAwesome';
+    content: '\f002';
+    position: absolute;
+    bottom: 7px;
+    left: 5px;
+}
+
+.search-bar {
+    padding-left: 1.5rem;
+    background-color: #ffebf1;
+}
+
+.search-btn {
+    border-radius: 50%;
+    margin-left: .5rem;
+    background-color: #ffebf1;
+}
+
+.btn-outline-success {
+    --bs-btn-color: #35065b;
+    --bs-btn-border-color: #35065b;
+    --bs-btn-hover-bg: #35065b;
+    --bs-btn-hover-border-color: #35065b;
+    --bs-btn-active-bg: #35065b;
+    --bs-btn-active-border-color: #35065b;
+    --bs-btn-disabled-color: #35065b;
+    --bs-btn-disabled-border-color: #35065b;
+}
+
 header,
 nav, 
 main {
     background-color: #fd9baa;
-}
-
-.hidden {
-    display: none;
-}
-
-.shelf {
-    width: 100vw;
-    margin-bottom: 2rem;
-    padding: .5rem;
-    padding-bottom: 0;
-    background-color: #fbc1c9;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-                    "number edit_shelf delete_shelf add_book"
-                    "book_area book_area book_area book_area";
-}
-
-.edit_shelf_container {
-    grid-area: edit_shelf;
-}
-
-.remove_shelf {
-    grid-area: delete_shelf;
-}
-
-.add_book_container {
-    grid-area: add_book;
-}
-
-.books_shelf {
-    grid-area: book_area;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.book {
-    width: 15%;
-    display: inline-block;
-    box-shadow: #3a3b3c .5rem 0 .3rem;
-    margin: .27rem;
-    border-radius: .2rem;
-}
-
-.book p {
-    text-align: center;
 }

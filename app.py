@@ -1,11 +1,14 @@
 import logging
 
-from database import execute_query, fetch_all, fetch_one
 from datetime import datetime
 from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
 from helpers import login_required, get_session_user, error
 from library_objects import Shelf, Book, User, Library
+
+
+# Implement search functionality to search for books based on title, author, genre, cover color
+# Need to get all books based on those parameters and have it display the title, shelf, and if hovered over the rest of the book's info
 
 
 logging.basicConfig(filename='app.log', encoding="utf-8", level=logging.DEBUG, format="%(asctime)s %(levelname)s %(name)s : %(message)s")
@@ -63,21 +66,21 @@ def index():
         logging.info(f"Shelf Num : {shelf_num}")
         fiction_nonfiction = ""
         read = ""
-        if book[7] == 0:
+        if book[8] == 0:
             fiction_nonfiction = "nonfiction"
-        elif book[7] == 1:
+        elif book[8] == 1:
             fiction_nonfiction = "fiction"
-        if book[9] == 0:
+        if book[10] == 0:
             read = "Not Read"
-        elif book[9] == 1:
+        elif book[10] == 1:
             read = "Read"
         if shelf_num in book_shelves:
             logging.info(f"Shelf Num : {shelf_num} : in book_shelves : {book_shelves}")
-            book_shelves[shelf_num].append({"book_id": book[0], "title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]})
+            book_shelves[shelf_num].append({"book_id": book[0], "title": book[1], "author": book[2], "pages": book[3], "color": book[4], "color_name": book[5], "publisher": book[6], "published_date": book[7], "fiction_nonfiction": fiction_nonfiction, "genre": book[9], "read": read, "isbn": book[11], "added_date": book[12]})
             logging.info(f"Successfully Added Book to Shelf : {book_shelves}")
         else:
             logging.info(f"Shelf Num : {shelf_num} : not in book_shelves : {book_shelves}")
-            book_shelves[shelf_num] = [{"book_id": book[0], "title": book[1], "author": book[2], "pages": book[3], "color": book[4], "publisher": book[5], "published_date": book[6], "fiction_nonfiction": fiction_nonfiction, "genre": book[8], "read": read, "isbn": book[10], "added_date": book[11]}]
+            book_shelves[shelf_num] = [{"book_id": book[0], "title": book[1], "author": book[2], "pages": book[3], "color": book[4], "color_name": book[5], "publisher": book[6], "published_date": book[7], "fiction_nonfiction": fiction_nonfiction, "genre": book[9], "read": read, "isbn": book[11], "added_date": book[12]}]
             logging.info(f"Successfully Created Shelf and Added Book to Shelf : {book_shelves}")
     for shelf in user_library.get_shelves_in_library():
         shelf_num = Shelf.get_shelf_number(shelf[0], session["user_id"])[0]
@@ -182,6 +185,91 @@ def edit_book():
         logging.info("Editing Book ISBN")
         Book.edit_book(request.form.get("book_id"), "ISBN", request.form.get("isbn"), session["user_id"])
     return redirect("/")
+
+
+@app.route("/search")
+@login_required
+def search():
+    logging.info("==============================/nSearching Book/n==============================")
+    if not request.form.get("search_bar"):
+        logging.error("Nothing searched")
+        return redirect("/")
+    
+    library = dict()
+
+    if request.form.get("search_by") == "title":
+        logging.info(f"Searching books by TITLE {request.form.get('search_bar')}")
+        results = Book.search_books_by_title(request.form.get("search_bar"), session["user_id"])
+
+        for book in results:
+            if book[8] == 0:
+                fiction_nonfiction = "Nonfiction"
+            if book[8] == 1:
+                fiction_nonfiction = "Fiction"
+            if book[10] == 0:
+                read = "Not Read"
+            if book[10] == 1:
+                read = "Read"
+            
+            shelf_id = Library.get_shelf_for_book(book[0], session["user_id"])[0]
+            if book[0] not in library:
+                library[book[0]] = {"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "color_name": book[5], "publisher": book[6], "published_date": book[7], "fiction_nonfiction": fiction_nonfiction, "genre": book[9], "read": read, "isbn": book[11], "shelf_id": shelf_id}
+
+    elif request.form.get("search_by") == "author":
+        logging.info(f"Searching books by AUTHOR {request.form.get('search_bar')}")
+        results = Book.search_books_by_author(request.form.get("search_bar"), session["user_id"])
+
+        for book in results:
+            if book[8] == 0:
+                fiction_nonfiction = "Nonfiction"
+            if book[8] == 1:
+                fiction_nonfiction = "Fiction"
+            if book[10] == 0:
+                read = "Not Read"
+            if book[10] == 1:
+                read = "Read"
+            
+            shelf_id = Library.get_shelf_for_book(book[0], session["user_id"])[0]
+            if book[0] not in library:
+                library[book[0]] = {"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "color_name": book[5], "publisher": book[6], "published_date": book[7], "fiction_nonfiction": fiction_nonfiction, "genre": book[9], "read": read, "isbn": book[11], "shelf_id": shelf_id}
+
+    elif request.form.get("search_by") == "genre":
+        logging.info(f"Searching books by GENRE {request.form.get('search_bar')}")
+        results = Book.search_books_by_title(request.form.get("search_bar"), session["user_id"])
+
+        for book in results:
+            if book[8] == 0:
+                fiction_nonfiction = "Nonfiction"
+            if book[8] == 1:
+                fiction_nonfiction = "Fiction"
+            if book[10] == 0:
+                read = "Not Read"
+            if book[10] == 1:
+                read = "Read"
+            
+            shelf_id = Library.get_shelf_for_book(book[0], session["user_id"])[0]
+            if book[0] not in library:
+                library[book[0]] = {"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "color_name": book[5], "publisher": book[6], "published_date": book[7], "fiction_nonfiction": fiction_nonfiction, "genre": book[9], "read": read, "isbn": book[11], "shelf_id": shelf_id}
+
+    elif request.form.get("search_by") == "color":
+        logging.info(f"Searching books by COLOR {request.form.get('search_bar')}")
+        results = Book.search_books_by_title(request.form.get("search_bar"), session["user_id"])
+
+        for book in results:
+            if book[8] == 0:
+                fiction_nonfiction = "Nonfiction"
+            if book[8] == 1:
+                fiction_nonfiction = "Fiction"
+            if book[10] == 0:
+                read = "Not Read"
+            if book[10] == 1:
+                read = "Read"
+            
+            shelf_id = Library.get_shelf_for_book(book[0], session["user_id"])[0]
+            if book[0] not in library:
+                library[book[0]] = {"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "color_name": book[5], "publisher": book[6], "published_date": book[7], "fiction_nonfiction": fiction_nonfiction, "genre": book[9], "read": read, "isbn": book[11], "shelf_id": shelf_id}
+
+    return render_template("search_results.html", library=library)
 
 
 @app.route("/add_shelf", methods=["POST"])

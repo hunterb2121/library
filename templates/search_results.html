@@ -1,0 +1,60 @@
+{% extends "layouts.html" %}
+
+{% block styles %}
+    <link href="../static/search.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block main %}
+    <div class="search_results">
+        {% for id, book in library.items() %}
+            <div class="book" data-id="{{ id }}" data-color="{{ book.color }}">
+                {% if book.title is not none %}
+                    <h2>{{ book.title }}</h2>
+                {% endif %}
+                <div class="hidden_book_fields">
+                    {% if book.author is not none %}
+                        <p>{{ book.author }}</p>
+                    {% endif %}
+                    {% if book.pages is not none %}
+                        <p>{{ book.pages }}</p>
+                    {% endif %}
+                    {% if book.color is not none %}
+                        <p>{{ book.color }}</p>
+                    {% endif %}
+                    {% if book.color_name is not none %}
+                        <p class="book_color_name">{{ book.color_name }}</p>
+                    {% endif %}
+                    {% if book.publisher is not none %}
+                        <p>{{ book.publisher }}</p>
+                    {% endif %}
+                    {% if book.published_date is not none %}
+                        <p>{{ book.published_date }}</p>
+                    {% endif %}
+                    {% if book.fiction_nonfiction is not none %}
+                        <p>{{ book.fiction_nonfiction }}</p>
+                    {% endif %}
+                    {% if book.genre is not none %}
+                        <p>{{ book.genre }}</p>
+                    {% endif %}
+                    {% if book.read is not none %}
+                        <p>{{ book.read }}</p>
+                    {% endif %}
+                    {% if book.isbn is not none %}
+                        <p>{{ book.isbn }}</p>
+                    {% endif %}
+                    {% if book.shelf_id is not none %}
+                        <p>{{ book.shelf_id }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="../static/change_book_color.js"></script>
+{% endblock %}

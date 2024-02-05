@@ -1,0 +1,46 @@
+.hidden {
+    display: none;
+}
+
+.shelf {
+    width: 100vw;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    padding-bottom: 0;
+    background-color: #fbc1c9;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+                    "number edit_shelf delete_shelf add_book"
+                    "book_area book_area book_area book_area";
+}
+
+.edit_shelf_container {
+    grid-area: edit_shelf;
+}
+
+.remove_shelf {
+    grid-area: delete_shelf;
+}
+
+.add_book_container {
+    grid-area: add_book;
+}
+
+.books_shelf {
+    grid-area: book_area;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book {
+    width: 15%;
+    display: inline-block;
+    box-shadow: #3a3b3c .5rem 0 .3rem;
+    margin: .27rem;
+    border-radius: .2rem;
+}
+
+.book p {
+    text-align: center;
+}

@@ -1,5 +1,6 @@
 import logging
 import re
+import webcolors
 
 from database import execute_query, fetch_all, fetch_one
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -208,12 +209,16 @@ class User:
 
 # Class for making book objects
 class Book:
-    def __init__(self, book_id, title, author, pages, cover_color, publisher, published_date, fiction_nonfiction, genre, been_read, isbn, added_date, user_id):
+    def __init__(self, book_id, title, author, pages, cover_color, color_name, publisher, published_date, fiction_nonfiction, genre, been_read, isbn, added_date, user_id):
         self._book_id = book_id
         self._title = title
         self._author = author
         self._pages = pages
         self._cover_color = cover_color
+        try:
+            self._color_name = webcolors.hex_to_name(self._cover_color)
+        except:
+            self._color_name = None
         self._publisher = publisher
         self._published_date = published_date
         self._fiction_nonfiction = fiction_nonfiction
@@ -262,6 +267,14 @@ class Book:
     @cover_color.setter
     def cover_color(self, new_cover_color):
         self._cover_color = new_cover_color
+
+    @property
+    def color_name(self):
+        return self._color_name
+    
+    @color_name.setter
+    def color_name(self, new_color_name):
+        self._color_name = new_color_name
 
     @property
     def publisher(self):
@@ -328,8 +341,8 @@ class Book:
         self._user_id = new_user_id
 
     def save_book_to_database(self):
-        query = "INSERT INTO books (title, author, pages, cover_color, publishing_house, published_date, fiction_nonfiction, genre, been_read, ISBN, added_date, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        parameters = (self._title, self._author, self._pages, self._cover_color, self._publisher, self._published_date, self._fiction_nonfiction, self._genre, self._been_read, self._isbn, self._added_date, self._user_id)
+        query = "INSERT INTO books (title, author, pages, cover_color, color_name, publishing_house, published_date, fiction_nonfiction, genre, been_read, ISBN, added_date, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        parameters = (self._title, self._author, self._pages, self._cover_color, self._color_name, self._publisher, self._published_date, self._fiction_nonfiction, self._genre, self._been_read, self._isbn, self._added_date, self._user_id)
 
         try:
             execute_query(query, parameters)
@@ -339,8 +352,12 @@ class Book:
 
     @staticmethod
     def add_book(title, author, pages, cover_color, publisher, published_date, fiction_nonfiction, genre, been_read, isbn, added_date, user_id):
-        query = "INSERT INTO books (title, author, pages, cover_color, publishing_house, published_date, fiction_nonfiction, genre, been_read, ISBN, added_date, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        parameters = (title, author, pages, cover_color, publisher, published_date, fiction_nonfiction, genre, been_read, isbn, added_date, user_id)
+        query = "INSERT INTO books (title, author, pages, cover_color, color_name, publishing_house, published_date, fiction_nonfiction, genre, been_read, ISBN, added_date, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        try:
+            color_name = webcolors.hex_to_name(cover_color)
+        except:
+            color_name = None
+        parameters = (title, author, pages, cover_color, color_name, publisher, published_date, fiction_nonfiction, genre, been_read, isbn, added_date, user_id)
 
         try:
             execute_query(query, parameters)
@@ -402,9 +419,9 @@ class Book:
             logging.warning(f"Error getting book: {title} : {e}")
 
     @staticmethod
-    def search_books_by_title(title):
-        query = "SELECT * FROM books WHERE title LIKE ?"
-        parameters = ("%" + title + "%",)
+    def search_books_by_title(title, user_id):
+        query = "SELECT * FROM books WHERE title LIKE ? AND user_id = ?"
+        parameters = ("%" + str(title).lower() + "%", user_id,)
 
         try:
             results = fetch_all(query, parameters)
@@ -414,9 +431,9 @@ class Book:
             logging.warning(f"Error searching books by title: {e}")
 
     @staticmethod
-    def search_books_by_genre(genre):
-        query = "SELECT * FROM books WHERE genre LIKE ?"
-        parameters = ("%" + genre + "%",)
+    def search_books_by_genre(genre, user_id):
+        query = "SELECT * FROM books WHERE genre LIKE ? AND user_id = ?"
+        parameters = ("%" + str(genre).lower() + "%", user_id,)
 
         try:
             results = fetch_all(query, parameters)
@@ -426,9 +443,9 @@ class Book:
             logging.warning(f"Error searching books by genre: {e}")
 
     @staticmethod
-    def search_books_by_author(author):
-        query = "SELECT * FROM books WHERE author LIKE ?"
-        parameters = ("%" + author + "%",)
+    def search_books_by_author(author, user_id):
+        query = "SELECT * FROM books WHERE author LIKE ? AND user_id = ?"
+        parameters = ("%" + str(author).lower() + "%", user_id,)
 
         try:
             results = fetch_all(query, parameters)
@@ -438,13 +455,13 @@ class Book:
             logging.warning(f"Error searching books by author: {e}")
 
     @staticmethod
-    def search_books_by_color(cover_color):
-        query = "SELECT * FROM books WHERE cover_color LIKE ?"
-        parameters = ("%" + cover_color + "%",)
+    def search_books_by_color(color, user_id):
+        query = "SELECT * FROM books WHERE color_name LIKE ? AND user_id = ?"
+        parameters = ("%" + str(color).lower() + "%", user_id,)
 
         try:
             results = fetch_all(query, parameters)
-            logging.info(f"Successfully searching books by cover color : Results {results} : Color Search {cover_color}")
+            logging.info(f"Successfully searching books by cover color : Results {results} : Color Search {color}")
             return results
         except Exception as e:
             logging.warning(f"Error searching books: {e}")

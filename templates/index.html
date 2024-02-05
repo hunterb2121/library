@@ -1,7 +1,7 @@
 {% extends "layouts.html" %}
 
 {% block styles %}
-<link href="../static/styles.css" rel="stylesheet">
+    <link href="../static/index.css" rel="stylesheet">
 {% endblock %}
 
 {% block title %}
@@ -19,27 +19,32 @@
                             {% if book.title is not none %}
                                 <p class="book_title">{{ book.title }}</p>
                             {% endif %}
-                            {% if book.author is not none %}
-                                <p class="book_author">{{ book.author }}</p>
-                            {% endif %}
-                            {% if book.color is not none %}
-                                <p class="book_color">{{ book.color }}</p>
-                            {% endif %}
-                            {% if book.publisher is not none %}
-                                <p class="book_publisher">{{ book.publisher }}</p>
-                            {% endif %}
-                            {% if book.fiction_nonfiction is not none %}
-                                <p class="book_fiction_nonfiction">{{ book.fiction_nonfiction }}</p>
-                            {% endif %}
-                            {% if book.genre is not none %}
-                                <p class="book_genre">{{ book.genre }}</p>
-                            {% endif %} 
-                            {% if book.read is not none %}
-                                <p class="book_read">{{ book.read }}</p>
-                            {% endif %}
-                            {% if book.isbn is not none %}
-                                <p class="book_isbn">{{ book.isbn }}</p>
-                            {% endif %}
+                            <div class="hidden_book_fields">
+                                {% if book.author is not none %}
+                                    <p class="book_author">{{ book.author }}</p>
+                                {% endif %}
+                                {% if book.color is not none %}
+                                    <p class="book_color">{{ book.color }}</p>
+                                {% endif %}
+                                {% if book.color_name is not none %}
+                                    <p class="book_color_name">{{ book.color_name }}</p>
+                                {% endif %}
+                                {% if book.publisher is not none %}
+                                    <p class="book_publisher">{{ book.publisher }}</p>
+                                {% endif %}
+                                {% if book.fiction_nonfiction is not none %}
+                                    <p class="book_fiction_nonfiction">{{ book.fiction_nonfiction }}</p>
+                                {% endif %}
+                                {% if book.genre is not none %}
+                                    <p class="book_genre">{{ book.genre }}</p>
+                                {% endif %} 
+                                {% if book.read is not none %}
+                                    <p class="book_read">{{ book.read }}</p>
+                                {% endif %}
+                                {% if book.isbn is not none %}
+                                    <p class="book_isbn">{{ book.isbn }}</p>
+                                {% endif %}
+                            </div>
                             {% if book.title is not none %}
                                 <form action="/remove_book" method="post">
                                     <input name="book_id" type="hidden" value="{{ book.book_id }}">
