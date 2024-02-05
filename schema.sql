@@ -17,6 +17,7 @@ CREATE TABLE books (
     author TEXT NOT NULL,
     pages INTEGER NOT NULL,
     cover_color TEXT NOT NULL,
+    color_name TEXT NOT NULL,
     publishing_house TEXT NOT NULL,
     published_date TEXT NOT NULL,
     fiction_nonfiction INTEGER NOT NULL,
@@ -53,6 +54,6 @@ CREATE INDEX idxbook_users ON books (user_id);
 CREATE INDEX idxtitle ON books (title);
 CREATE INDEX idxauthor ON books (author);
 CREATE INDEX idxgenre ON books (genre);
-CREATE INDEX idxcover_color ON books (cover_color);
+CREATE INDEX idxcolor_name ON books (color_name);
 
 CREATE INDEX idxshelf_number ON bookshelf (number);

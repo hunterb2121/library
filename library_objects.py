@@ -209,7 +209,7 @@ class User:
 
 # Class for making book objects
 class Book:
-    def __init__(self, book_id, title, author, pages, cover_color, color_name, publisher, published_date, fiction_nonfiction, genre, been_read, isbn, added_date, user_id):
+    def __init__(self, book_id, title, author, pages, cover_color, publisher, published_date, fiction_nonfiction, genre, been_read, isbn, added_date, user_id):
         self._book_id = book_id
         self._title = title
         self._author = author

@@ -4,15 +4,16 @@
 
 .shelf {
     width: 100vw;
+    height: 25rem;
     margin-bottom: 2rem;
-    padding: .5rem;
-    padding-bottom: 0;
+    padding: .5rem .5rem 0;
     background-color: #fbc1c9;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 4fr;
+    grid-template-rows: 1fr 4fr;
     grid-template-areas: 
-                    "number edit_shelf delete_shelf add_book"
-                    "book_area book_area book_area book_area";
+                    "number edit_shelf delete_shelf add_book ."
+                    "book_area book_area book_area book_area book_area";
 }
 
 .edit_shelf_container {
@@ -30,17 +31,46 @@
 .books_shelf {
     grid-area: book_area;
     display: flex;
-    flex-wrap: wrap;
 }
 
 .book {
-    width: 15%;
-    display: inline-block;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 0.5fr 1fr 0.5fr;
+    grid-template-areas: 
+                        "delete edit ."
+                        ". title ."
+                        ". . .";
     box-shadow: #3a3b3c .5rem 0 .3rem;
     margin: .27rem;
     border-radius: .2rem;
 }
 
-.book p {
+.book_title {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    grid-area: title;
+    font-size: 120%;
+    font-weight: bold;
     text-align: center;
+    margin: auto;
+}
+
+.hidden_book_fields {
+    display: none;
+}
+
+.book:hover + .hidden_book_fields {
+    display: block;
+    box-shadow: #3a3b3c .5rem 0 .3rem;
+    margin: .27rem;
+    border-radius: .2rem;
+}
+
+.remove_book_form {
+    grid-area: delete;
+}
+
+.edit_book_form {
+    grid-area: edit;
 }
