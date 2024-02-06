@@ -18301,3 +18301,48 @@ Searching books by TITLE None
 2024-02-06 14:40:45,297 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 14:40:45] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
 2024-02-06 14:40:45,299 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 14:40:45] "[36mGET /static/change_book_color.js HTTP/1.1[0m" 304 -
 2024-02-06 14:40:45,302 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 14:40:45] "[36mGET /static/change_text_based_background.js HTTP/1.1[0m" 304 -
+2024-02-06 15:13:21,306 INFO werkzeug : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-06 15:13:21,306 INFO werkzeug : [33mPress CTRL+C to quit[0m
+2024-02-06 15:15:41,997 INFO root : ==============================/nSearching Book/n==============================
+2024-02-06 15:15:41,997 INFO root : Search By: title
+2024-02-06 15:15:41,997 INFO root : Search Query: pil
+2024-02-06 15:15:41,997 INFO root : ==============================
+Searching books by TITLE None
+==============================
+2024-02-06 15:15:41,998 INFO root : Successfully searching books by title : Results [(2, 'The Pilgrimage', 'Author', 128, '#f44ed0', 'None', 'your mom', '2024-02-01', 1, 'Genre', 1, '648465468764', '2024-02-06 22:39:32.697509', 1)] : Title Search pil
+2024-02-06 15:15:41,998 INFO root : Search by title results: [(2, 'The Pilgrimage', 'Author', 128, '#f44ed0', 'None', 'your mom', '2024-02-01', 1, 'Genre', 1, '648465468764', '2024-02-06 22:39:32.697509', 1)]
+2024-02-06 15:15:41,998 INFO root : Successfully got shelf for book : Result (1,) : Book ID 2 : User ID 1
+2024-02-06 15:15:41,998 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 1 : User ID 1
+2024-02-06 15:15:41,998 INFO root : Shelf ID: 1
+2024-02-06 15:15:41,998 INFO root : Shelf Number: 1
+2024-02-06 15:15:42,016 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:15:42] "GET /search?search_by=title&search_bar=pil HTTP/1.1" 200 -
+2024-02-06 15:15:42,056 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:15:42] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-02-06 15:15:42,061 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:15:42] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-02-06 15:15:42,063 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:15:42] "[36mGET /static/index.css HTTP/1.1[0m" 304 -
+2024-02-06 15:15:42,064 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:15:42] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-02-06 15:15:42,064 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:15:42] "[36mGET /static/change_book_color.js HTTP/1.1[0m" 304 -
+2024-02-06 15:15:42,065 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:15:42] "[36mGET /static/change_text_based_background.js HTTP/1.1[0m" 304 -
+2024-02-06 15:16:49,882 INFO root : ==============================/nSearching Book/n==============================
+2024-02-06 15:16:49,882 INFO root : Search By: title
+2024-02-06 15:16:49,882 INFO root : Search Query: pil
+2024-02-06 15:16:49,883 INFO root : ==============================
+Searching books by TITLE None
+==============================
+2024-02-06 15:16:49,883 INFO root : Successfully searching books by title : Results [(2, 'The Pilgrimage', 'Author', 128, '#f44ed0', 'None', 'your mom', '2024-02-01', 1, 'Genre', 1, '648465468764', '2024-02-06 22:39:32.697509', 1)] : Title Search pil
+2024-02-06 15:16:49,883 INFO root : Search by title results: [(2, 'The Pilgrimage', 'Author', 128, '#f44ed0', 'None', 'your mom', '2024-02-01', 1, 'Genre', 1, '648465468764', '2024-02-06 22:39:32.697509', 1)]
+2024-02-06 15:16:49,884 INFO root : Successfully got shelf for book : Result (1,) : Book ID 2 : User ID 1
+2024-02-06 15:16:49,884 INFO root : Successfully got shelf number : Result (1,) : Shelf ID 1 : User ID 1
+2024-02-06 15:16:49,884 INFO root : Shelf ID: 1
+2024-02-06 15:16:49,884 INFO root : Shelf Number: 1
+2024-02-06 15:16:49,884 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:16:49] "GET /search?search_by=title&search_bar=pil HTTP/1.1" 200 -
+2024-02-06 15:16:49,905 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:16:49] "[36mGET /static/normalize.css HTTP/1.1[0m" 304 -
+2024-02-06 15:16:49,910 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:16:49] "[36mGET /static/index.css HTTP/1.1[0m" 304 -
+2024-02-06 15:16:49,911 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:16:49] "[36mGET /static/show_forms.js HTTP/1.1[0m" 304 -
+2024-02-06 15:16:49,912 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:16:49] "[36mGET /static/change_book_color.js HTTP/1.1[0m" 304 -
+2024-02-06 15:16:49,913 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:16:49] "[36mGET /static/change_text_based_background.js HTTP/1.1[0m" 304 -
+2024-02-06 15:16:49,913 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:16:49] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-02-06 15:18:27,865 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:18:27] "[32mGET / HTTP/1.1[0m" 302 -
+2024-02-06 15:18:27,870 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:18:27] "GET /login HTTP/1.1" 200 -
+2024-02-06 15:18:27,930 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:18:27] "GET /static/styles.css HTTP/1.1" 200 -
+2024-02-06 15:18:27,932 INFO werkzeug : 127.0.0.1 - - [06/Feb/2024 15:18:27] "GET /static/normalize.css HTTP/1.1" 200 -
