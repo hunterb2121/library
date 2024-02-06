@@ -588,7 +588,7 @@ class Shelf:
 
         try:
             execute_query(query, parameters)
-            logging.info(f"Successfully edited shelf number : Shelf ID {shelf_id} : New Number {new_number} : User ID {user_id}")
+            logging.info(f"Successfully edited shelf number : Shelf ID {shelf_num} : New Number {new_number} : User ID {user_id}")
         except Exception as e:
             logging.warning(f"Error updating shelf number: {e}")
 
