@@ -3,7 +3,7 @@ const hex2RGB = (hex) => {
     const g = parseInt(hex.slice(3, 5), 16);
     const b = parseInt(hex.slice(5, 7), 16);
 
-    return {r, g, b};
+    return [r, g, b];
 };
 
 const RGB2HSL = (r, g, b) => {
@@ -27,3 +27,18 @@ const RGB2HSL = (r, g, b) => {
         (100 * (2 * l - s)) / 2,
     ];
 };
+
+document.querySelectorAll(".book").forEach(bookElement => {
+    const rgb = hex2RGB(bookElement.getAttribute("data-color"));
+    const hsl = RGB2HSL(rgb[0], rgb[1], rgb[2]);
+
+    siblingElement = bookElement.nextElementSibling;
+
+    if (hsl[2] <= 50) {
+        bookElement.style.color = "#fbc1c9";
+        siblingElement.style.color = "#fbc1c9";
+    } else {
+        bookElement.style.color = "#35065b";
+        siblingElement.style.color = "#35065b";
+    }
+});

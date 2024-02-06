@@ -41,7 +41,7 @@
                         <a class="nav-link" href="/logout">Log Out</a>
                       </li>
                     </ul>
-                    <form class="d-flex" role="search" action="/search" method="get">
+                    <form class="d-flex" role="search" action="{{ url_for('search') }}" method="get">
                       <select name="search_by">
                         <option value="title" selected>Title</option>
                         <option value="author">Author</option>

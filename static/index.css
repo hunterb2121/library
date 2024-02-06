@@ -67,6 +67,10 @@
     border-radius: .2rem;
 }
 
+.hidden_book_fields p {
+    margin-bottom: .5rem;
+}
+
 .remove_book_form {
     grid-area: delete;
 }

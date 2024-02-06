@@ -218,7 +218,7 @@ class Book:
         try:
             self._color_name = webcolors.hex_to_name(self._cover_color)
         except:
-            self._color_name = None
+            self._color_name = "None"
         self._publisher = publisher
         self._published_date = published_date
         self._fiction_nonfiction = fiction_nonfiction
@@ -356,7 +356,7 @@ class Book:
         try:
             color_name = webcolors.hex_to_name(cover_color)
         except:
-            color_name = None
+            color_name = "None"
         parameters = (title, author, pages, cover_color, color_name, publisher, published_date, fiction_nonfiction, genre, been_read, isbn, added_date, user_id)
 
         try:
@@ -582,9 +582,9 @@ class Shelf:
             logging.error(f"Error adding shelf: {e}")
 
     @staticmethod
-    def edit_shelf_number(shelf_id, new_number, user_id):
-        query = "UPDATE bookshelf SET number = ? WHERE id = ? AND user_id = ?"
-        parameters = (new_number, shelf_id, user_id,)
+    def edit_shelf_number(shelf_num, new_number, user_id):
+        query = "UPDATE bookshelf SET number = ? WHERE number = ? AND user_id = ?"
+        parameters = (new_number, shelf_num, user_id,)
 
         try:
             execute_query(query, parameters)

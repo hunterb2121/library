@@ -61,31 +61,31 @@
                         </div>
                         <div class="hidden_book_fields">
                             {% if book.author is not none %}
-                                <p class="book_author">{{ book.author }}</p>
+                                <p class="book_author">Author: {{ book.author }}</p>
                             {% endif %}
                             {% if book.color is not none %}
-                                <p class="book_color">{{ book.color }}</p>
+                                <p class="book_color">Hex Color: {{ book.color }}</p>
                             {% endif %}
                             {% if book.color_name is not none %}
-                                <p class="book_color_name">{{ book.color_name }}</p>
+                                <p class="book_color_name">Color Name: {{ book.color_name }}</p>
                             {% endif %}
                             {% if book.publisher is not none %}
-                                <p class="book_publisher">{{ book.publisher }}</p>
+                                <p class="book_publisher">Publisher: {{ book.publisher }}</p>
                             {% endif %}
                             {% if book.fiction_nonfiction is not none %}
                                 <p class="book_fiction_nonfiction">{{ book.fiction_nonfiction }}</p>
                             {% endif %}
                             {% if book.genre is not none %}
-                                <p class="book_genre">{{ book.genre }}</p>
+                                <p class="book_genre">Genre: {{ book.genre }}</p>
                             {% endif %} 
                             {% if book.read is not none %}
                                 <p class="book_read">{{ book.read }}</p>
                             {% endif %}
                             {% if book.pages is not none %}
-                                <p class="book_pages">{{ book.pages }}</p>
+                                <p class="book_pages">Pages: {{ book.pages }}</p>
                             {% endif %}
                             {% if book.isbn is not none %}
-                                <p class="book_isbn">{{ book.isbn }}</p>
+                                <p class="book_isbn">ISBN: {{ book.isbn }}</p>
                             {% endif %}
                         </div>
                     {% endfor %}
@@ -157,4 +157,5 @@
 {% block script %}
     <script src="../static/show_forms.js"></script>
     <script src="../static/change_book_color.js"></script>
+    <script src="../static/change_text_based_background.js"></script>
 {% endblock %}

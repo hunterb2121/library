@@ -54,6 +54,7 @@ select {
     --bs-btn-disabled-border-color: #35065b;
 }
 
+body,
 header,
 nav, 
 main {

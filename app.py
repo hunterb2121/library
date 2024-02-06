@@ -67,9 +67,9 @@ def index():
         fiction_nonfiction = ""
         read = ""
         if book[8] == 0:
-            fiction_nonfiction = "nonfiction"
+            fiction_nonfiction = "Nonfiction"
         elif book[8] == 1:
-            fiction_nonfiction = "fiction"
+            fiction_nonfiction = "Fiction"
         if book[10] == 0:
             read = "Not Read"
         elif book[10] == 1:
@@ -198,8 +198,9 @@ def search():
     library = dict()
 
     if request.form.get("search_by") == "title":
-        logging.info(f"Searching books by TITLE {request.form.get('search_bar')}")
+        logging.info(f"==============================\nSearching books by TITLE {request.form.get('search_bar')}\n==============================")
         results = Book.search_books_by_title(request.form.get("search_bar"), session["user_id"])
+        logging.info(f"Search by title results: {results}")
 
         for book in results:
             if book[8] == 0:
@@ -212,6 +213,7 @@ def search():
                 read = "Read"
             
             shelf_id = Library.get_shelf_for_book(book[0], session["user_id"])[0]
+            logging.info(f"Shelf ID: {shelf_id}")
             if book[0] not in library:
                 library[book[0]] = {"title": book[1], "author": book[2], "pages": book[3], "color": book[4], "color_name": book[5], "publisher": book[6], "published_date": book[7], "fiction_nonfiction": fiction_nonfiction, "genre": book[9], "read": read, "isbn": book[11], "shelf_id": shelf_id}
 
@@ -310,6 +312,8 @@ def edit_shelf():
         logging.error("Shelf Number Already Exists")
         return error("Shelf number already exists")
     
+    logging.info(f"Current Shelf Number: {request.form.get('current_shelf_number')}")
+    logging.info(f"New Shelf Number: {request.form.get('shelf_number')}")
     Shelf.edit_shelf_number(request.form.get("current_shelf_number"), request.form.get("shelf_number"), session["user_id"])
 
     return redirect("/")
