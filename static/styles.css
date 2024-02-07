@@ -60,3 +60,27 @@ nav,
 main {
     background-color: #fd9baa;
 }
+
+@keyframes star {
+    0% {
+        background-color: goldenrod;
+    }
+    25% {
+        background-color: gold;
+    }
+    50% {
+        background-color: yellow;
+    }
+    75% {
+        background-color: yellowgreen;
+    }
+    100% {
+        background-color: lemonchiffon;
+    }
+}
+
+.star_collection > * {
+    animation-name: star;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}

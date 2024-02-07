@@ -65,6 +65,8 @@
     box-shadow: #3a3b3c .5rem 0 .3rem;
     margin: .27rem;
     border-radius: .2rem;
+    transform: scaleX(1.2);
+    transform-origin: left;
 }
 
 .hidden_book_fields p {
