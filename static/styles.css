@@ -61,7 +61,7 @@ main {
     background-color: #fd9baa;
 }
 
-@keyframes star {
+@keyframes star-color {
     0% {
         background-color: goldenrod;
     }
@@ -79,8 +79,50 @@ main {
     }
 }
 
-.star_collection > * {
-    animation-name: star;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
+@keyframes star-grow {
+    0% {
+        width: .5rem;
+        height: .5rem;
+    }
+    25% {
+        width: .75rem;
+        height: .75rem;
+    }
+    50% {
+        width: 1rem;
+        height: 1rem;
+    }
+    75% {
+        width: .75rem;
+        height: .75rem;
+    }
+    100% {
+        width: .5rem;
+        height: .5rem;
+    }
+}
+
+.star {
+    position: relative;
+    margin: 1rem auto;
+    width: .5rem;
+    font-size: 1rem;
+}
+
+.star::before {
+    content: "";
+    position: absolute;
+    background-color: yellow;
+    width: .5rem;
+    height: .5rem;
+    transform: rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+}
+
+.star::after {
+    content: "";
+    position: absolute;
+    background-color: yellow;
+    width: .5rem;
+    height: .5rem;
+    transform: rotate(45deg) skewX(22.5deg) skewY(22.5deg);
 }
