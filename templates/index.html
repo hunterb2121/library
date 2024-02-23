@@ -12,11 +12,13 @@
     <div class="shelf_container">
         {% for id, books in library.items() %}
             <div class="shelf" data-id="{{ id }}">
-                <h2>{{ id }}</h2>
-                <div class="star-collection">
-                    <div class="star1 star"></div>
-                    <div class="star2 star"></div>
-                    <div class="star3 star"></div>
+                <div class="shelf-head">
+                    <h2>{{ id }}</h2>
+                    <div class="star-collection">
+                        <div class="star1 star"></div>
+                        <div class="star2 star"></div>
+                        <div class="star3 star"></div>
+                    </div>
                 </div>
                 <div class="books_shelf">
                     {% for book in books %}
@@ -51,7 +53,105 @@
                                         <input id="nonfiction" name="fiction_nonfiction" type="radio" value="0">
                                         <label for="nonfiction">Non-Fiction</label>
                                         <label for="genre">Genre</label>
-                                        <input autofill="off"name="genre" placeholder="Genre" type="text">
+                                        <select name="genre" class="fiction-genre">
+                                            <option value="action/adventure fiction">Action/Adventure Fiction</option>
+                                            <option value="childrens fiction">Children's Fiction</option>
+                                            <option value="classic fiction">Classic Fiction</option>
+                                            <option value="contemporary fiction">Contemporary Fiction</option>
+                                            <option value="fantasy">Fantasy</option>
+                                            <option value="dark fantasy">Dark Fantasy</option>
+                                            <option value="fairy tales">Fairy Tales</option>
+                                            <option value="folktales">Folktales</option>
+                                            <option value="heroic fantasy">Heroic Fantasy</option>
+                                            <option value="high fantasy">High Fantasy</option>
+                                            <option value="historical fantasy">Historical Fantasy</option>
+                                            <option value="low fantasy">Low Fantasy</option>
+                                            <option value="magical realism">Magical Realism</option>
+                                            <option value="mythic fantasy">Mythic Fantasy</option>
+                                            <option value="urban fantasy">Urban Fantasy</option>
+                                            <option value="graphic novel">Graphic Novel</option>
+                                            <option value="historical fiction">Historical Fiction</option>
+                                            <option value="horror">Horror</option>
+                                            <option value="body horror">Body Horror</option>
+                                            <option value="comedy horror">Comedy Horror</option>
+                                            <option value="gothic horror">Gothic Horror</option>
+                                            <option value="cosmic horror">Lovecraftian/Cosmic Horror</option>
+                                            <option value="paranormal horror">Paranormal Horror</option>
+                                            <option value="post-apocalyptic horror">Post-Apocalyptic Horror</option>
+                                            <option value="psychological horror">Psychological Horror</option>
+                                            <option value="quiet horror">Quiet Horror</option>
+                                            <option value="slasher">Slasher</option>
+                                            <option value="lgbtq">LGBTQ+</option>
+                                            <option value="literary fiction">Literary Fiction</option>
+                                            <option value="mystery">Mystery</option>
+                                            <option value="caper">Caper</option>
+                                            <option value="cozy mystery">Cozy Mystery</option>
+                                            <option value="detective mystery">Gumshoe/Detective Mystery</option>
+                                            <option value="historical mystery">Historical Mystery</option>
+                                            <option value="howdunnit">Howdunnit</option>
+                                            <option value="locked room mystery">Locked Room Mystery</option>
+                                            <option value="noir">Noir</option>
+                                            <option value="procedural mystery">Procedural/Hard-Boiled Mystery</option>
+                                            <option value="supernatural mystery">Supernatural Mystery</option>
+                                            <option value="new adult">New Adult</option>
+                                            <option value="romance">Romance</option>
+                                            <option value="contemporary romance">Contemporary Romance</option>
+                                            <option value="dark romance">Dark Romance</option>
+                                            <option value="erotic romance">Erotic Romance</option>
+                                            <option value="romantasy">Fantasy Romance (Romantasy)</option>
+                                            <option value="gothic romance">Gothic Romance</option>
+                                            <option value="historical romance">Historical Romance</option>
+                                            <option value="paranormal romance">Paranormal Romance</option>
+                                            <option value="regency">Regency</option>
+                                            <option value="romantic comedy">Romantic Comedy</option>
+                                            <option value="romantic suspense">Romantic Suspense</option>
+                                            <option value="sci-fi romance">Sci-Fi Romance</option>
+                                            <option value="satire">Satire</option>
+                                            <option value="science fiction">Science Fiction</option>
+                                            <option value="apocalyptic sci-fi">Apocalyptic Sci-Fi</option>
+                                            <option value="colonization sci-fi">Colonization Sci-Fi</option>
+                                            <option value="hard sci-fi">Hard Sci-Fi</option>
+                                            <option value="military sci-fi">Military Sci-Fi</option>
+                                            <option value="mind uploading sci-fi">Mind Uploading Sci-Fi</option>
+                                            <option value="parallel world sci-fi">Parallel World Sci-Fi</option>
+                                            <option value="soft sci-fi">Soft Sci-Fi</option>
+                                            <option value="space opera">Space Opera</option>
+                                            <option value="space western">Space Western</option>
+                                            <option value="steampunk">Steampunk</option>
+                                            <option value="short story">Short Story</option>
+                                            <option value="thriller">Thriller</option>
+                                            <option value="action thriller">Action Thriller</option>
+                                            <option value="conspiracy thriller">Conspiracy Thriller</option>
+                                            <option value="disaster thriller">Disaster Thriller</option>
+                                            <option value="espionage thriller">Espionage Thriller</option>
+                                            <option value="forensic thriller">Forensic Thriller</option>
+                                            <option value="historical thriller">Historical Thriller</option>
+                                            <option value="legal thriller">Legal Thriller</option>
+                                            <option value="paranormal thriller">Paranormal Thriller</option>
+                                            <option value="psychological thriller ">Psychological Thriller</option>
+                                            <option value="religious thriller">Religious Thriller</option>
+                                            <option value="western">Western</option>
+                                            <option value="womens fiction">Women's Fiction</option>
+                                            <option value="young adult">Young Adult</option>
+                                        </select>
+                                        <select name="genre" class="nonfiction-genre">
+                                            <option value="art photography">Art & Photography</option>
+                                            <option value="autobiography">Autobiography/Memoir</option>
+                                            <option value="biography">Biography</option>
+                                            <option value="essays">Essays</option>
+                                            <option value="food drink">Food & Drink</option>
+                                            <option value="history">History</option>
+                                            <option value="how-to guides">How-To/Guides</option>
+                                            <option value="humanities">Humanities & Social Sciences</option>
+                                            <option value="humor">Humor</option>
+                                            <option value="parenting">Parenting</option>
+                                            <option value="philosophy">Philosophy</option>
+                                            <option value="religion">Religion & Spirituality</option>
+                                            <option value="science tech">Science & Technology</option>
+                                            <option value="self-help">Self-Help</option>
+                                            <option value="travel">Travel</option>
+                                            <option value="true crime">True Crime</option>
+                                        </select>
                                         <p>Read or Not Read</p>
                                         <input id="read" name="read_not_read" type="radio" value="1">
                                         <label for="read">Read</label>

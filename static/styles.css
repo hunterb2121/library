@@ -1,5 +1,107 @@
 /*
-make cross star graphics that sparkle (grow and go from darker yellow to lighter yellow)
+randomly assign certain fonts to certain genres based on the genre
+    genre will need list of fonts
+    randomly pick from list based on which genre is entered
+Make a Select and Option for each genre
+Show or hide them based on whether the book is fiction or non-fiction
+
+    List of Fiction Genres:
+        Action/Adventure Fiction
+        Children's Fiction
+        Classic Fiction
+        Contemporary Fiction
+        Fantasy
+        Dark Fantasy
+        Fairy Tales
+        Folktales
+        Heroic Fantasy
+        High Fantasy
+        Historical Fantasy
+        Low Fantasy
+        Magical Realism
+        Mythic Fantasy
+        Urban Fantasy
+        Graphic Novel
+        Historical Fiction
+        Horror
+        Body Horror
+        Comedy Horror
+        Gothic Horror
+        Lovecraftian/Cosmic Horror
+        Paranormal Horror
+        Post-Apocalyptic Horror
+        Psychological Horror
+        Quiet Horror
+        Slasher
+        LGBTQ+
+        Literary Fiction
+        Mystery
+        Caper
+        Cozy Mystery
+        Gumshoe/Detective Mystery
+        Historical Mystery
+        Howdunnits
+        Locked Room Mystery
+        Noir
+        Procedural/Hard-Boiled Mystery
+        Supernatural Mystery
+        New Adult
+        Romance
+        Contemporary Romance
+        Dark Romance
+        Erotic Romance
+        Fantasy Romance (Romantasy)
+        Gothic Romance
+        Historical Romance
+        Paranormal Romance
+        Regency
+        Romantic Comedy
+        Romantic Suspense
+        Sci-Fi Romance
+        Satire
+        Science Fiction
+        Apocalyptic Sci-Fi
+        Colonization Sci-Fi
+        Hard Sci-Fi
+        Military Sci-Fi
+        Mind Uploading Sci-Fi
+        Parallel World Sci-Fi
+        Soft Sci-Fi
+        Space Opera
+        Space Western
+        Steampunk
+        Short Story
+        Thriller
+        Action Thriller
+        Conspiracy Thriller
+        Disaster Thriller
+        Espionage Thriller
+        Forensic Thriller
+        Historical Thriller
+        Legal Thriller
+        Paranormal Thriller
+        Psychological Thriller
+        Religious Thriller
+        Western
+        Women's Fiction
+        Young Adult
+    List of Nonfiction Genres:
+        Art & Photography
+        Autobiography/Memoir
+        Biography
+        Essays
+        Food & Drink
+        History
+        How-To/Guides
+        Humanities & Social Sciences
+        Humor
+        Parenting
+        Philosophy
+        Religion & Spirituality 
+        Science & Technology
+        Self-Help
+        Travel
+        True Crime
 */
 
 * {
@@ -61,27 +163,112 @@ main {
     background-color: #fd9baa;
 }
 
-@keyframes star {
+@keyframes star1 {
     0% {
-        background-color: yellow;
-        transform: scale(0.9);
+        background-color: #f8edeb;
+        width: .5rem;
+        height: .5rem;
     }
     25% {
-        background-color: gold;
-        transform: scale(1);
+        background-color: #fcd4bf;
+        width: .75rem;
+        height: .75rem;
     }
     50% {
-        background-color: goldenrod;
-        transform: scale(0.9);
+        background-color: #fae1d5;
+        width: 1rem;
+        height: 1rem;
     }
     75% {
-        background-color: gold;
-        transform: scale(1);
+        background-color: #fcd4bf;
+        width: .75rem;
+        height: .75rem;
     }
     100% {
-        background-color: yellow;
-        transform: scale(0.9);
+        background-color: #f8edeb;
+        width: .5rem;
+        height: .5rem;
     }
+}
+
+@keyframes star2 {
+    0% {
+        background-color: #fcd4bf;
+        width: .75rem;
+        height: .75rem;
+    }
+    25% {
+        background-color: #fae1d5;
+        width: 1rem;
+        height: 1rem;
+    }
+    50% {
+        background-color: #f8edeb;
+        width: .5rem;
+        height: .5rem;
+    }
+    75% {
+        background-color: #fae1d5;
+        width: 1rem;
+        height: 1rem;
+    }
+    100% {
+        background-color: #fcd4bf;
+        width: .75rem;
+        height: .75rem;
+    }
+}
+
+@keyframes star3 {
+    0% {
+        background-color: #fae1d5;
+        width: 1rem;
+        height: 1rem;
+    }
+    25% {
+        background-color: #f8edeb;
+        width: .75rem;
+        height: .75rem;
+    }
+    50% {
+        background-color: #fcd4bf;
+        width: .5rem;
+        height: .5rem;
+    }
+    75% {
+        background-color: #f8edeb;
+        width: .75rem;
+        height: .75rem;
+    }
+    100% {
+        background-color: #fae1d5;
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+.star-collection {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+}
+
+.star1 {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+}
+
+.star2 {
+    position: absolute;
+    top: 5%;
+    left: -10%;
+}
+
+.star3 {
+    position: absolute;
+    top: -30%;
+    left: -50%;
 }
 
 .star {
@@ -91,28 +278,80 @@ main {
     font-size: 1rem;
 }
 
-.star::before {
+.star1::before {
     content: "";
     position: absolute;
-    background-color: yellow;
+    background-color: #f8edeb;
     width: .5rem;
     height: .5rem;
     transform: rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
-    animation-name: star;
+    animation-name: star1;
     animation-duration: 5s;
+    animation-timing-function: linear;
     animation-iteration-count: infinite;
-    transition: ease-in-out;
 }
 
-.star::after {
+.star1::after {
     content: "";
     position: absolute;
-    background-color: yellow;
+    background-color: #f8edeb;
     width: .5rem;
     height: .5rem;
     transform: rotate(45deg) skewX(22.5deg) skewY(22.5deg);
-    animation-name: star;
+    animation-name: star1;
     animation-duration: 5s;
+    animation-timing-function: linear;
     animation-iteration-count: infinite;
-    transition: ease-in-out;
+}
+
+.star2::before {
+    content: "";
+    position: absolute;
+    background-color: #fcd4bf;
+    width: .75rem;
+    height: .75rem;
+    transform: rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+    animation-name: star2;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.star2::after {
+    content: "";
+    position: absolute;
+    background-color: #fcd4bf;
+    width: .75rem;
+    height: .75rem;
+    transform: rotate(45deg) skewX(22.5deg) skewY(22.5deg);
+    animation-name: star2;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.star3::before {
+    content: "";
+    position: absolute;
+    background-color: #fae1d5;
+    width: 1rem;
+    height: 1rem;
+    transform: rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+    animation-name: star3;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.star3::after {
+    content: "";
+    position: absolute;
+    background-color: #fae1d5;
+    width: 1rem;
+    height: 1rem;
+    transform: rotate(45deg) skewX(22.5deg) skewY(22.5deg);
+    animation-name: star3;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }

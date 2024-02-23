@@ -1,4 +1,3 @@
-from library_objects import Book, Library, Shelf, User
-import datetime
+from helpers import get_book_info
 
-print(Book.search_books_by_title("b", 1))
+print(get_book_info(9781718502604))

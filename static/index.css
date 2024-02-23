@@ -16,6 +16,22 @@
                     "book_area book_area book_area book_area book_area";
 }
 
+.shelf-head {
+    grid-area: number;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "shelf_num stars"
+}
+
+.shelf-head h2 {
+    grid-area: shelf_num;
+}
+
+.shelf-head .star-collection {
+    display: inline;
+    grid-area: stars;
+}
+
 .edit_shelf_container {
     grid-area: edit_shelf;
 }
@@ -36,7 +52,7 @@
 .book {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: 0.5fr 1fr 0.5fr;
+    grid-template-rows: 0.3fr 1fr 0.3fr;
     grid-template-areas: 
                         "delete edit ."
                         ". title ."
@@ -50,7 +66,7 @@
     writing-mode: vertical-rl;
     text-orientation: mixed;
     grid-area: title;
-    font-size: 120%;
+    font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
     margin: auto;
@@ -58,6 +74,7 @@
 
 .hidden_book_fields {
     display: none;
+    font-size: 0.8rem;
 }
 
 .book:hover + .hidden_book_fields {
@@ -65,8 +82,6 @@
     box-shadow: #3a3b3c .5rem 0 .3rem;
     margin: .27rem;
     border-radius: .2rem;
-    transform: scaleX(1.2);
-    transform-origin: left;
 }
 
 .hidden_book_fields p {
